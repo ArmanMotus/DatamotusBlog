@@ -1,0 +1,60 @@
+baseURL: https://main--lucent-daffodil-2736f6.netlify.app/
+# https://DatamotusBlog.netlify.app/   lightbi-hugo-theme
+DefaultContentLanguage: en
+languageCode: en-us
+title: Lightbi
+theme: lightbi-hugo
+metaDataFormat: yaml
+pygmentsStyle: trac
+pygmentsCodefencesGuessSyntax: yes
+enableRobotsTXT: yes
+enableGitInfo: no
+Paginate: 6
+Params:
+  Lastmod: no
+  comments: no
+  dateFormat: 2 January 2023
+  delayDisqus: yes
+  gcse: no
+  mainSections:
+    - post
+    - posts
+  pagination: '10'
+  readingTime: no
+  rss: no
+  showRelatedPosts: yes
+  socialShare: yes
+  summaryLength: '9'
+  useHLJS: yes
+  wordCount: no
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
+math:
+    enable: true
+    engine: mathjax
+Author:
+  email: sample@gmail.com
+  facebook: username
+  github: username
+  instagram: username
+  linkedin: username
+  name: Bino Kochumol Varghese
+  twitter: username
+  website: https://datamotus.com/
+  youtube: user/username
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Notes
+      url: /notes/
+      weight: 2
+    - name: Tags
+      url: /tags/blog/
+      weight: 3
+    - name: About
+      url: /about/
+      weight: 4

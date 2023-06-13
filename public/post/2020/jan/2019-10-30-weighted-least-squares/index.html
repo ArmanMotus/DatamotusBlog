@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Weighted-Least-Square - </title>
+<meta name="description" content="Nowadays, having a business implies owning a website. The primary aim of a website is to ...">
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/post\/2020\/jan\/2019-10-30-weighted-least-squares\/",
+          "name": "Weighted least square"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Weighted-Least-Square",
+  "description" : "Nowadays, having a business implies owning a website. The primary aim of a website is to ...",
+  "inLanguage" : "en",
+  "wordCount":  2708 ,
+  "datePublished" : "2021-02-02T00:00:00",
+  "dateModified" : "2021-02-02T00:00:00",
+  "image" : "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/",
+  "keywords" : [ "WeightedLeastSquares, WLS, R, Statistics, Heteroscedasticity, GeneralizedLeastSquares, RegressionModels, DataAnalysis, IterativelyReweightedLeastSquares, StatisticalMethods" ],
+  "mainEntityOfPage" : "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/post\/2020\/jan\/2019-10-30-weighted-least-squares\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/main--lucent-daffodil-2736f6.netlify.app\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:image" content="https://main--lucent-daffodil-2736f6.netlify.app/img/posts/img-3.jpg">
+<meta property="og:url" content="https://main--lucent-daffodil-2736f6.netlify.app/post/2020/jan/2019-10-30-weighted-least-squares/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="">
+   
+<link rel="apple-touch-icon" sizes="180x180" href=" https://main--lucent-daffodil-2736f6.netlify.app/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://main--lucent-daffodil-2736f6.netlify.app/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://main--lucent-daffodil-2736f6.netlify.app/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.113.0"><link rel="alternate" href="https://main--lucent-daffodil-2736f6.netlify.app/index.xml" type="application/rss+xml" title="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://main--lucent-daffodil-2736f6.netlify.app/css/main.css">
+<link disabled id="dark-mode-theme" rel="stylesheet" href="https://main--lucent-daffodil-2736f6.netlify.app/css/dark.css"><link rel="stylesheet" href="https://main--lucent-daffodil-2736f6.netlify.app/css/syntax.css"><link rel="stylesheet" href="https://main--lucent-daffodil-2736f6.netlify.app/css/codeblock.css">
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<script async type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </head>
+  <body>
+    
+<div class="container fixed-top">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top p-0">
+        <div class="container">
+          
+          <a class="navbar-brand fw-bold" href="https://main--lucent-daffodil-2736f6.netlify.app/"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              
+
+              
+              <li class="nav-item nav-link">
+                <a id="dark-mode-toggle" class="bi bi-sun"></a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section ">
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+          
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="post-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                Weighted-Least-Square
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              <span class="post-meta">
+  
+  
+  &nbsp;February 2, 2021 
+
+  
+
+  
+  
+  
+</span>
+
+
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+
+      <div class="card-image card-image-blog p-0">
+        
+        <img src="/img/posts/img-3.jpg" alt="Weighted-Least-Square" class="card-img-bottom img-fluid">
+        
+        
+      </div>
+    </div>
+ 
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <h1 id="introduction">Introduction</h1>
+<p>Nowadays, having a business implies օwning a website. The primary aim of
+a website is to provide information, which is crucial in the modern
+business world. Suppose a website owner aims at increasing the number of
+visitors in order to have more views, sales or popularity. To achieve
+this goal, one first needs to understand the factors affecting web
+traffic. The vast majority of small businesses try to increase website
+hits or visits via advertisements.</p>
+<p>We took a look at small business website statistics and saw how
+important advertising is. Let us review the artificially generated
+<a href="/2019-10-30-Weighted-Least-Squares_files/website.csv">data</a>. The
+summary of the dataset is presented below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>web <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(<span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;website.csv&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">options</span>(knitr.kable.NA <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">kable</span>(<span style="color:#a6e22e">summary</span>(web), digits<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">kable_styling</span>(bootstrap_options <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;striped&#34;</span>, 
+</span></span><span style="display:flex;"><span>   full_width <span style="color:#f92672">=</span> F)
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Company</th>
+<th>Budget</th>
+<th>Visits</th>
+<th>AdType</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Min. : 1.0</td>
+<td>Min. : 50.0</td>
+<td>Min. :3695</td>
+<td>Direct Mail :213</td>
+</tr>
+<tr>
+<td></td>
+<td>1st Qu.: 250.8</td>
+<td>1st Qu.: 299.8</td>
+<td>1st Qu.:4228</td>
+<td>Outdoor Ads :199</td>
+</tr>
+<tr>
+<td></td>
+<td>Median : 500.5</td>
+<td>Median : 549.5</td>
+<td>Median :4460</td>
+<td>Radio and Podcasts:197</td>
+</tr>
+<tr>
+<td></td>
+<td>Mean : 500.5</td>
+<td>Mean : 549.5</td>
+<td>Mean :4554</td>
+<td>Social Media Ads :187</td>
+</tr>
+<tr>
+<td></td>
+<td>3rd Qu.: 750.2</td>
+<td>3rd Qu.: 799.2</td>
+<td>3rd Qu.:4799</td>
+<td>Video Ads :204</td>
+</tr>
+<tr>
+<td></td>
+<td>Max. :1000.0</td>
+<td>Max. :1049.0</td>
+<td>Max. :6060</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The data consists of 4 variables and 1000 observations without any
+missing values. The variable <code>Company</code> shows the unique number of the
+company whose website is being examined, variable <code>Visits</code> is the number
+of website visits per week. The variables <code>AdType</code> and <code>Budget</code> show the
+<strong>main type</strong> of advertising done by the company and the average monthly
+amount spent on this advertisement, respectively. There are the 5 types
+of advertisement in the data: Radio and Podcasts, Direct Mail, Video
+Ads, Social Media Ads, Outdoor Ads.</p>
+<p><img src="../Weighted_Least_Squares_details/unnamed-chunk-2-1.png" alt="image"></p>
+<p>The left graph indicates that there is a positive correlation between
+the money spent on advertisement and the number of website visits. The
+coloring of the plot has been done based on the variable <code>AdType</code>, and
+the result shows that there is no interaction effect of two explanatory
+variables on the popularity of the website. In general, website owners
+spend an approximately equal amount of money on different types of
+advertisements. Roughly there is no multicollinearity between
+explanatory variables. Based on the second graph, as the medians and
+spread of data are approximately the same, we can claim that the way one
+chooses to increase the visibility of a website plays no significant
+role.</p>
+<p>To understand the effect of advertising let us consider the following
+multiple linear regression model:</p>
+<p><img src="../Weighted_Least_Squares_details/equation1.svg" alt="Equation"></p>
+<p>The result of fitted linear regression is presented in the output below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>model <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Results</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## ===============================================</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                         Dependent variable:    </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                     ---------------------------</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                               Visits           </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## -----------------------------------------------</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Budget                       1.017***          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                               (0.032)          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                                                </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Outdoor Ads                   17.623           </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                              (28.957)          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                                                </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Radio and Podcasts            31.784           </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                              (29.003)          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                                                </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Social Media Ads              -40.288          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                              (29.366)          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                                                </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Video Ads                     -10.368          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                              (28.737)          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                                                </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Constant                   3,995.437***        </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                              (26.096)          </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">##                                                </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## -----------------------------------------------</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Observations                   1,000           </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## R2                             0.506           </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Adjusted R2                    0.504           </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Residual Std. Error     293.017 (df = 994)     </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## F Statistic          203.633*** (df = 5; 994)  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## ===============================================</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</span>
+</span></span></code></pre></div><p>It is not surprising that the coefficients for the unique levels of
+variable <code>AdType</code> are not significant, because there is no effect on the
+response variable <code>Visits</code>. However, the coefficient for the variable
+<code>Budget</code> is statistically significant and positive (see the graph). So,
+the multiple regression analysis shows that with the increase in the
+amount of money spent on advertising by $$100 the number of visitors
+will increase by, on average, 102. Thus, the number of visitors can be
+predicted based on the ad budget.</p>
+<p>And yet, this is not a reliable result, since an important factor has
+been omitted. We will now discuss briefly the concepts of
+heteroscedasticity, the causes and effects of nonconstant variance and
+the ways of solving this problem.</p>
+<h1 id="the-problem">The problem</h1>
+<h2 id="nonconstant-variance">Nonconstant variance</h2>
+<p>One of the Gauss&ndash;Markov conditions states that the variance of the
+disturbance term in each observation should be constant. This
+assumption, however, is clearly violated in most of the models resulting
+in heteroscedasticity. Mathematically, homoscedasticity and
+heteroscedasticity may be defined as:</p>
+<ul>
+<li><strong>Homoscedasticity:</strong> $$\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$$
+the same for all observations</li>
+<li><strong>Heteroscedasticity:</strong> $$\sigma_{\epsilon_i}^2$$ is not the same for
+all observations.</li>
+</ul>
+<p>See the visual demonstration of homoscedasticity and heteroscedasticity
+below:</p>
+<p><img src="../Weighted_Least_Squares_details/HHSKED.png" alt=""></p>
+<p>The left picture illustrates homoscedasticity. Let us start with the
+first observation, where $$X$$ has the value of $$X_1$$ . If there was no
+disturbance term in the model, the observation would be represented by
+the circle lied on line $$Y = \beta_1+\beta_2X$$. The effect of the
+disturbance term is to shift the observation upwards or downwards
+vertically (downwards in case of $$X_1$$). The potential distribution of
+the disturbance term, before the observation was generated, is shown by
+the normal distribution.</p>
+<p>Although homoscedasticity is often taken for granted in regression
+analysis, it is common to suppose that the distribution of the
+disturbance term is different for different observations in the sample.
+Suppose the variance of the distribution of the disturbance term rises
+as X increases (right picture). This does not mean that the disturbance
+term will necessarily have a particularly large (positive or negative)
+value in an observation where X is large, but it does mean that the a
+priori probability of having an erratic value will be relatively high.</p>
+<p>The first graph of the relationship between the budget and visitors
+illustrates typical scatter diagram of heteroscedastic data - there is a
+tendency for their dispersion to rise as X increases. It means that even
+though there is a positive relationship between the variables, starting
+at a particular point large amount of money fails to imply a large
+number of visitors. In other words, one can spend huge sums without the
+guarantee of large traffic.</p>
+<blockquote>
+<p>Reasons and consequences</p>
+</blockquote>
+<p>Heteroscedasticity is more likely to occur, for example, when</p>
+<ul>
+<li>The values of the variables in the sample vary substantially in
+different observations.</li>
+<li>The explanatory variable increases, the response tends to diverge.
+For example, families with low incomes will spend relatively little
+on luxury goods, and the variations in expenditures across such
+families will be small. But for families with large incomes, the
+amount of discretionary income will be higher.</li>
+<li>The model is misspecified (using response instead of the log of
+response or instead of X^2 using X etc). Important variables may be
+omitted from the model.</li>
+</ul>
+<p>Why does heteroscedasticity matter? As a matter of fact, the evidence
+for the absence of bias in the OLS regression coefficients did not use
+this condition. So we can be sure that the coefficients are still
+unbiased.</p>
+<p>Nevertheless, two concerns are raised:</p>
+<ul>
+<li>
+<p><em>The variances of the regression coefficients</em>: if there is no
+heteroscedasticity, the OLS regression coefficients have the lowest
+variances of all the unbiased estimators that are linear functions
+of the observations of $$Y$$. If heteroscedasticity is present, the
+OLS estimators are inefficient because it is possible to find other
+estimators that have smaller variances and are still unbiased.</p>
+</li>
+<li>
+<p><em>The estimators of the standard errors of the regression
+coefficients</em> will be wrong and, as a consequence, the t-tests as
+well as the usual F tests will be invalid. It is quite likely that
+the standard errors will be underestimated, so the t statistics will
+be overestimated and you will have a misleading impression of the
+precision of your regression coefficients. You may be led to believe
+that a coefficient is significantly different from 0, at a given
+significance level, when, in fact, it is not.</p>
+</li>
+</ul>
+<h2 id="how-to-detect">How to detect</h2>
+<p>Since there is no limit to the possible variety of heteroscedasticity, a
+large number of different tests appropriate for different circumstances
+has been proposed. There are also a lot of statistical tests called to
+test whether heteroscedasticity is present. The list includes but is not
+limited to the following:</p>
+<ul>
+<li>The Spearman Rank Correlation Test</li>
+<li>The Goldfeld&ndash;Quandt Test</li>
+<li>The Glejser Test</li>
+<li>The Breusch-Pagan test</li>
+<li>The White test</li>
+</ul>
+<p>Despite the large number of the available tests, we will opt for a
+simple technique to detect heteroscedasticity, which is looking at the
+residual plot of our model. We can diagnose the heteroscedasticity by
+plotting the residual against the predicted response variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggResidpanel)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resid_auxpanel</span>(residuals <span style="color:#f92672">=</span> <span style="color:#a6e22e">resid</span>(model), 
+</span></span><span style="display:flex;"><span>               predicted <span style="color:#f92672">=</span> <span style="color:#a6e22e">fitted</span>(model), 
+</span></span><span style="display:flex;"><span>               plots <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;resid&#34;</span>, <span style="color:#e6db74">&#34;index&#34;</span>))
+</span></span></code></pre></div><p><img src="../Weighted_Least_Squares_details/unnamed-chunk-5-1.png" alt=""></p>
+<p>In our case we can conclude that as budget increases, the website visits
+tend to diverge.</p>
+<h1 id="the-solution">The solution</h1>
+<p>The two most common strategies for dealing with the possibility of
+heteroskedasticity is heteroskedasticity-consistent standard errors (or
+<a href="http://afhayes.com/public/BRM2007.pdf">robust errors</a>) developed by
+White and <strong>Weighted Least Squares</strong>.</p>
+<h2 id="wls">WLS</h2>
+<p>OLS does not discriminate between the quality of the observations,
+giving equal weight to each, irrespective of whether they are good or
+poor guides to the location of the line. Thus, it may be concluded that
+if we can find a way of assigning more weight to high-quality
+observations and less to the unreliable ones, we are likely to obtain a
+better fit. In other words, our estimators of $$\beta_1$$ and $$\beta_2$$
+will be more efficient. WLS works by incorporating extra nonnegative
+constants (weights) associated with each data point into the fitting
+criterion. We shall see how to do this below. Suppose the true
+relationship is</p>
+<p>$$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$</p>
+<p>and</p>
+<p>\[var(\epsilon_i) = \sigma_{\epsilon_i}^2 \]</p>
+<p>So we have a heteroscedastic model. We could eliminate the
+heteroscedasticity by dividing each observation by its value of
+$$\sigma_{\epsilon_i}$$. The model becomes$$
+\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
+$$</p>
+<p>The disturbance term $$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$ is
+homoscedastic because$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1 $$</p>
+<p>Therefore, every observation will have a disturbance term drawn from a
+distribution with population variance 1, and the model will be
+homoscedastic. By rewriting the model, we will have</p>
+<p>$$Y_i&rsquo; = \beta_1h_i + \beta_2X_i&rsquo;+\epsilon_i&rsquo;,$$</p>
+<p>where $$Y_i&rsquo;=\frac{Y_i}{\sigma_{\epsilon_i}}$$,
+$$h_i=\frac{1}{\sigma_{\epsilon_i}}$$,
+$$X_i&rsquo;=\frac{X_i}{\sigma_{\epsilon_i}}$$,
+$$\epsilon_i&rsquo;=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$</p>
+<p><strong>Note</strong> that there should not be a constant term in the equation. By
+regressing $$Y&rsquo;$$ on $$h$$ and $$X&rsquo;$$, we will obtain efficient estimates of
+$$\beta_1$$ and $$\beta_2$$ with unbiased standard errors. The general
+solution to this is $$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$</p>
+<p>where $$W$$ is the diagonal martrix with diagonal entries equal to weights
+and $$Var(\epsilon)=W^{-1}\sigma^2$$.</p>
+<p>In some cases, the values of the weights may be based on theory or prior
+research. In our model, the standard deviations tend to increase as the
+value of <code>Budget</code> increases, so the weights tend to decrease as the
+value of <code>Budget</code> increases, thus the weights are known. Where the
+weights are unknown, we can try different models and choose the best one
+based on, for instance, the distribution of the error term. There are
+the following common types of situations and weights:</p>
+<ul>
+<li>
+<p>When the variance is proportional to some predictor $$x_i$$, then
+$$Var(y_i)=x_i\sigma^2$$ thus we set $$w_i = 1/x_i$$</p>
+</li>
+<li>
+<p>When the $$i^{th}$$ value of y is an average of $$n_i$$ observations
+$$var(y_i)=\frac{\sigma^2}{n_i}$$, thus we set $$w_i=n_i$$ (this
+situation often occurs in cluster surveys).</p>
+</li>
+<li>
+<p>When the $$i^{th}$$ value of y is a total of $$n_i$$ observations
+$$var(y_i)={\sigma^2}{n_i}$$, thus we set $$w_i=1/n_i$$.</p>
+</li>
+</ul>
+<p>If the structure of weights is unknown, we have to perform a two-stage
+estimation procedure. We need to estimate an ordinary least squares
+regression to obtain the estimate of $${\sigma_i^2}$$ for $$i^{th}$$ squared
+residual and the absolute value of standard deviation (in case of
+outliers). Thus, we can have different weights depending on
+$${\sigma_i^2}$$. Often the weights are determined by fitted values rather
+than the independent variable. Let us show these different models via
+statistical package R. Fortunately, the R function <code>lm()</code> ,which is used
+to perform the ordinary least squares, provides the argument <code>weights</code>
+to perform WLS. By default the value of weights in <code>lm()</code> is <code>NULL</code>,
+weighted least squares are used with weights <code>weights</code>, minimizing the
+sum of $$w*e^2$$.</p>
+<p>Suppose we do not know the pattern of weights, and we want to fit the
+models with the following weights
+$$w_i=\frac{1}{x_i} , w_i=\frac{1}{x_i^2}, w_i=\frac{1}{y_i^2}, w=\frac{1}{y_{hat}^2}, w_i=\frac{1}{\sigma_i^2}, w_i=\frac{1}{|\sigma_i|}$$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>wols1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web, weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>Budget)
+</span></span><span style="display:flex;"><span>wols2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web, weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>Budget^2)
+</span></span><span style="display:flex;"><span>wols3 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web, weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#a6e22e">fitted</span>(model))
+</span></span><span style="display:flex;"><span>wols4 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web, weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#a6e22e">fitted</span>(model)^2)
+</span></span><span style="display:flex;"><span>wols5 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web, weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#a6e22e">resid</span>(model)^2)
+</span></span><span style="display:flex;"><span>wols6 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web, weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#a6e22e">abs</span>(<span style="color:#a6e22e">resid</span>(model)))
+</span></span></code></pre></div><p>The result of fitted models will be:</p>
+<h2 id="wols-results">WOLS Results</h2>
+<hr>
+<p>Dependent variable: Visits</p>
+<table>
+<thead>
+<tr>
+<th>(1)</th>
+<th>(2)</th>
+<th>(3)</th>
+<th>(4)</th>
+<th>(5)</th>
+<th>(6)</th>
+<th>(7)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Budget</td>
+<td>1.017***</td>
+<td>1.014***</td>
+<td>1.018***</td>
+<td>1.015***</td>
+<td>1.014***</td>
+<td>1.018***</td>
+<td>1.014***</td>
+</tr>
+<tr>
+<td>(0.032)</td>
+<td>(0.024)</td>
+<td>(0.022)</td>
+<td>(0.031)</td>
+<td>(0.031)</td>
+<td>(0.001)</td>
+<td>(0.008)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ad Type: Outdoor Ads</td>
+<td>17.623</td>
+<td>9.016</td>
+<td>1.778</td>
+<td>17.291</td>
+<td>16.927</td>
+<td>18.380***</td>
+<td>16.810**</td>
+</tr>
+<tr>
+<td>(28.957)</td>
+<td>(19.540)</td>
+<td>(10.354)</td>
+<td>(28.251)</td>
+<td>(27.531)</td>
+<td>(1.405)</td>
+<td>(8.426)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ad Type: Radio and Podcasts</td>
+<td>31.784</td>
+<td>15.184</td>
+<td>1.457</td>
+<td>30.884</td>
+<td>29.894</td>
+<td>31.647***</td>
+<td>28.276***</td>
+</tr>
+<tr>
+<td>(29.003)</td>
+<td>(19.823)</td>
+<td>(10.732)</td>
+<td>(28.302)</td>
+<td>(27.591)</td>
+<td>(1.562)</td>
+<td>(9.309)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ad Type: Social Media Ads</td>
+<td>-40.288</td>
+<td>-10.390</td>
+<td>-0.402</td>
+<td>-36.504</td>
+<td>-32.869</td>
+<td>-39.380***</td>
+<td>-36.515***</td>
+</tr>
+<tr>
+<td>(29.366)</td>
+<td>(19.315)</td>
+<td>(10.069)</td>
+<td>(28.470)</td>
+<td>(27.571)</td>
+<td>(1.498)</td>
+<td>(9.223)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ad Type: Video Ads</td>
+<td>-10.368</td>
+<td>3.876</td>
+<td>11.703</td>
+<td>-7.915</td>
+<td>-5.622</td>
+<td>-8.910***</td>
+<td>-8.182</td>
+</tr>
+<tr>
+<td>(28.737)</td>
+<td>(20.532)</td>
+<td>(12.335)</td>
+<td>(27.977)</td>
+<td>(27.217)</td>
+<td>(1.597)</td>
+<td>(9.493)</td>
+<td></td>
+</tr>
+<tr>
+<td>Constant</td>
+<td>3,995.437***</td>
+<td>3,993.525***</td>
+<td>3,992.827***</td>
+<td>3,995.256***</td>
+<td>3,995.106***</td>
+<td>3,994.459***</td>
+<td>3,996.948***</td>
+</tr>
+<tr>
+<td>(26.096)</td>
+<td>(14.600)</td>
+<td>(7.216)</td>
+<td>(24.978)</td>
+<td>(23.908)</td>
+<td>(1.388)</td>
+<td>(7.472)</td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
+<td>Observations</td>
+<td>1,000</td>
+<td>1,000</td>
+<td>1,000</td>
+<td>1,000</td>
+<td>1,000</td>
+<td>1,000</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>0.506</td>
+<td>0.645</td>
+<td>0.691</td>
+<td>0.517</td>
+<td>0.528</td>
+<td>1.000</td>
+<td>0.940</td>
+</tr>
+<tr>
+<td>Adjusted R2</td>
+<td>0.504</td>
+<td>0.644</td>
+<td>0.689</td>
+<td>0.515</td>
+<td>0.526</td>
+<td>1.000</td>
+<td>0.939</td>
+</tr>
+<tr>
+<td>Residual Std. Error (df = 994)</td>
+<td>293.017</td>
+<td>11.263</td>
+<td>0.492</td>
+<td>4.242</td>
+<td>0.061</td>
+<td>1.000</td>
+<td>14.521</td>
+</tr>
+<tr>
+<td>F Statistic (df = 5; 994)</td>
+<td>203.633***</td>
+<td>361.792***</td>
+<td>444.545***</td>
+<td>213.209***</td>
+<td>222.603***</td>
+<td>585,907.100***</td>
+<td>3,091.199***</td>
+</tr>
+<tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+</tr>
+<tr>
+<td>Note:</td>
+<td>*p&lt;0.1;</td>
+<td>**p&lt;0.05;</td>
+<td>***p&lt;0.01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Weighted least squares estimates of the coefficients will usually be
+nearly the same as the &ldquo;ordinary&rdquo; unweighted estimates. In the models
+with explanatory variables such as weight <code>weights = 1/Budget^2</code>
+produces the smallest standard errors. The summary of models shows that
+the fitted equations are highly similar yet again. Overall, the smallest
+standard errors are presented by the model with
+<code>weights = 1/resid(model)^2</code>.</p>
+<blockquote>
+<p>Inverse of x and residuals with weights</p>
+</blockquote>
+<p>However, as we know the pattern of weight allows to examine the residual
+plots for the first two weighted LS models.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">resid_compare</span>(models <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(wols1, wols2),
+</span></span><span style="display:flex;"><span>              plots <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;resid&#34;</span>, <span style="color:#e6db74">&#34;index&#34;</span>),
+</span></span><span style="display:flex;"><span>              title.opt <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
+</span></span></code></pre></div><p><img src="../Weighted_Least_Squares_details/unnamed-chunk-8-1.png" alt=""></p>
+<p>Apparently, the nonconstant variance of the residuals still results in
+heteroscedasticity. The issue is that the plots above use unweighted
+residuals; whereas, with weighted least squares, we need to use weighted
+residuals to evaluate the suitability of the model since these take into
+account the weights which change variance. The usual residuals fail to
+do this and will maintain the same non-constant variance pattern
+irrelevant to the weights used in the analysis.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#75715e"># Weighted residuals by corresponding weight</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">resid_auxpanel</span>(residuals <span style="color:#f92672">=</span> <span style="color:#a6e22e">sqrt</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>web<span style="color:#f92672">$$</span>Budget)<span style="color:#f92672">*</span><span style="color:#a6e22e">resid</span>(wols1), 
+</span></span><span style="display:flex;"><span>               predicted <span style="color:#f92672">=</span> <span style="color:#a6e22e">fitted</span>(wols1), 
+</span></span><span style="display:flex;"><span>               plots <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;resid&#34;</span>, <span style="color:#e6db74">&#34;index&#34;</span>))
+</span></span></code></pre></div><p><img src="../Weighted_Least_Squares_details/unnamed-chunk-9-1.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">resid_auxpanel</span>(residuals <span style="color:#f92672">=</span> <span style="color:#a6e22e">sqrt</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>web<span style="color:#f92672">$$</span>Budget^2)<span style="color:#f92672">*</span><span style="color:#a6e22e">resid</span>(wols2), 
+</span></span><span style="display:flex;"><span>               predicted <span style="color:#f92672">=</span> <span style="color:#a6e22e">fitted</span>(wols2), 
+</span></span><span style="display:flex;"><span>               plots <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;resid&#34;</span>, <span style="color:#e6db74">&#34;index&#34;</span>))
+</span></span></code></pre></div><p><img src="../Weighted_Least_Squares_details/unnamed-chunk-9-2.png" alt=""></p>
+<p>It seems that the second WLS model with the following weights
+$$w_i=\frac{1}{x_i^2}$$, because the variability of residuals is the same
+for all predicted values. We can now be more confident in results and
+state that with every $$100 increase in the amount of money spent on
+advertising the number of website visitors will rise by, on average,
+102. The absence of heteroscedasticity and the fact that the standard
+deviation of coefficient is less than in the original model allow to
+make predictions with higher level of certainty.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Overall, the weighted ordinary least squares is a popular method of
+solving the problem of heteroscedasticity in regression models, which is
+the application of the more general concept of <strong>generalized least
+squares.</strong> WLS implementation in R is quite simple because it has a
+distinct argument for weights. As we saw, weights can be estimated
+directly from sample variances of the response variable at each
+combination of predictor variables. WLS can sometimes be used where
+different observations have been measured by various instruments,
+importance or accuracy, and where weights are used to take these
+circumstances into account.</p>
+<p>The disadvantage of weighted least squares is that the theory behind
+this method is based on the assumption that exact weight sizes are
+known. However, when it comes to practice, it can be quite difficult to
+determine weights or estimates of error variances. Note that WLS is
+neither the only nor the best method of addressing the issue of
+heteroscedasticity. The alternative methods include estimating
+heteroskedasticity-consistent standard errors, and other types of WLS
+(e.g. iteratively reweighted least squares).</p>
+<hr>
+<h1 id="reference-list">Reference List</h1>
+<blockquote>
+<p><em>Oscar L. Olvera, Bruno D. Zumb, Heteroskedasticity in Multiple
+Regression Analysis: What it is, How to Detect it and How to Solve it
+with Applications in R and SPSS.</em></p>
+</blockquote>
+<blockquote>
+<p><em>R. Williams,
+<a href="https://www3.nd.edu/~rwilliam/stats2/l25.pdf">&ldquo;Heteroskedasticity&rdquo;</a>.</em></p>
+</blockquote>
+
+      </article>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr />
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+        
+          <div class="blog-tags">
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/weightedleastsquares/">WeightedLeastSquares</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/wls/">WLS</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/r/">R</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/statistics/">Statistics</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/heteroscedasticity/">Heteroscedasticity</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/generalizedleastsquares/">GeneralizedLeastSquares</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/regressionmodels/">RegressionModels</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/dataanalysis/">DataAnalysis</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/iterativelyreweightedleastsquares/">IterativelyReweightedLeastSquares</a>
+            
+              <a href="https://main--lucent-daffodil-2736f6.netlify.app//tags/statisticalmethods/">StatisticalMethods</a>
+            
+          </div>
+        
+      </div>
+ 
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-md-2 "> 
+            <div class="card-body ">
+            <img src="/img/bino-about-small.jpg" class="img-responsive img-50 img-round" alt="">
+          </div>
+          </div>
+          <div class="col-md-10">
+            <div class="card-body p-1.1">
+
+              <p class="p-0 m-0"><small class="text-muted ">Written By</small></p>
+              <h5>
+                
+                
+                
+                
+                
+              </h5>
+              <p class="card-text fs-1"></p>
+            </div>
+          </div>
+        </div>
+
+      
+    </div>
+  </div>
+
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+        
+        <ul class="list-group list-group-horizontal" style="flex-direction: row">
+          
+
+
+          
+        </ul>
+        
+      </div>
+
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"> 
+      </div>
+    </div>
+  </div>
+
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 mt-3">
+          <h3>Read more</h3>
+          <hr />
+        </div>
+
+        
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+</div>
+
+    
+  </body>
+</html>
+
