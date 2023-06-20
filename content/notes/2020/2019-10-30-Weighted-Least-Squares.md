@@ -33,7 +33,7 @@ hits or visits via advertisements.
 
 We took a look at small business website statistics and saw how
 important advertising is. Let us review the artificially generated
-[data](/2019-10-30-Weighted-Least-Squares_files/website.csv). The
+[data](../Weighted_Least_Squares_details/website.csv). The
 summary of the dataset is presented below.
 
 ``` R
