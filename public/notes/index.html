@@ -361,7 +361,9 @@ unbiased.</p>
 <p><em>The variances of the regression coefficients</em>: if there is no
 heteroscedasticity, the OLS regression coefficients have the lowest
 variances of all the unbiased estimators that are linear functions
-of the observations of $$Y$$. If heteroscedasticity is present, the
+of the observations of
+$$Y$$
+If heteroscedasticity is present, the
 OLS estimators are inefficient because it is possible to find other
 estimators that have smaller variances and are still unbiased.</p>
 </li>
@@ -411,13 +413,14 @@ giving equal weight to each, irrespective of whether they are good or
 poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
-better fit. In other words, our estimators of $$\beta_1$$ and $$\beta_2$$
-will be more efficient. WLS works by incorporating extra nonnegative
+better fit. In other words, our estimators of $$\beta_1 \quad \beta_2$$</p>
+<p>will be more efficient. WLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
 relationship is</p>
 <p>$$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$</p>
-<p>and</p>
+<pre><code>                              and
+</code></pre>
 <p>\[var(\epsilon_i) = \sigma_{\epsilon_i}^2 \]</p>
 <p>So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
@@ -430,16 +433,18 @@ homoscedastic because$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}
 distribution with population variance 1, and the model will be
 homoscedastic. By rewriting the model, we will have</p>
 <p>$$Y_i&rsquo; = \beta_1h_i + \beta_2X_i&rsquo;+\epsilon_i&rsquo;,$$</p>
-<p>where $$Y_i&rsquo;=\frac{Y_i}{\sigma_{\epsilon_i}}$$,
-$$h_i=\frac{1}{\sigma_{\epsilon_i}}$$,
-$$X_i&rsquo;=\frac{X_i}{\sigma_{\epsilon_i}}$$,
-$$\epsilon_i&rsquo;=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$</p>
+<p>where $$Y_i&rsquo;=\frac{Y_i}{\sigma_{\epsilon_i}}, \quad h_i=\frac{1}{\sigma_{\epsilon_i}}, \quad X_i&rsquo;=\frac{X_i}{\sigma_{\epsilon_i}}, \quad \epsilon_i&rsquo;=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$</p>
 <p><strong>Note</strong> that there should not be a constant term in the equation. By
-regressing $$Y&rsquo;$$ on $$h$$ and $$X&rsquo;$$, we will obtain efficient estimates of
-$$\beta_1$$ and $$\beta_2$$ with unbiased standard errors. The general
+regressing</p>
+<p>$$Y&rsquo; \quad \text{on} \quad h \quad \text{and}  \quad X&rsquo;$$</p>
+<p>we will obtain efficient estimates of</p>
+<p>$$\beta_1 \quad \text{and} \quad \beta_2$$</p>
+<p>with unbiased standard errors. The general
 solution to this is $$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$</p>
-<p>where $$W$$ is the diagonal martrix with diagonal entries equal to weights
-and $$Var(\epsilon)=W^{-1}\sigma^2$$.</p>
+<p>$$\text{where} \quad W$$</p>
+<p>is the diagonal martrix with diagonal entries equal to weights
+and</p>
+<p>$$Var(\epsilon)=W^{-1}\sigma^2$$.</p>
 <p>In some cases, the values of the weights may be based on theory or prior
 research. In our model, the standard deviations tend to increase as the
 value of <code>Budget</code> increases, so the weights tend to decrease as the
@@ -449,13 +454,12 @@ based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:</p>
 <ul>
 <li>
-<p>When the variance is proportional to some predictor $$x_i$$, then
-$$Var(y_i)=x_i\sigma^2$$ thus we set $$w_i = 1/x_i$$</p>
+<p>When the variance is proportional to some predictor
+$$x_i \quad \text{then} \quad Var(y_i)=x_i\sigma^2$$</p>
+<p>thus we set $$w_i = 1/x_i$$</p>
 </li>
 <li>
-<p>When the $$i^{th}$$ value of y is an average of $$n_i$$ observations
-$$var(y_i)=\frac{\sigma^2}{n_i}$$, thus we set $$w_i=n_i$$ (this
-situation often occurs in cluster surveys).</p>
+<p>When the $$i^{th}$$ value of $$y$$ is an average of $$n_i$$ observations, i.e.,       $$var(y_i)=\frac{\sigma^2}{n_i}$$, we set $$w_i=n_i$$, a scenario frequently encountered in cluster surveys.</p>
 </li>
 <li>
 <p>When the $$i^{th}$$ value of y is a total of $$n_i$$ observations
