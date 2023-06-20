@@ -2,7 +2,7 @@
 Description: Nowadays, having a business implies owning a website. The primary aim of a website is to ...
 date: "2021-02-02"
 featured: true
-image: /img/posts/img-3.jpg
+image: (../Weighted_Least_Squares_details/website1.jpg)
 tags:
 - WeightedLeastSquares
 - WLS
@@ -162,9 +162,9 @@ below:
 The left picture illustrates homoscedasticity. Let us start with the
 first observation, where $$X$$ has the value of $$X_1$$ . If there was no
 disturbance term in the model, the observation would be represented by
-the circle lied on line $$Y = \beta_1+\beta_2X$$. The effect of the
+the circle lied on line $$Y = \beta_1+\beta_2X$$ The effect of the
 disturbance term is to shift the observation upwards or downwards
-vertically (downwards in case of $$X_1$$). The potential distribution of
+vertically $$\text{downwards in case of} \quad {X_1}$$ The potential distribution of
 the disturbance term, before the observation was generated, is shown by
 the normal distribution.
 
@@ -197,7 +197,7 @@ Heteroscedasticity is more likely to occur, for example, when
     families will be small. But for families with large incomes, the
     amount of discretionary income will be higher.
 -   The model is misspecified (using response instead of the log of
-    response or instead of X\^2 using X etc). Important variables may be
+    response or instead of \(X^2\) using \(X\) etc). Important variables may be
     omitted from the model.
 
 Why does heteroscedasticity matter? As a matter of fact, the evidence
@@ -330,23 +330,23 @@ weights are unknown, we can try different models and choose the best one
 based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:
 
--   When the variance is proportional to some predictor 
-    $$x_i \quad \text{then} \quad Var(y_i)=x_i\sigma^2$$ 
-    
-    thus we set $$w_i = 1/x_i$$
+- $$\text{When the variance is proportional to some predictor}$$
+$$x_i \quad \text{then} \quad Var(y_i)=x_i\sigma^2$$ 
+$$\text{thus we set} \quad w_i = 1/x_i$$    
 
--   When the $$i^{th}$$ value of $$y$$ is an average of $$n_i$$ observations, i.e.,       $$var(y_i)=\frac{\sigma^2}{n_i}$$, we set $$w_i=n_i$$, a scenario frequently encountered in cluster surveys.
+-  $$\text{When the } i^{th} \text{ value of } y \text{ is} \\ \text{an average of } n_i \text{ observations, i.e., } \\\ var(y_i)=\frac{\sigma^2}{n_i},$$
+$$  \text{ we set } w_i=n_i, \\ \text{a scenario frequently encountered in} \\ \text{cluster surveys.}$$
 
 
--   When the $$i^{th}$$ value of y is a total of $$n_i$$ observations
-    $$var(y_i)={\sigma^2}{n_i}$$, thus we set $$w_i=1/n_i$$.
+-   $$\text{When the } i^{th} \quad \text{value of y is a total of} {n_i} \text{observations}$$ $$\\\var(y_i)={\sigma^2}{n_i}, \text{thus we set } w_i=1/n_i$$.
+
 
 If the structure of weights is unknown, we have to perform a two-stage
 estimation procedure. We need to estimate an ordinary least squares
-regression to obtain the estimate of $${\sigma_i^2}$$ for $$i^{th}$$ squared
+regression to obtain the estimate of $${\sigma_i^2} \quad \text{ for } \quad i^{th}$$ squared
 residual and the absolute value of standard deviation (in case of
 outliers). Thus, we can have different weights depending on
-$${\sigma_i^2}$$. Often the weights are determined by fitted values rather
+$${\sigma_i^2}$$ Often the weights are determined by fitted values rather
 than the independent variable. Let us show these different models via
 statistical package R. Fortunately, the R function `lm()` ,which is used
 to perform the ordinary least squares, provides the argument `weights`
@@ -443,9 +443,9 @@ resid_auxpanel(residuals = sqrt(1/web$$Budget^2)*resid(wols2),
 ![](../Weighted_Least_Squares_details/unnamed-chunk-9-2.png)
 
 It seems that the second WLS model with the following weights
-$$w_i=\frac{1}{x_i^2}$$, because the variability of residuals is the same
+$$w_i=\frac{1}{x_i^2}$$ because the variability of residuals is the same
 for all predicted values. We can now be more confident in results and
-state that with every \$$100 increase in the amount of money spent on
+state that with every 100 increase in the amount of money spent on
 advertising the number of website visitors will rise by, on average,
 102. The absence of heteroscedasticity and the fact that the standard
 deviation of coefficient is less than in the original model allow to
