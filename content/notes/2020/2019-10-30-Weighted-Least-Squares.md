@@ -2,7 +2,7 @@
 Description: Nowadays, having a business implies owning a website. The primary aim of a website is to ...
 date: "2021-02-02"
 featured: true
-image: (../Weighted_Least_Squares_details/website1.jpg)
+image: /Weighted_Least_Squares_details/website1.jpg
 tags:
 - WeightedLeastSquares
 - WLS
