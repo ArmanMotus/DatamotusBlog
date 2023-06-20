@@ -210,7 +210,9 @@ Nevertheless, two concerns are raised:
 -   *The variances of the regression coefficients*: if there is no
     heteroscedasticity, the OLS regression coefficients have the lowest
     variances of all the unbiased estimators that are linear functions
-    of the observations of $$Y$$. If heteroscedasticity is present, the
+    of the observations of 
+                            $$Y$$
+    If heteroscedasticity is present, the
     OLS estimators are inefficient because it is possible to find other
     estimators that have smaller variances and are still unbiased.
 
@@ -271,7 +273,8 @@ giving equal weight to each, irrespective of whether they are good or
 poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
-better fit. In other words, our estimators of $$\beta_1$$ and $$\beta_2$$
+better fit. In other words, our estimators of $$\beta_1 \quad \beta_2$$
+
 will be more efficient. WLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
@@ -279,7 +282,7 @@ relationship is
 
 $$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$
 
-and
+                                  and
 
 \\[var(\epsilon_i) = \sigma_{\epsilon_i}^2 \\]
 
@@ -298,18 +301,26 @@ homoscedastic. By rewriting the model, we will have
 
 $$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$$
 
-where $$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$$,
-$$h_i=\frac{1}{\sigma_{\epsilon_i}}$$,
-$$X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$$,
-$$\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
+where $$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}, \quad h_i=\frac{1}{\sigma_{\epsilon_i}}, \quad X_i'=\frac{X_i}{\sigma_{\epsilon_i}}, \quad \epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
 
 **Note** that there should not be a constant term in the equation. By
-regressing $$Y'$$ on $$h$$ and $$X'$$, we will obtain efficient estimates of
-$$\beta_1$$ and $$\beta_2$$ with unbiased standard errors. The general
+regressing 
+
+$$Y' \quad \text{on} \quad h \quad \text{and}  \quad X'$$
+
+we will obtain efficient estimates of
+
+$$\beta_1 \quad \text{and} \quad \beta_2$$
+
+with unbiased standard errors. The general
 solution to this is \$$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
 
-where $$W$$ is the diagonal martrix with diagonal entries equal to weights
-and $$Var(\epsilon)=W^{-1}\sigma^2$$.
+$$\text{where} \quad W$$ 
+
+is the diagonal martrix with diagonal entries equal to weights
+and 
+
+$$Var(\epsilon)=W^{-1}\sigma^2$$.
 
 In some cases, the values of the weights may be based on theory or prior
 research. In our model, the standard deviations tend to increase as the
@@ -319,12 +330,13 @@ weights are unknown, we can try different models and choose the best one
 based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:
 
--   When the variance is proportional to some predictor $$x_i$$, then
-    $$Var(y_i)=x_i\sigma^2$$ thus we set $$w_i = 1/x_i$$
+-   When the variance is proportional to some predictor 
+    $$x_i \quad \text{then} \quad Var(y_i)=x_i\sigma^2$$ 
+    
+    thus we set $$w_i = 1/x_i$$
 
--   When the $$i^{th}$$ value of y is an average of $$n_i$$ observations
-    $$var(y_i)=\frac{\sigma^2}{n_i}$$, thus we set $$w_i=n_i$$ (this
-    situation often occurs in cluster surveys).
+-   When the $$i^{th}$$ value of $$y$$ is an average of $$n_i$$ observations, i.e.,       $$var(y_i)=\frac{\sigma^2}{n_i}$$, we set $$w_i=n_i$$, a scenario frequently encountered in cluster surveys.
+
 
 -   When the $$i^{th}$$ value of y is a total of $$n_i$$ observations
     $$var(y_i)={\sigma^2}{n_i}$$, thus we set $$w_i=1/n_i$$.
