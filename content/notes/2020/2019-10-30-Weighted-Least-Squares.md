@@ -36,7 +36,7 @@ important advertising is. Let us review the artificially generated
 [data](../Weighted_Least_Squares_details/website.csv). The
 summary of the dataset is presented below.
 
-```r
+```
 web <- as.data.frame(read.csv("website.csv"))
 options(knitr.kable.NA = '')
 kable(summary(web), digits=2)%>%
@@ -84,7 +84,7 @@ $Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$
 
 The result of fitted linear regression is presented in the output below:
 
-``` r
+``` 
 model <- lm(Visits ~ Budget + AdType, data = web)
 ```
 
