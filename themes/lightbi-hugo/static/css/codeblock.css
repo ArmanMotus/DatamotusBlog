@@ -48,7 +48,6 @@ pre code.hljs {
 @media screen and (max-width: 600px) {
   .chroma {
     width: 100%;
-    overflow-x: auto; 
   }
 
   .chroma pre {
@@ -57,7 +56,8 @@ pre code.hljs {
     word-wrap: break-word;  /* Break words to next line */
     padding: 5px;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    overflow-x: hidden; /* hide horizontal overflow */
   }
 
   .chroma code {
@@ -65,4 +65,5 @@ pre code.hljs {
     width: 100%;
   }
 }
+
 
