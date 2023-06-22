@@ -2,314 +2,314 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>https://armanmotus.github.io/DatamotusBlog/tags/</link>
+    <link>https://DatamotusBlog.netlify.app/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://armanmotus.github.io/DatamotusBlog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DataAnalysis</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/dataanalysis/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/dataanalysis/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/dataanalysis/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/dataanalysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GeneralizedLeastSquares</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/generalizedleastsquares/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/generalizedleastsquares/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/generalizedleastsquares/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/generalizedleastsquares/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Heteroscedasticity</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/heteroscedasticity/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/heteroscedasticity/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/heteroscedasticity/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/heteroscedasticity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IterativelyReweightedLeastSquares</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/iterativelyreweightedleastsquares/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/iterativelyreweightedleastsquares/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/iterativelyreweightedleastsquares/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/iterativelyreweightedleastsquares/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/r/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/r/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/r/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RegressionModels</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/regressionmodels/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/regressionmodels/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/regressionmodels/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/regressionmodels/</guid>
       <description></description>
     </item>
     
     <item>
       <title>StatisticalMethods</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/statisticalmethods/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/statisticalmethods/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/statisticalmethods/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/statisticalmethods/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistics</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/statistics/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/statistics/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/statistics/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WeightedLeastSquares</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/weightedleastsquares/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/weightedleastsquares/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/weightedleastsquares/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/weightedleastsquares/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WLS</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/wls/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/wls/</link>
       <pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/wls/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/wls/</guid>
       <description></description>
     </item>
     
     <item>
       <title>multicollinearity</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/multicollinearity/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/multicollinearity/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/multicollinearity/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/multicollinearity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R programming</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/r-programming/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/r-programming/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/r-programming/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/r-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>relative importance</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/relative-importance/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/relative-importance/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/relative-importance/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/relative-importance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shapley value</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/shapley-value/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/shapley-value/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/shapley-value/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/shapley-value/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Air Quality Monitoring</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/air-quality-monitoring/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/air-quality-monitoring/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/air-quality-monitoring/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/air-quality-monitoring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Carbon Dioxide Emissions</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/carbon-dioxide-emissions/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/carbon-dioxide-emissions/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/carbon-dioxide-emissions/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/carbon-dioxide-emissions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Climate Change</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/climate-change/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/climate-change/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/climate-change/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/climate-change/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Analysis</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/data-analysis/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/data-analysis/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/data-analysis/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/data-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Environmental Science</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/environmental-science/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/environmental-science/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/environmental-science/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/environmental-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Health Risks</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/health-risks/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/health-risks/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/health-risks/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/health-risks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lung Cancer</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/lung-cancer/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/lung-cancer/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/lung-cancer/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/lung-cancer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Outlier Detection</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/outlier-detection/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/outlier-detection/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/outlier-detection/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/outlier-detection/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ozone Concentration</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/ozone-concentration/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/ozone-concentration/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/ozone-concentration/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/ozone-concentration/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sulphur Dioxide Emissions</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/sulphur-dioxide-emissions/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/sulphur-dioxide-emissions/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/sulphur-dioxide-emissions/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/sulphur-dioxide-emissions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WHO</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/who/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/who/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/who/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/who/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bias in Research</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/bias-in-research/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/bias-in-research/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/bias-in-research/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/bias-in-research/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chess</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/chess/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/chess/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/chess/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/chess/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cognitive Development</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/cognitive-development/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/cognitive-development/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/cognitive-development/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/cognitive-development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Experimental Studies</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/experimental-studies/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/experimental-studies/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/experimental-studies/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/experimental-studies/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Logical Thinking</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/logical-thinking/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/logical-thinking/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/logical-thinking/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/logical-thinking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Propensity Score Matching</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/propensity-score-matching/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/propensity-score-matching/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistical Methods</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/statistical-methods/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/statistical-methods/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/statistical-methods/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/statistical-methods/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Time Series Analysis</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/time-series-analysis/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/time-series-analysis/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/time-series-analysis/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/time-series-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Urbanization</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/tags/urbanization/</link>
+      <link>https://DatamotusBlog.netlify.app/tags/urbanization/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/tags/urbanization/</guid>
+      <guid>https://DatamotusBlog.netlify.app/tags/urbanization/</guid>
       <description></description>
     </item>
     

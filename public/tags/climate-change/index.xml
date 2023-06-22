@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Climate Change on </title>
-    <link>https://armanmotus.github.io/DatamotusBlog/tags/climate-change/</link>
+    <link>https://DatamotusBlog.netlify.app/tags/climate-change/</link>
     <description>Recent content in Climate Change on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://armanmotus.github.io/DatamotusBlog/tags/climate-change/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/climate-change/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Changes in air pollution</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/notes/2020/2020-01-09-changes-in-air-pollution/</link>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/notes/2020/2020-01-09-changes-in-air-pollution/</guid>
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution/</guid>
       <description>Introduction Even without visible smog, air pollution is all around us, and thus it is hard to eliminate the health effects of the toxic contaminators on health. The harmful effect of air pollutants is widely investigated in different researches conducted in many regions of the world. Air pollutants can be the cause of death from stroke, lung cancer, and another heart disease. Air pollution has a pernicious effect on children and it trigger childhood cancer.</description>
     </item>
     
     <item>
       <title>Outlier Detection in Air Pollution Data</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/notes/2020/2019-11-15-outlier-detection/</link>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2019-11-15-outlier-detection/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/notes/2020/2019-11-15-outlier-detection/</guid>
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2019-11-15-outlier-detection/</guid>
       <description>Introduction On a daily basis, economical, technological and political changes cause air pollution, which is currently one of the most pressing environmental issues around the globe. It is particularly acute in large cities with the rising level of industrialization and growing urbanization. The polluted air we breathe results in serious health disorders and decreases the quality of life. Before steps are taken to decrease the harmful effect of daily produced pollutants, certain measurements are required.</description>
     </item>
     

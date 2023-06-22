@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>relative importance on </title>
-    <link>https://armanmotus.github.io/DatamotusBlog/tags/relative-importance/</link>
+    <link>https://DatamotusBlog.netlify.app/tags/relative-importance/</link>
     <description>Recent content in relative importance on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://armanmotus.github.io/DatamotusBlog/tags/relative-importance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/relative-importance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shapley Value Regression</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/notes/2020/2019-12-20-shapley-value-regression/</link>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2019-12-20-shapley-value-regression/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/notes/2020/2019-12-20-shapley-value-regression/</guid>
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2019-12-20-shapley-value-regression/</guid>
       <description>Introduction In marketing research, the problem of multicollinearity can be raised as a result of using clients&amp;rsquo; rating responses. People tend to answer to the question of some section/topic in relatively same way. The stronger the correlations between the explanatory variables, the larger the population variances of the distributions of their coefficients, and thus greater the risk of obtaining unreliable coefficients. Although the estimated coefficients will be unbiased, their high variance will decrease the $t$ value, which leads to the failure in rejecting the null hypothesis $H_0:\beta = 0$, and following reduction in the probability of correctly detecting a non-zero coefficient.</description>
     </item>
     

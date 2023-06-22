@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Experimental Studies on </title>
-    <link>https://armanmotus.github.io/DatamotusBlog/tags/experimental-studies/</link>
+    <link>https://DatamotusBlog.netlify.app/tags/experimental-studies/</link>
     <description>Recent content in Experimental Studies on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://armanmotus.github.io/DatamotusBlog/tags/experimental-studies/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/experimental-studies/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Propensity-Score-Matching</title>
-      <link>https://armanmotus.github.io/DatamotusBlog/notes/2020/2019-10-15-propensity-score-matching/</link>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2019-10-15-propensity-score-matching/</link>
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://armanmotus.github.io/DatamotusBlog/notes/2020/2019-10-15-propensity-score-matching/</guid>
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2019-10-15-propensity-score-matching/</guid>
       <description>Introduction The research question is whether playing chess is correlated with the improvement in logical thinking. Previous research, conducted in a number of countries , indicates that playing a game of chess increases concentration, logical and critical thinking, as well as the ability to plan and analyse.
 Should one aim at increasing the level of logical thinking among university students and schoolchildren by playing chess, the following steps are to be taken.</description>
     </item>
