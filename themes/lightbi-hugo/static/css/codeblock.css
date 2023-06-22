@@ -38,7 +38,7 @@ pre code.hljs {
 
 /* Responsive styles for code blocks on mobile */
 /* Responsive styles for code chunks on mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 380px) {
   .chroma .ln {
     margin-right: 0;
   }
