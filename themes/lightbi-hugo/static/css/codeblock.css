@@ -37,6 +37,7 @@ pre code.hljs {
 }
 
 /* Responsive styles for code blocks on mobile */
+/* Responsive styles for code chunks on mobile */
 @media screen and (max-width: 600px) {
   .chroma .ln {
     margin-right: 0;
@@ -56,6 +57,8 @@ pre code.hljs {
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    overflow-x: scroll;
+    overflow-x: auto;
+    max-width: 100%;
   }
 }
+
