@@ -36,17 +36,4 @@ pre code.hljs {
   white-space: pre;
 }
 
-@media screen and (max-width: 600px) {
-  pre {
-    width: 100%;
-    overflow-x: auto;
-  }
-  
-  pre code {
-    display: block;
-    width: 100%;
-    white-space: pre-wrap;  /* Wrap the text within the code block */
-    word-wrap: break-word;  /* Break the words as necessary to prevent overflow */
-  }
-}
 
