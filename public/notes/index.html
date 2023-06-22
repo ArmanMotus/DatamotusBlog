@@ -169,12 +169,12 @@ hits or visits via advertisements.</p>
 important advertising is. Let us review the artificially generated
 <a href="../Weighted_Least_Squares_details/website.csv">data</a>. The
 summary of the dataset is presented below.</p>
-<pre tabindex="0"><code>web &lt;- as.data.frame(read.csv(&#34;website.csv&#34;))
-options(knitr.kable.NA = &#39;&#39;)
-kable(summary(web), digits=2)%&gt;%
- kable_styling(bootstrap_options = &#34;striped&#34;, 
-   full_width = F)
-</code></pre><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>web <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.data.frame</span>(<span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;website.csv&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">options</span>(knitr.kable.NA <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">kable</span>(<span style="color:#a6e22e">summary</span>(web), digits<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">kable_styling</span>(bootstrap_options <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;striped&#34;</span>, 
+</span></span><span style="display:flex;"><span>   full_width <span style="color:#f92672">=</span> F)
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Company</th>
@@ -246,8 +246,8 @@ role.</p>
 multiple linear regression model:</p>
 <p>$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$</p>
 <p>The result of fitted linear regression is presented in the output below:</p>
-<pre tabindex="0"><code>model &lt;- lm(Visits ~ Budget + AdType, data = web)
-</code></pre><pre tabindex="0"><code>    ## 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>model <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web)
+</span></span></code></pre></div><pre tabindex="0"><code>    ## 
     ## Results
     ## ===============================================
     ##                         Dependent variable:    

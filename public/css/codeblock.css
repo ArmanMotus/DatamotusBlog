@@ -45,6 +45,9 @@ pre code.hljs {
     padding: 5px;
     width: 100%; /* Add this to make the code block take up the full width of its parent element */
     box-sizing: border-box; /* Add this to include padding and border in element's total width and height */
+    white-space: pre-wrap;  /* This line will wrap the text within the code block */
+    word-wrap: break-word;  /* This line will break words as necessary to prevent overflow */
+
   }
 
   .highlight div:first-child {
