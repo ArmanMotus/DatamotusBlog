@@ -31,3 +31,21 @@ pre code.hljs {
 .highlight td:last-child pre code, .highlight pre code {
   white-space: pre;
 }
+
+
+
+/* Default styles for code chunks */
+pre {
+  overflow-x: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+/* Responsive styles for code chunks on mobile */
+@media screen and (max-width: 600px) {
+  pre {
+    overflow-x: scroll;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+}
