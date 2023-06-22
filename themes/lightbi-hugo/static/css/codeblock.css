@@ -12,6 +12,12 @@ pre code {
 
 @media screen and (max-width: 600px) {
   pre {
-    padding: 5px;
+    padding: 10px;
+    font-size: 0.8em;  /* Reduce the font size */
+    line-height: 1.4;  /* Control line height for better readability */
+    overflow-y: auto;  /* Add horizontal scrolling if the line is too long */
+    white-space: pre-wrap;  /* Wrap lines in code block */
+    word-wrap: break-word;  /* Break words to next line if necessary */
+    font-family: 'Courier New', Courier, monospace;  /* Use a monospace font for clarity */
   }
 }
