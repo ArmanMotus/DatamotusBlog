@@ -36,34 +36,12 @@ pre code.hljs {
   white-space: pre;
 }
 
-@media screen and (max-width: 600px) {
-  .chroma .ln {
-    margin-right: 0;
-  }
-
-  pre code.hljs {
-    padding: 5px;
-    width: 100%; 
-    box-sizing: border-box; 
-    white-space: pre-wrap;  /* Wrap lines in code block */
-    word-wrap: break-word;  /* Break words to next line */
-  }
-
-  .highlight div:first-child {
-    border-radius: 0;
-  }
-
-  .highlight td:first-child pre,
-  .highlight pre {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    overflow-x: auto; 
-    width: 100%; 
-    box-sizing: border-box; 
-    white-space: pre-wrap;  /* Wrap lines in code block */
-    word-wrap: break-word;  /* Break words to next line */
-  }
+.markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    background: 0 0;
+    border: 0;
+    white-space: pre-wrap;
 }
 
