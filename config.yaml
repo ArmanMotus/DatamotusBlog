@@ -59,3 +59,12 @@ menu:
     - name: About
       url: /about/
       weight: 4
+markup:  # Add this section for Chroma settings
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    lineNumbersInTable: true
+    style: "friendly"
+    tabWidth: 4
+    wrap: true
