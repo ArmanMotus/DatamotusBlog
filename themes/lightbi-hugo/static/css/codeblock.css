@@ -36,15 +36,15 @@ pre code.hljs {
   white-space: pre;
 }
 
-/* Responsive styles for code blocks on mobile */
-/* Responsive styles for code chunks on mobile */
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 600px) {
   .chroma .ln {
     margin-right: 0;
   }
 
   pre code.hljs {
     padding: 5px;
+    width: 100%; /* Add this to make the code block take up the full width of its parent element */
+    box-sizing: border-box; /* Add this to include padding and border in element's total width and height */
   }
 
   .highlight div:first-child {
@@ -57,8 +57,8 @@ pre code.hljs {
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    overflow-x: auto;
-    max-width: 100%;
+    overflow-x: auto; /* Change to auto to show scrollbar only when necessary */
+    width: 100%; /* Add this to make the pre block take up the full width of its parent element */
+    box-sizing: border-box; /* Add this to include padding and border in element's total width and height */
   }
 }
-
