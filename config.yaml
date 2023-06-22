@@ -1,4 +1,5 @@
-baseURL: https://merry-lily-bf54d6.netlify.app/
+baseURL: https://armanmotus.github.io/DatamotusBlog/
+#https://merry-lily-bf54d6.netlify.app/
 # https://DatamotusBlog.netlify.app/   lightbi-hugo-theme
 DefaultContentLanguage: en
 languageCode: en-us
