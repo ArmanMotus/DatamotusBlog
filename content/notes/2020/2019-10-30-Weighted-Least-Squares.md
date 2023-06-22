@@ -36,12 +36,12 @@ important advertising is. Let us review the artificially generated
 [data](../Weighted_Least_Squares_details/website.csv). The
 summary of the dataset is presented below.
 
-```
+```R
 web <- as.data.frame(read.csv("website.csv"))
+
 options(knitr.kable.NA = '')
-kable(summary(web), digits=2)%>%
- kable_styling(bootstrap_options = "striped", 
-   full_width = F)
+
+kable(summary(web), digits=2) %>% kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
 | Company         | Budget   | Visits | AdType              |
@@ -84,7 +84,7 @@ $Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$
 
 The result of fitted linear regression is presented in the output below:
 
-``` 
+```R 
 model <- lm(Visits ~ Budget + AdType, data = web)
 ```
 
@@ -246,9 +246,7 @@ plotting the residual against the predicted response variable.
 
 ```r
 library(ggResidpanel)
-resid_auxpanel(residuals = resid(model), 
-               predicted = fitted(model), 
-               plots = c("resid", "index"))
+resid_auxpanel(residuals = resid(model), predicted = fitted(model), plots = c("resid", "index"))
 ```
 
 ![](../Weighted_Least_Squares_details/unnamed-chunk-5-1.png)
