@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Shapley Value Regression - </title>
+<meta name="description" content="Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant business.">
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "https:\/\/merry-lily-bf54d6.netlify.app\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/merry-lily-bf54d6.netlify.app\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/merry-lily-bf54d6.netlify.app\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/merry-lily-bf54d6.netlify.app\/notes\/2020\/2019-12-20-shapley-value-regression\/",
+          "name": "Shapley value regression"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Shapley Value Regression",
+  "description" : "Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant business.",
+  "inLanguage" : "en",
+  "wordCount":  3131 ,
+  "datePublished" : "2020-12-20T00:00:00",
+  "dateModified" : "2020-12-20T00:00:00",
+  "image" : "https:\/\/merry-lily-bf54d6.netlify.app\/",
+  "keywords" : [ "shapley value, multicollinearity, relative importance, R programming" ],
+  "mainEntityOfPage" : "https:\/\/merry-lily-bf54d6.netlify.app\/notes\/2020\/2019-12-20-shapley-value-regression\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/merry-lily-bf54d6.netlify.app\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/merry-lily-bf54d6.netlify.app\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:url" content="https://merry-lily-bf54d6.netlify.app/notes/2020/2019-12-20-shapley-value-regression/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="">
+   
+<link rel="apple-touch-icon" sizes="180x180" href=" https://merry-lily-bf54d6.netlify.app/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://merry-lily-bf54d6.netlify.app/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://merry-lily-bf54d6.netlify.app/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.113.0"><link rel="alternate" href="https://merry-lily-bf54d6.netlify.app/index.xml" type="application/rss+xml" title="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://merry-lily-bf54d6.netlify.app/css/main.css">
+<link disabled id="dark-mode-theme" rel="stylesheet" href="https://merry-lily-bf54d6.netlify.app/css/dark.css"><link rel="stylesheet" href="https://merry-lily-bf54d6.netlify.app/css/syntax.css"><link rel="stylesheet" href="https://merry-lily-bf54d6.netlify.app/css/codeblock.css">
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    }
+  });
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+
+
+
+  </head>
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section ">
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+          
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="notes-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                Shapley Value Regression
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+
+      <div class="card-image card-image-blog p-0">
+        
+        
+      </div>
+    </div>
+ 
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction</h2>
+<p>In marketing research, the problem of multicollinearity can be raised as
+a result of using clients&rsquo; rating responses. People tend to answer to
+the question of some section/topic in relatively same way. The stronger
+the correlations between the explanatory variables, the larger the
+population variances of the distributions of their coefficients, and
+thus greater the risk of obtaining unreliable coefficients. Although the
+estimated coefficients will be unbiased, their high variance will
+decrease the $t$ value, which leads to the failure in rejecting the null
+hypothesis $H_0:\beta = 0$, and following reduction in the probability
+of correctly detecting a non-zero coefficient. However, high correlation
+does not necessarily mean having poor estimation: a large number of
+observations and sample variances of regressors with a low variance of
+the error term can produce good estimates. In the case of
+multicollinearity, data do not contain enough information to distinguish
+the individual effect of explanatory variables on the dependent
+variable. There are a lot of ways for solving the multicollinearity,
+here are some of them:</p>
+<ul>
+<li>Try to reduce disturbance term by including an omitted important
+variable in the model.</li>
+<li>Increase the number of observations to make standard errors smaller.</li>
+<li>Combine the collinear variables together into a single predictor.</li>
+<li>Drop one of the problematic variables from the regression.</li>
+</ul>
+<p>It is often hard to obtain more data, so the first two methods are not
+applicable if the design stage of a survey is finished. The last method
+of solving the multicollinearity problem involves the risk that some of
+the missing variables may indeed belong to the model which can cause
+omitted variable bias. In this article, the <a href="https://en.wikipedia.org/wiki/Shapley_value">Shapley
+value</a> will be used to
+evaluate the importance of each explanatory variable in the model. The
+use of Shapley Values comes from the game theory and its purpose is to
+evaluate the worth of each player&rsquo;s input over all possible combinations
+of players. As stated by Lipovetsky (Lipovetsky,2006), a regression
+model can be considered from the perspective of a coalition among
+players (predictors) to maximize the total value (quality of fitting).
+This approach yields a model called Shapley Value Regression. The case
+described in the article adresses customer satisfaction with the
+restaurant business. The main purpose will be to detect key drivers in
+the restaurant business and to avoid the problem of the high correlation
+between variables using this approach.</p>
+<h2 id="data-description">Data description</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># load the required libraries used in the article</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">if </span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)) <span style="color:#a6e22e">install.packages</span>(<span style="color:#e6db74">&#34;pacman&#34;</span>)
+</span></span><span style="display:flex;"><span> pacman<span style="color:#f92672">::</span><span style="color:#a6e22e">p_load</span>(dplyr, readxl, knitr, kableExtra, 
+</span></span><span style="display:flex;"><span> networkD3, ggcorrplot, stringr, radiant.data, 
+</span></span><span style="display:flex;"><span> textshape, formattable, RColorBrewer, ggraph, igraph)
+</span></span></code></pre></div><p>In order to solve the problem of finding the key drivers of the
+restaurant industry, a survey was conducted asking customers to complete
+a questionnaire covering various aspects of the restaurant.</p>
+<p>Below is the description of variables from the synthetic data of
+clients&rsquo; responses to a questionnaire that measures how people feel
+about the main business drivers for restaurants. People express their
+level of satisfaction after using the products of a restaurant. There is
+a hierarchy in the data (see the graph below). The variable
+<code>Satisfaction</code> will be described with two variables <code>Target 1</code> and
+<code>Target 2</code>. These two variables are represented with red dots on the
+dendrogram below. These variables, in turn, will be explained by the
+<code>Drivers of Targets</code> (blue and light blue dots on the dendrogram) and,
+finally, each driver should be explained by <code>items of drivers</code>. Each
+<code>Driver of Target</code> has 13 explanatory variables - items of drivers
+grouped by a specific color.</p>
+<p><img src="../Shapley-value-regression/causalgraph-1.png" alt=""></p>
+<p>All variables are observed and collected via survey and measured in
+rating scales (1 to 10).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> data_desc <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_excel</span>(<span style="color:#e6db74">&#34;Shapley_Data_Rest.xlsx&#34;</span>, sheet <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Labels&#34;</span>)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">options</span>(knitr.kable.NA <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">kable</span>(data_desc) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">kable_styling</span>(bootstrap_options <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;striped&#34;</span>, 
+</span></span><span style="display:flex;"><span> full_width <span style="color:#f92672">=</span> F, font_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pack_rows</span>(<span style="color:#e6db74">&#34;Drivers of Targets&#34;</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">15</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">pack_rows</span>(<span style="color:#e6db74">&#34;Items of Drivers&#34;</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">28</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">column_spec</span>(<span style="color:#ae81ff">2</span>, bold <span style="color:#f92672">=</span> T, italic <span style="color:#f92672">=</span> T, width <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;5cm&#34;</span>)
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Group</th>
+<th>Statements (Variable Description)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Satisfaction</td>
+<td></td>
+<td>Overall satisfaction of customer</td>
+</tr>
+<tr>
+<td>Target 1</td>
+<td></td>
+<td>A restaurant that enables you to step up in life</td>
+</tr>
+<tr>
+<td>Target 2</td>
+<td></td>
+<td>A restaurant that allows you to live the life you choose</td>
+</tr>
+<tr>
+<td><strong>Drivers of Targets</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Commitment</td>
+<td>Target 1</td>
+<td>Showing commitment to people</td>
+</tr>
+<tr>
+<td>Update</td>
+<td></td>
+<td>Continuously updating restaurant</td>
+</tr>
+<tr>
+<td>Dedication</td>
+<td></td>
+<td>Sincerely acting in your interest</td>
+</tr>
+<tr>
+<td>Discovering better ways</td>
+<td></td>
+<td>Discovering better ways to win favor with you</td>
+</tr>
+<tr>
+<td>Fulfill expectation</td>
+<td></td>
+<td>Focus on fulfilling guest&rsquo;s expectations</td>
+</tr>
+<tr>
+<td>Comfort/relax</td>
+<td></td>
+<td>Delivering the resources to enable you to feel comfortable and relax</td>
+</tr>
+<tr>
+<td>Guest complaint</td>
+<td>Target 2</td>
+<td>Taking into consideration guest complaints</td>
+</tr>
+<tr>
+<td>Changing needs</td>
+<td></td>
+<td>Continuously staying relevant by understanding changing customer needs</td>
+</tr>
+<tr>
+<td>Consumer health</td>
+<td></td>
+<td>Focus on consumer health</td>
+</tr>
+<tr>
+<td>Menu by norms</td>
+<td></td>
+<td>Modifying menu items driven by regulatory norms</td>
+</tr>
+<tr>
+<td>Various segments</td>
+<td></td>
+<td>Work for various customer segments</td>
+</tr>
+<tr>
+<td>New mind-set</td>
+<td></td>
+<td>Understanding the new consumer mind-set</td>
+</tr>
+<tr>
+<td><strong>Items of Drivers</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Service1</td>
+<td>Service</td>
+<td>Gives polite and prompt answers/advice to my questions</td>
+</tr>
+<tr>
+<td>Service2</td>
+<td></td>
+<td>Use state-of-the-art technology (waiters enter order digital system, POS, online payment etc.)</td>
+</tr>
+<tr>
+<td>Service3</td>
+<td></td>
+<td>Bring an order quickly and properly</td>
+</tr>
+<tr>
+<td>Food1</td>
+<td>Food</td>
+<td>Serving food</td>
+</tr>
+<tr>
+<td>Food2</td>
+<td></td>
+<td>Taste of food</td>
+</tr>
+<tr>
+<td>Food3</td>
+<td></td>
+<td>The variety of menu</td>
+</tr>
+<tr>
+<td>Food4</td>
+<td></td>
+<td>The quality of food</td>
+</tr>
+<tr>
+<td>Delivery1</td>
+<td>Delivery</td>
+<td>Preciseness</td>
+</tr>
+<tr>
+<td>Delivery2</td>
+<td></td>
+<td>Timing</td>
+</tr>
+<tr>
+<td>Delivery3</td>
+<td></td>
+<td>Quality of food</td>
+</tr>
+<tr>
+<td>Cleanliness1</td>
+<td>Cleanliness</td>
+<td>Cleanliness in the kitchen</td>
+</tr>
+<tr>
+<td>Cleanliness2</td>
+<td></td>
+<td>Cleanliness in the hall</td>
+</tr>
+<tr>
+<td>Cleanliness3</td>
+<td></td>
+<td>Cleanliness in the bathroom</td>
+</tr>
+</tbody>
+</table>
+<p>There are a total of 28 questions. Thirteen are about restaurant
+service, food, delivery, and cleanliness. For example <code>Service2</code>:
+clients are asked to evaluate their satisfaction with the usage of
+state-of-the-art technology (waiters enter order digital system, POS,
+online payment).</p>
+<p>We want to know how the variables relate to the satisfaction of clients
+at each level. In each step, the most important variable should be
+selected.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_excel</span>(<span style="color:#e6db74">&#34;Shapley_Data_Rest.xlsx&#34;</span>, sheet <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Data&#34;</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">dim</span>(df)
+</span></span></code></pre></div><pre><code>## [1] 500  28
+</code></pre>
+<p>There are 500 respondents who have answered 28 questions in the
+synthetic dataset. It can be seen that the ratings are highly
+correlated:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> <span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;The correlation between Target 1 and Target 2 is&#34;</span>, <span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">cor</span>(df[,<span style="color:#ae81ff">2</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>])[2],<span style="color:#ae81ff">3</span>))
+</span></span></code></pre></div><pre><code>## [1] &quot;The correlation between Target 1 and Target 2 is 0.859&quot;
+</code></pre>
+<p>There is high correlation between the effort of the restaurant to help
+the clients step up in life and its effort to provide the life their
+customers choose. The presence of a high correlation between the
+independent variables can produce erratic coefficients.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> corfun <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x){corr <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">cor</span>(x), <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">ggcorrplot</span>(corr, lab <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;circle&#34;</span>, lab_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>)}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> <span style="color:#a6e22e">corfun</span>(df[,<span style="color:#ae81ff">4</span><span style="color:#f92672">:</span><span style="color:#ae81ff">9</span>])
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><img src="../Shapley-value-regression/corplot1-1.png" alt=""></p>
+<p>The plot above shows the correlation between the drivers of target 1. It
+can be seen that the Pearson correlation coefficients for all pairs are
+more than 0.73. The highest correlation is between the variables
+<code>Dedication</code> (the restaurant is sincerely acting in your interest) and
+<code>Comfort/relax</code> (restaurant provides the resources to enable you to feel
+comfortable and relaxed).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> <span style="color:#a6e22e">corfun</span>(df[,<span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">15</span>])
+</span></span></code></pre></div><p><img src="../Shapley-value-regression/corplot2-1.png" alt=""></p>
+<p>The plot above shows the correlation between the drivers of target 2.
+Similarly, there are high correlations between all pairs of variables.
+The highest correlation is between the variables <code>Menu by norms</code>
+(restaurant modifies menu items driven by regulatory norms) and
+<code>Various segments</code> (restaurant works for various customer segments).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> <span style="color:#a6e22e">corfun</span>(df[,<span style="color:#ae81ff">16</span><span style="color:#f92672">:</span><span style="color:#ae81ff">28</span>])
+</span></span></code></pre></div><p><img src="../Shapley-value-regression/corplot3-1.png" alt=""></p>
+<p>Finally, for the last level, the correlation between the items of
+drivers is considered. As can be expected, there is high correlation in
+each group of items. The highest correlation is between the cleanliness
+in the hall and bathroom, followed by the strong correlation between the
+taste of food and quality of food, and between the taste of food and the
+variety of the menu.</p>
+<p>We are going to study Shapley value to detect how it can be used to
+avoid multicollinearity and detecting the key driver for the restaurant
+industry.</p>
+<h2 id="shapley-value-regression">Shapley value regression</h2>
+<p>Shapley Value Regression is based on the thesis and post-doctoral work
+of an American mathematician and a Nobel Prize-winning economist <a href="https://en.wikipedia.org/wiki/Lloyd_Shapley">Lloyd
+Shapley</a> (1953). The
+Shapley value is a central solution concept in cooperative game theory.
+In order to assess the player&rsquo;s contribution in a game, each individual
+player has its own assigned value. The Shapley value associated with
+each player in each game has a unique payoff - his &lsquo;value&rsquo; (expected
+marginal contribution to a random coalition). The application of this
+value in regression analysis is quite intuitive: thisS approach
+evaluates the contribution of each regressor variables to the model.
+When fitting the multiple linear regression model, the obtained $R^2$
+does not show the effect of each variable in explaining the depending
+variable (in the cooperative game). To distinguish the contribution made
+by the individual member of the game, the Shapley value decomposition
+should be used. The share of the regressor variable $x_i$ for a given
+set of $k$ predictor variables is given by the following formula:</p>
+<p>$$ S({x_i}) = \frac{1}{k} * \sum_{r=1}^{k} * \frac{ \sum_{c=1}^{l} (R^2_{i,r}-R^2_{j,r-1})}{l} $$</p>
+<p>where</p>
+<ul>
+<li>$k$ is the number of regressor variables in the multiple linear
+regression model</li>
+<li>$R^2_{(i,r)}$ obtained from the model where the regressors are an
+r-membered subset of all possible regressors with $i^{th}$ variable</li>
+<li>$R^2_{(j,r-1)}$ obtained from the model where the regressors are an
+r-membered subset of all possible regressors without $i^{th}$
+variable.</li>
+</ul>
+<p>Suppose we have 3 variables, and we want to obtain Shapley value for the
+variable $x_1$. We will have the eight possibilities to fit a linear
+regression with these 3 variables: <code>0</code>, <code>x1</code>, <code>x2</code>, <code>x3</code>, <code>x1 x2</code>,
+<code>x1 x3</code>, <code>x2 x3</code>, <code>x1 x2 x3</code>. In this case $i=1$, because the
+computation is done for $x_1$, $r=3$ and, thus, $r-1=2$, $k=3$ is the
+number of cases of possible models, $l$ is the number of models in each
+case:</p>
+<p><img src="../Shapley-value-regression/Shap1.PNG" alt=""></p>
+<!-- raw HTML omitted -->
+<p>The weights of the regressions are based on the number of possible
+models. We will have</p>
+<ul>
+<li>2 regressions where $x_1$ is used with one other explanatory
+variable: <code>(x1, x2); (x1, x3)</code></li>
+<li>1 regression where $x_1$ is used alone <code>(x1)</code></li>
+<li>1 regression where $x_1$ is used with two other variables
+<code>(x1,x2,x3)</code></li>
+</ul>
+<p>Thus we will have the following weighted Shapley value for the variable
+$x_1$:</p>
+<p>$$ SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3}) $$</p>
+<!-- raw HTML omitted -->
+<p>In order to evaluate the key drivers of restaurant industries, we will
+use the regression described above.</p>
+<h2 id="implementing-in-r">Implementing in R</h2>
+<h2 id="level-1">Level 1</h2>
+<p>For the first level, we need to evaluate how the variables <code>Target 1</code> (a
+restaurant that enables you to step up in life) and <code>Target 2</code> (a
+restaurant that allows you to live the life you choose) explain the
+overall satisfaction of the customer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> <span style="color:#a6e22e">colnames</span>(df)[2] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;Target1&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">colnames</span>(df)[3] <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;Target2&#34;</span>
+</span></span><span style="display:flex;"><span> reglev1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Satisfaction <span style="color:#f92672">~</span> Target1 <span style="color:#f92672">+</span> Target2, data <span style="color:#f92672">=</span> df)
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">summary</span>(reglev1)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<pre><code>## 
+## Call:
+## lm(formula = Satisfaction ~ Target1 + Target2, data = df)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.2795 -0.7771  0.0047  0.8526  7.0956 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  2.18626    0.23658   9.241  &lt; 2e-16 ***
+## Target1      0.50239    0.06295   7.981 1.01e-14 ***
+## Target2      0.21578    0.06381   3.381 0.000778 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.488 on 497 degrees of freedom
+## Multiple R-squared:  0.4831, Adjusted R-squared:  0.481 
+## F-statistic: 232.2 on 2 and 497 DF,  p-value: &lt; 2.2e-16
+</code></pre>
+<!-- raw HTML omitted -->
+<p>The implemented regression shows that both variables are statistically
+significant. And based on estimated coefficients the variable <code>Target 1</code>
+is more important. However, we cannot see the relative importance of
+each variable by just looking at the summary of linear regression
+models. So, the Shapley Values will be used, for both coefficients
+separately, to identify the most important driver of clients&rsquo; overall
+satisfaction at the first level.</p>
+<p>Creating a universal function for Shapley value calculation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>shap <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(formula, var){
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">str_split</span>(<span style="color:#a6e22e">paste</span>(formula)[3], 
+</span></span><span style="display:flex;"><span>pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\\s\\+&#34;</span>, simplify <span style="color:#f92672">=</span> T))<span style="color:#f92672">!=</span><span style="color:#ae81ff">1</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(data<span style="color:#f92672">=</span>df, formula))<span style="color:#f92672">$</span>r.squared <span style="color:#f92672">-</span> 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(data<span style="color:#f92672">=</span>df, <span style="color:#a6e22e">as.formula</span>(
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">gsub</span>(<span style="color:#a6e22e">paste0</span>(<span style="color:#a6e22e">paste</span>(formula)[2], <span style="color:#a6e22e">paste</span>(formula)[1],
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">paste</span>(formula)[3]),pattern <span style="color:#f92672">=</span> <span style="color:#a6e22e">paste0</span>(<span style="color:#e6db74">&#34;\\+&#34;</span>, var),
+</span></span><span style="display:flex;"><span> replacement <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>))))<span style="color:#f92672">$</span>r.squared, 
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">summary</span>(<span style="color:#a6e22e">lm</span>(data<span style="color:#f92672">=</span>df, formula ))<span style="color:#f92672">$</span>r.squared <span style="color:#f92672">-</span> <span style="color:#a6e22e">summary</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lm</span>(data<span style="color:#f92672">=</span>df, <span style="color:#a6e22e">as.formula</span>(<span style="color:#a6e22e">paste0</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">paste</span>(formula)[2],<span style="color:#a6e22e">paste</span>(formula)[1],<span style="color:#ae81ff">1</span>))))<span style="color:#f92672">$</span>r.squared)}
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>We need to calculate the Shapley value for each independent
+variable using the functions above:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>(ShapValT1 <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">shap</span>(
+</span></span><span style="display:flex;"><span> formula <span style="color:#f92672">=</span> Satisfaction <span style="color:#f92672">~</span> <span style="color:#f92672">+</span>Target1<span style="color:#f92672">+</span>Target2, var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Target1&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">shap</span>(formula <span style="color:#f92672">=</span> Satisfaction <span style="color:#f92672">~</span> <span style="color:#f92672">+</span>Target1, 
+</span></span><span style="display:flex;"><span>      var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Target1&#34;</span>))
+</span></span></code></pre></div><pre><code>## [1] 0.2687259
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>(ShapValT2 <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">shap</span>(
+</span></span><span style="display:flex;"><span> formula <span style="color:#f92672">=</span> Satisfaction <span style="color:#f92672">~</span> <span style="color:#f92672">+</span>Target1<span style="color:#f92672">+</span>Target2, var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Target2&#34;</span>) <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">shap</span>(formula <span style="color:#f92672">=</span> Satisfaction <span style="color:#f92672">~</span> <span style="color:#f92672">+</span>Target2, 
+</span></span><span style="display:flex;"><span>      var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Target2&#34;</span>))
+</span></span></code></pre></div><pre><code>## [1] 0.2084265
+</code></pre>
+<p>Finally, calculated values are re-based so that they add up to 1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>shaplev1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(
+</span></span><span style="display:flex;"><span>    ShapValT1 <span style="color:#f92672">=</span> ShapValT1<span style="color:#f92672">/</span>(ShapValT1<span style="color:#f92672">+</span>ShapValT2), 
+</span></span><span style="display:flex;"><span>    ShapValT2 <span style="color:#f92672">=</span> ShapValT2<span style="color:#f92672">/</span>(ShapValT1<span style="color:#f92672">+</span>ShapValT2))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">kable</span>(<span style="color:#a6e22e">t</span>(shaplev1)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">kable_styling</span>(bootstrap_options <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;striped&#34;</span>, full_width <span style="color:#f92672">=</span> F)
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th>ShapValT1</th>
+<th>0.5631867</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ShapValT2</td>
+<td>0.4368133</td>
+</tr>
+</tbody>
+</table>
+<p>It can be seen that <code>Target 1</code> is the most important at 0.56. In other
+words, the overall satisfaction of the customer is mostly described by
+the ability of the restaurant to help clients step up in life. We can
+decompose the regression and find out what the r-squared is made of and
+have a similar result by using the function <code>calc.relimp</code> from the
+package <code>relaimpo</code>. The package provides the relative importance metric
+<code>lmg</code> introduced by Lindemann, Merenda, and Gold.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> <span style="color:#a6e22e">library</span>(relaimpo)
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">calc.relimp</span>(reglev1, type <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lmg&#34;</span>), 
+</span></span><span style="display:flex;"><span>    rela <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, rank <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)
+</span></span></code></pre></div><pre><code>## Response variable: Satisfaction 
+## Total response variance: 4.26796 
+## Analysis based on 500 observations 
+## 
+## 2 Regressors: 
+## Target1 Target2 
+## Proportion of variance explained by model: 48.31%
+## Metrics are normalized to sum to 100% (rela=TRUE). 
+## 
+## Relative importance metrics: 
+## 
+##               lmg
+## Target1 0.5562547
+## Target2 0.4437453
+## 
+## Average coefficients for different model sizes: 
+## 
+##                1X       2Xs
+## Target1 0.6853051 0.5023914
+## Target2 0.6533959 0.2157771
+</code></pre>
+<p>It can be seen from the table <code>Relative importance metrics:</code> that,
+although, the <code>lmg</code> value slightly differs from the above calculated
+one, the conclusion is the same.</p>
+<h2 id="level-2">Level 2</h2>
+<p>To indicate the most important explanatory variable/s for <code>Target 1</code> and
+<code>Target 2</code> the drivers of these variables will now be studied. Now, the
+variable <code>Target 1</code> and <code>Target 2</code> are dependent on their drivers of the
+target correspondingly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> reglev2t1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Target1 <span style="color:#f92672">~</span> td1_1 <span style="color:#f92672">+</span> td1_2 <span style="color:#f92672">+</span> td1_3 <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>        td1_4 <span style="color:#f92672">+</span> td1_5 <span style="color:#f92672">+</span> td1_6, data <span style="color:#f92672">=</span> df)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> reglev2t2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Target2 <span style="color:#f92672">~</span> td2_1 <span style="color:#f92672">+</span> td2_2 <span style="color:#f92672">+</span> td2_3 <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>        td2_4 <span style="color:#f92672">+</span> td2_5 <span style="color:#f92672">+</span> td2_6, data <span style="color:#f92672">=</span> df)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> shaplev2t1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">calc.relimp</span>(reglev2t1, type <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lmg&#34;</span>), 
+</span></span><span style="display:flex;"><span>              rela <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, rank <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)<span style="color:#f92672">$</span>lmg
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> shaplev2t2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">calc.relimp</span>(reglev2t2, type <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lmg&#34;</span>), 
+</span></span><span style="display:flex;"><span>              rela <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, rank <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)<span style="color:#f92672">$</span>lmg
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span> shaplev2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">cbind</span>(<span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Commitment&#34;</span>, <span style="color:#e6db74">&#34;Update&#34;</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Dedication&#34;</span>, <span style="color:#e6db74">&#34;Discovering better ways&#34;</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Fulfill expectation&#34;</span>, <span style="color:#e6db74">&#34;Comfort/relax&#34;</span>), 
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">as.numeric</span>(shaplev2t1),<span style="color:#ae81ff">2</span>), <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Guest complaint&#34;</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Changing needs&#34;</span>, <span style="color:#e6db74">&#34;Consumer health&#34;</span>, <span style="color:#e6db74">&#34;Menu by norms&#34;</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Various segments&#34;</span>, <span style="color:#e6db74">&#34;New mind-set&#34;</span>), 
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">round</span>(<span style="color:#a6e22e">as.numeric</span>(shaplev2t2),<span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">colnames</span>(shaplev2) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Var T1&#34;</span>, <span style="color:#e6db74">&#34;Target1&#34;</span>, 
+</span></span><span style="display:flex;"><span>                              <span style="color:#e6db74">&#34;Var T2&#34;</span>, <span style="color:#e6db74">&#34;Target2&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>shaplev2 <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">rownames_to_column</span>(<span style="color:#e6db74">&#39;shap&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mutate</span>(Target1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightpink&#34;</span>)(Target1),
+</span></span><span style="display:flex;"><span>      Target2 <span style="color:#f92672">=</span> <span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;khaki1&#34;</span>)(Target2)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">column_to_rownames</span>(<span style="color:#e6db74">&#39;shap&#39;</span>) <span style="color:#f92672">%&gt;%</span>    
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">kable</span>(escape <span style="color:#f92672">=</span> F, booktabs <span style="color:#f92672">=</span> T) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">kable_styling</span>( full_width <span style="color:#f92672">=</span> F, font_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>)
+</span></span></code></pre></div><p>In the case of Target 1, the focus of the restaurant on discovering
+better ways to win favor with its clients is the most important key
+driver for the target variable. For Target 2 (a restaurant that allows
+you to live the life you choose) the most two important variables are
+the focus of the restaurant on consumer health (actually, the score for
+<code>Consumer health</code> is 0.1899209, the score for <code>Menu by norms</code> is
+0.1895162).</p>
+<p><img src="../Shapley-value-regression/Shap2.PNG" alt=""></p>
+<h2 id="level-3">Level 3</h2>
+<p>And finally, we will attempt to reveal the most important variable for
+each driver of targets. The result from package <code>relaimpo</code> is in the
+table below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span> shaplev3 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">sapply</span>(<span style="color:#a6e22e">colnames</span>(df[<span style="color:#f92672">-</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">16</span><span style="color:#f92672">:</span><span style="color:#ae81ff">28</span>)]),
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">function</span>(x){form <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.formula</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">paste0</span>(x,<span style="color:#e6db74">&#34;~Service1 + Service2 + Service3 + Food1 + 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Food2 + Food3 + Food4 + Delivery1 + Delivery2 + 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Delivery3 + Cleanliness1 + Cleanliness2 + Cleanliness3&#34;</span>))
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>  reglev3  <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(form, data <span style="color:#f92672">=</span> df)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">calc.relimp</span>(reglev3 , type <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;lmg&#34;</span>), 
+</span></span><span style="display:flex;"><span>              rela <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, rank <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>)<span style="color:#f92672">$</span>lmg})
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  cn <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">colnames</span>(shaplev3)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">rownames</span>(shaplev3) <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Politeness&#34;</span>, <span style="color:#e6db74">&#34;Technology&#34;</span>, 
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Proper order&#34;</span>,<span style="color:#e6db74">&#34;Food serving&#34;</span>, <span style="color:#e6db74">&#34;Food taste&#34;</span>, 
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Food variety&#34;</span>,<span style="color:#e6db74">&#34;Food quality&#34;</span>, <span style="color:#e6db74">&#34;Delivery accuracy&#34;</span>, 
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Delivery timing&#34;</span>, <span style="color:#e6db74">&#34;Delivery food quality&#34;</span>, 
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Clean kitchen&#34;</span>, <span style="color:#e6db74">&#34;Clean hall&#34;</span>, <span style="color:#e6db74">&#34;Clean bathroom&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">data.frame</span>(<span style="color:#a6e22e">round</span>(shaplev3,<span style="color:#ae81ff">2</span>)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">rownames_to_column</span>(<span style="color:#e6db74">&#39;shap&#39;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mutate</span>(
+</span></span><span style="display:flex;"><span>      td1_1 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightgreen&#34;</span>)(td1_1), 
+</span></span><span style="display:flex;"><span>      td1_2 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightgreen&#34;</span>)(td1_2),
+</span></span><span style="display:flex;"><span>      td1_3 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightgreen&#34;</span>)(td1_3), 
+</span></span><span style="display:flex;"><span>      td1_4 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightgreen&#34;</span>)(td1_4),
+</span></span><span style="display:flex;"><span>      td1_5 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightgreen&#34;</span>)(td1_5), 
+</span></span><span style="display:flex;"><span>      td1_6 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightgreen&#34;</span>)(td2_6),
+</span></span><span style="display:flex;"><span>      td2_1 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightblue&#34;</span>)(td2_1), 
+</span></span><span style="display:flex;"><span>      td2_2 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightblue&#34;</span>)(td2_2),
+</span></span><span style="display:flex;"><span>      td2_3 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightblue&#34;</span>)(td2_3), 
+</span></span><span style="display:flex;"><span>      td2_4 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightblue&#34;</span>)(td2_4),
+</span></span><span style="display:flex;"><span>      td2_5 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightblue&#34;</span>)(td2_5), 
+</span></span><span style="display:flex;"><span>      td2_6 <span style="color:#f92672">=</span><span style="color:#a6e22e">color_tile</span>(<span style="color:#e6db74">&#34;white&#34;</span>,<span style="color:#e6db74">&#34;lightblue&#34;</span>)(td2_6)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">column_to_rownames</span>(<span style="color:#e6db74">&#39;shap&#39;</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">rename</span>(<span style="color:#e6db74">&#34;Commitment&#34;</span> <span style="color:#f92672">=</span> cn[1], <span style="color:#e6db74">&#34;Update&#34;</span> <span style="color:#f92672">=</span> cn[2], 
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Dedication&#34;</span> <span style="color:#f92672">=</span> cn[3], <span style="color:#e6db74">&#34;Discovering better ways&#34;</span> <span style="color:#f92672">=</span> cn[4],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Fulfill expectation&#34;</span> <span style="color:#f92672">=</span> cn[5], <span style="color:#e6db74">&#34;Comfort/relax&#34;</span> <span style="color:#f92672">=</span> cn[6], 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Guest complaint&#34;</span> <span style="color:#f92672">=</span> cn[7], <span style="color:#e6db74">&#34;Changing needs&#34;</span> <span style="color:#f92672">=</span> cn[8],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Consumer health&#34;</span> <span style="color:#f92672">=</span> cn[9], <span style="color:#e6db74">&#34;Menu by norms&#34;</span> <span style="color:#f92672">=</span> cn[10], 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Various segments&#34;</span> <span style="color:#f92672">=</span> cn[11], <span style="color:#e6db74">&#34;New mind-set&#34;</span> <span style="color:#f92672">=</span> cn[12]) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">kable</span>(escape <span style="color:#f92672">=</span> F, booktabs <span style="color:#f92672">=</span> T) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">kable_styling</span>( full_width <span style="color:#f92672">=</span> F, font_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">row_spec</span>(<span style="color:#ae81ff">0</span>, bold <span style="color:#f92672">=</span> T, font_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>)
+</span></span></code></pre></div><p><img src="../Shapley-value-regression/Shap3.PNG" alt=""></p>
+<p>It seems that <em>politeness</em> of staff is <em>the most important</em> item for all
+drivers (for both targets). In other words, the satisfaction of clients
+with the staff attitude toward customers has the biggest impact and
+makes up to approximately 20% of their argument in your favor. For
+almost all drivers the <em>quality of food</em> is the <em>second</em> key item in
+terms of importance. The <em>cleanliness in the kitchen</em> is the <em>third</em>
+dominant item for drivers like continuously updating restaurants, acting
+in the interest of the customer, fulfilling their expectations and
+paying attention to consumer health. For the following drivers:
+discovering better ways to win favor with the customer, working for
+various customer segments <em>the quality of delivery food</em> is the <em>third</em>
+important variable. And finally, the <em>accuracy of delivery</em> is important
+in the positive assessment of such drivers as delivering the resources
+to enable clients to feel comfortable and relax, taking into
+consideration guest complaints, understanding the changing needs and a
+new mindset of customer and paying attention to consumer health.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Shapley Value Regression is widely used in ranked customer responses,
+because of multicollinearity. In order to understand the key drivers of
+successful restaurant business the Shapley Value, which shows the
+relative importance of predictors, can be used. The idea of Shapley
+value regression is in the changes in $R^2$ when the chosen predictor is
+removed from the model. So for each regressor, all possible subsets of
+the remaining predictors are used to evaluate the regression and the
+explanatory variable with the highest additional contribution will be
+the most important prediction.</p>
+<p>Shapley value assigns relative ranking for each predictor by showing the
+dominance of explanatory variables: from the Shapley values regression,
+we can conclude that the variable about the ability of restaurant assist
+its customers in stepping up in life is the most important in describing
+their overall satisfaction. In the second stage analysis, the dominant
+variable became the effort of the restaurant to discover better ways to
+win favor with clients (for <code>Target 1</code>) and paying attention to
+consumer&rsquo;s health is most important for <code>Target 2</code>. Finally, the third
+level shows that for this task the politeness of staff mostly impacts
+gaining a positive attitude of customers toward the restaurant.</p>
+<p>For other types of models (for example generalized linear models:
+logistic, Poisson regression, etc.) calculation of $R^2$ is not
+appropriate and the approach of using pseudo-$R^2$ or other approached
+to calculate the relative weights (see
+<a href="https://www.r-bloggers.com/4-reasons-to-compute-importance-using-relative-weights-rather-than-shapley-regression/">here</a>)
+will be applied. Also, for the future work adjusted $R^2$ (as number of
+regressors in different models is different) instead of $R^2$ can be
+considered.</p>
+<h2 id="reference-list">Reference List</h2>
+<blockquote>
+<p>Mishra, S.K. (2016) &ldquo;Shapley value regression and the resolution of
+multicollinearity&rdquo;, MPRA, (72116). Available at:
+<a href="https://mpra.ub.uni-muenchen.de/72116/">https://mpra.ub.uni-muenchen.de/72116/</a>.</p>
+</blockquote>
+<blockquote>
+<p>Lipovetsky, S. (2006) &ldquo;Entropy Criterion In Logistic Regression And Shapley Value Of
+Predictors&rdquo;, Journal of modern applied statistical methods: JMASM</p>
+</blockquote>
+<blockquote>
+<p>Hart S. (1989) Shapley Value. In: Eatwell J., Milgate M., Newman P.
+(eds) Game Theory. The New Palgrave. Palgrave Macmillan, London</p>
+</blockquote>
+
+      </article>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr />
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+        
+          <div class="blog-tags">
+            
+              <a href="https://merry-lily-bf54d6.netlify.app//tags/shapley-value/">shapley value</a>
+            
+              <a href="https://merry-lily-bf54d6.netlify.app//tags/multicollinearity/">multicollinearity</a>
+            
+              <a href="https://merry-lily-bf54d6.netlify.app//tags/relative-importance/">relative importance</a>
+            
+              <a href="https://merry-lily-bf54d6.netlify.app//tags/r-programming/">R programming</a>
+            
+          </div>
+        
+      </div>
+ 
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+    </div>
+
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-md-2 "> 
+            <div class="card-body ">
+            <img src="/img/bino-about-small.jpg" class="img-responsive img-50 img-round" alt="">
+          </div>
+          </div>
+          <div class="col-md-10">
+            <div class="card-body p-1.1">
+
+              <p class="p-0 m-0"><small class="text-muted ">Written By</small></p>
+              <h5>
+                
+                
+                
+                
+                
+              </h5>
+              <p class="card-text fs-1"></p>
+            </div>
+          </div>
+        </div>
+
+      
+    </div>
+  </div>
+
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+        
+        <ul class="list-group list-group-horizontal" style="flex-direction: row">
+          
+          <li class="list-group-item b-0">
+
+            <a type="button" class="btn btn-dark" role="button" href="https://merry-lily-bf54d6.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution/"
+              data-toggle="tooltip" data-placement="top" title="Changes in air pollution">&larr;
+              Previous Post</a>
+          </li>
+          
+
+
+          
+          <li class="list-group-item ms-auto b-0">
+            <a type="button" class="btn btn-dark" role="button" href="https://merry-lily-bf54d6.netlify.app/notes/2020/2019-10-30-weighted-least-squares/"
+              data-toggle="tooltip" data-placement="top" title="Weighted-Least-Square">Next Post
+              &rarr;</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4"> 
+      </div>
+    </div>
+  </div>
+
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 mt-3">
+          <h3>Read more</h3>
+          <hr />
+        </div>
+
+        
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+</div>
+
+    
+  </body>
+</html>
+

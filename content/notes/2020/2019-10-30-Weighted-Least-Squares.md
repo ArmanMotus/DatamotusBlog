@@ -36,21 +36,22 @@ important advertising is. Let us review the artificially generated
 [data](../Weighted_Least_Squares_details/website.csv). The
 summary of the dataset is presented below.
 
-``` R
+```r
 web <- as.data.frame(read.csv("website.csv"))
 options(knitr.kable.NA = '')
 kable(summary(web), digits=2)%>%
  kable_styling(bootstrap_options = "striped", 
    full_width = F)
 ```
-|       | Company         | Budget   | Visits | AdType              |
-|-------|-----------------|----------|--------|---------------------|
-|       | Min. : 1.0      | Min. : 50.0    | Min. :3695    | Direct Mail :213    |
-|       | 1st Qu.: 250.8  | 1st Qu.: 299.8 | 1st Qu.:4228 | Outdoor Ads :199    |
-|       | Median : 500.5  | Median : 549.5 | Median :4460 | Radio and Podcasts:197 |
-|       | Mean : 500.5    | Mean : 549.5   | Mean :4554   | Social Media Ads :187 |
-|       | 3rd Qu.: 750.2  | 3rd Qu.: 799.2 | 3rd Qu.:4799 | Video Ads :204      |
-|       | Max. :1000.0    | Max. :1049.0   | Max. :6060   |                     |
+
+| Company         | Budget   | Visits | AdType              |
+|-----------------|----------|--------|---------------------|
+| Min. : 1.0      | Min. : 50.0    | Min. :3695    | Direct Mail :213    |
+| 1st Qu.: 250.8  | 1st Qu.: 299.8 | 1st Qu.:4228 | Outdoor Ads :199    |
+| Median : 500.5  | Median : 549.5 | Median :4460 | Radio and Podcasts:197 |
+| Mean : 500.5    | Mean : 549.5   | Mean :4554   | Social Media Ads :187 |
+| 3rd Qu.: 750.2  | 3rd Qu.: 799.2 | 3rd Qu.:4799 | Video Ads :204      |
+| Max. :1000.0    | Max. :1049.0   | Max. :6060   |                     |
 
 
 The data consists of 4 variables and 1000 observations without any
@@ -79,16 +80,15 @@ role.
 To understand the effect of advertising let us consider the following
 multiple linear regression model:
 
-
-![Equation](../Weighted_Least_Squares_details/equation1.svg)
-
+$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$
 
 The result of fitted linear regression is presented in the output below:
 
-```R
+``` r
 model <- lm(Visits ~ Budget + AdType, data = web)
 ```
-```bash
+
+```   
     ## 
     ## Results
     ## ===============================================
@@ -129,7 +129,7 @@ variable `AdType` are not significant, because there is no effect on the
 response variable `Visits`. However, the coefficient for the variable
 `Budget` is statistically significant and positive (see the graph). So,
 the multiple regression analysis shows that with the increase in the
-amount of money spent on advertising by \$$100 the number of visitors
+amount of money spent on advertising by \$100 the number of visitors
 will increase by, on average, 102. Thus, the number of visitors can be
 predicted based on the ad budget.
 
@@ -150,9 +150,9 @@ assumption, however, is clearly violated in most of the models resulting
 in heteroscedasticity. Mathematically, homoscedasticity and
 heteroscedasticity may be defined as:
 
--   **Homoscedasticity:** $$\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$$
+-   **Homoscedasticity:** $\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$
     the same for all observations
--   **Heteroscedasticity:** $$\sigma_{\epsilon_i}^2$$ is not the same for
+-   **Heteroscedasticity:** $\sigma_{\epsilon_i}^2$ is not the same for
     all observations.
 
 See the visual demonstration of homoscedasticity and heteroscedasticity
@@ -161,11 +161,11 @@ below:
 ![](../Weighted_Least_Squares_details/HHSKED.png)
 
 The left picture illustrates homoscedasticity. Let us start with the
-first observation, where $$X$$ has the value of $$X_1$$ . If there was no
+first observation, where $X$ has the value of $X_1$ . If there was no
 disturbance term in the model, the observation would be represented by
-the circle lied on line $$Y = \beta_1+\beta_2X$$ The effect of the
+the circle lied on line $Y = \beta_1+\beta_2X$. The effect of the
 disturbance term is to shift the observation upwards or downwards
-vertically $$\text{downwards in case of} \quad {X_1}$$ The potential distribution of
+vertically (downwards in case of $X_1$). The potential distribution of
 the disturbance term, before the observation was generated, is shown by
 the normal distribution.
 
@@ -198,7 +198,7 @@ Heteroscedasticity is more likely to occur, for example, when
     families will be small. But for families with large incomes, the
     amount of discretionary income will be higher.
 -   The model is misspecified (using response instead of the log of
-    response or instead of \(X^2\) using \(X\) etc). Important variables may be
+    response or instead of X\^2 using X etc). Important variables may be
     omitted from the model.
 
 Why does heteroscedasticity matter? As a matter of fact, the evidence
@@ -211,9 +211,7 @@ Nevertheless, two concerns are raised:
 -   *The variances of the regression coefficients*: if there is no
     heteroscedasticity, the OLS regression coefficients have the lowest
     variances of all the unbiased estimators that are linear functions
-    of the observations of 
-                            $$Y$$
-    If heteroscedasticity is present, the
+    of the observations of $Y$. If heteroscedasticity is present, the
     OLS estimators are inefficient because it is possible to find other
     estimators that have smaller variances and are still unbiased.
 
@@ -246,7 +244,7 @@ simple technique to detect heteroscedasticity, which is looking at the
 residual plot of our model. We can diagnose the heteroscedasticity by
 plotting the residual against the predicted response variable.
 
-```R
+```r
 library(ggResidpanel)
 resid_auxpanel(residuals = resid(model), 
                predicted = fitted(model), 
@@ -274,54 +272,34 @@ giving equal weight to each, irrespective of whether they are good or
 poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
-better fit. In other words, our estimators of $$\beta_1 \quad \beta_2$$
-
+better fit. In other words, our estimators of $\beta_1$ and $\beta_2$
 will be more efficient. WLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
-relationship is
-
-$$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$
-
-                                  and
-
-\\[var(\epsilon_i) = \sigma_{\epsilon_i}^2 \\]
+relationship is $Y_i = \beta_1+\beta_2X_i + \epsilon_i$ and
+$[var(\epsilon_i) = \sigma_{\epsilon_i}^2 ]$.
 
 So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
-$$\sigma_{\epsilon_i}$$. The model becomes\$$
-\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
-$$
+$\sigma_{\epsilon_i}$. The model becomes $$\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
 
-The disturbance term $$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$ is
+The disturbance term $\frac{\epsilon_i}{\sigma_{\epsilon_i}}$ is
 homoscedastic because\$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1 $$
 
 Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
-homoscedastic. By rewriting the model, we will have
+homoscedastic. By rewriting the model, we will have $Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i'$
+where: $$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}, \quad h_i=\frac{1}{\sigma_{\epsilon_i}}, \quad X_i'=\frac{X_i}{\sigma_{\epsilon_i}}, \quad \epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
 
-$$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$$
 
-where $$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}, \quad h_i=\frac{1}{\sigma_{\epsilon_i}}, \quad X_i'=\frac{X_i}{\sigma_{\epsilon_i}}, \quad \epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
 
 **Note** that there should not be a constant term in the equation. By
-regressing 
-
-$$Y' \quad \text{on} \quad h \quad \text{and}  \quad X'$$
-
-we will obtain efficient estimates of
-
-$$\beta_1 \quad \text{and} \quad \beta_2$$
-
-with unbiased standard errors. The general
+regressing $Y'$ on $h$ and $X'$, we will obtain efficient estimates of
+$\beta_1$ and $\beta_2$ with unbiased standard errors. The general
 solution to this is \$$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
 
-$$\text{where} \quad W$$ 
-
-is the diagonal martrix with diagonal entries equal to weights
-and 
-
-$$Var(\epsilon)=W^{-1}\sigma^2$$.
+where $W$ is the diagonal martrix with diagonal entries equal to weights
+and $Var(\epsilon)=W^{-1}\sigma^2$.
 
 In some cases, the values of the weights may be based on theory or prior
 research. In our model, the standard deviations tend to increase as the
@@ -331,35 +309,35 @@ weights are unknown, we can try different models and choose the best one
 based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:
 
-- $$\text{When the variance is proportional to some predictor}$$
-$$x_i \quad \text{then} \quad Var(y_i)=x_i\sigma^2$$ 
-$$\text{thus we set} \quad w_i = 1/x_i$$    
+-   When the variance is proportional to some predictor $x_i$, then
+    $Var(y_i)=x_i\sigma^2$ thus we set $w_i = 1/x_i$
 
--  $$\text{When the } i^{th} \text{ value of } y \text{ is} \\ \text{an average of } n_i \text{ observations, i.e., } \\\ var(y_i)=\frac{\sigma^2}{n_i},$$
-$$  \text{ we set } w_i=n_i, \\ \text{a scenario frequently encountered in} \\ \text{cluster surveys.}$$
+-   When the $i^{th}$ value of y is an average of $n_i$ observations
+    $var(y_i)=\frac{\sigma^2}{n_i}$, thus we set $w_i=n_i$ (this
+    situation often occurs in cluster surveys).
 
-
--   $$\text{When the } i^{th} \quad \text{value of y is a total of} {n_i} \text{observations}$$ $$\\\var(y_i)={\sigma^2}{n_i}, \text{thus we set } w_i=1/n_i$$.
-
+-   When the $i^{th}$ value of y is a total of $n_i$ observations
+    $var(y_i)={\sigma^2}{n_i}$, thus we set $w_i=1/n_i$.
 
 If the structure of weights is unknown, we have to perform a two-stage
 estimation procedure. We need to estimate an ordinary least squares
-regression to obtain the estimate of $${\sigma_i^2} \quad \text{ for } \quad i^{th}$$ squared
+regression to obtain the estimate of ${\sigma_i^2}$ for $i^{th}$ squared
 residual and the absolute value of standard deviation (in case of
 outliers). Thus, we can have different weights depending on
-$${\sigma_i^2}$$ Often the weights are determined by fitted values rather
+${\sigma_i^2}$. Often the weights are determined by fitted values rather
 than the independent variable. Let us show these different models via
 statistical package R. Fortunately, the R function `lm()` ,which is used
 to perform the ordinary least squares, provides the argument `weights`
 to perform WLS. By default the value of weights in `lm()` is `NULL`,
 weighted least squares are used with weights `weights`, minimizing the
-sum of $$w*e^2$$.
+sum of $w*e^2$.
 
 Suppose we do not know the pattern of weights, and we want to fit the
-models with the following weights 
+models with the following weights:
 $$w_i=\frac{1}{x_i} , w_i=\frac{1}{x_i^2}, w_i=\frac{1}{y_i^2}, w=\frac{1}{y_{hat}^2}, w_i=\frac{1}{\sigma_i^2}, w_i=\frac{1}{|\sigma_i|}$$
 
-``` R
+
+``` r
 wols1 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget)
 wols2 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget^2)
 wols3 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/fitted(model))
@@ -370,31 +348,39 @@ wols6 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/abs(resid(model)))
 
 The result of fitted models will be:
 
- ## WOLS Results
----------------------------------------------------------------------------------------------------------------------------
-Dependent variable: Visits
-                                                |    (1)         |    (2)         |    (3)         |    (4)         |    (5)         |    (6)         |    (7)     
-------------------------------------------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------
-Budget                                          | 1.017***       | 1.014***       | 1.018***       | 1.015***       | 1.014***       | 1.018***       | 1.014***  
-                                                | (0.032)        | (0.024)        | (0.022)        | (0.031)        | (0.031)        | (0.001)        | (0.008)   
-Ad Type: Outdoor Ads                            | 17.623         | 9.016          | 1.778          | 17.291         | 16.927         | 18.380***      | 16.810**  
-                                                | (28.957)       | (19.540)       | (10.354)       | (28.251)       | (27.531)       | (1.405)        | (8.426)   
-Ad Type: Radio and Podcasts                     | 31.784         | 15.184         | 1.457          | 30.884         | 29.894         | 31.647***      | 28.276***  
-                                                | (29.003)       | (19.823)       | (10.732)       | (28.302)       | (27.591)       | (1.562)        | (9.309)   
-Ad Type: Social Media Ads                       | -40.288        | -10.390        | -0.402         | -36.504        | -32.869        | -39.380***     | -36.515*** 
-                                                | (29.366)       | (19.315)       | (10.069)       | (28.470)       | (27.571)       | (1.498)        | (9.223)   
-Ad Type: Video Ads                              | -10.368        | 3.876          | 11.703         | -7.915         | -5.622         | -8.910***      | -8.182   
-                                                | (28.737)       | (20.532)       | (12.335)       | (27.977)       | (27.217)       | (1.597)        | (9.493)   
-Constant                                        | 3,995.437***   | 3,993.525***   | 3,992.827***   | 3,995.256***   | 3,995.106***   | 3,994.459***   | 3,996.948***
-                                                | (26.096)       | (14.600)       | (7.216)        | (24.978)       | (23.908)       | (1.388)        | (7.472)   
----------------|----------------|----------------|---------------|----------------|----------------|----------------|----------------
-Observations                                    | 1,000          | 1,000          | 1,000          | 1,000          | 1,000          | 1,000          | 1,000    
-R2                                              | 0.506          | 0.645          | 0.691          | 0.517          | 0.528          | 1.000          | 0.940    
-Adjusted R2                                     | 0.504          | 0.644          | 0.689          | 0.515          | 0.526          | 1.000          | 0.939    
-Residual Std. Error (df = 994)                  | 293.017        | 11.263         | 0.492          | 4.242          | 0.061          | 1.000          | 14.521   
-F Statistic (df = 5; 994)                       | 203.633***     | 361.792***     | 444.545***     | 213.209***     | 222.603***     | 585,907.100*** | 3,091.199***
----------------|----------------|----------------|---------------|----------------|----------------|----------------|----------------
-Note:                                           | *p<0.1;        | **p<0.05;      | ***p<0.01      |                |                |                |             
+    ## WOLS Results
+    ## =====================================================
+    ##                     Dependent variable: Visits          
+    ##             ----------------------------------------
+    ##               -      1/Budg  1/Budg^2  1/y    1/y^2  1/e^2  1/|e|    
+    ##             (1)      (2)      (3)      (4)    (5)    (6)    (7)     
+    ## -----------------------------------------------------
+    ## Budg     1.017* 1.014* 1.018* 1.015* 1.014* 1.018* 1.014*  
+    ##           (0.032)  (0.024)  (0.022)  (0.031)  (0.031)  (0.001)  (0.008)   
+    ##                                                                                
+    ## Outdoor   17.623   9.016    1.778   17.291   16.927 18.380*** 16.810**  
+    ##          (28.957) (19.540) (10.354) (28.251) (27.531)  (1.405)  (8.426)   
+    ##                                                                                
+    ## Radio     31.784  15.184    1.457   30.884   29.894 31.647* 28.276*  
+    ##          (29.003) (19.823) (10.732) (28.302) (27.591)  (1.562)  (9.309)   
+    ##                                                                                
+    ## Social   -40.288 -10.390   -0.402  -36.504  -32.869 -39.380*** -36.515* 
+    ##          (29.366) (19.315) (10.069) (28.470) (27.571)  (1.498)  (9.223)   
+    ##                                                                                
+    ## Video    -10.368   3.876   11.703   -7.915   -5.622 -8.910***  -8.182   
+    ##          (28.737) (20.532) (12.335) (27.977) (27.217)  (1.597)  (9.493)   
+    ##                                                                                
+    ## Const  3,995.437* 3,993.525* 3,992.827* 3,995.256* 3,995.106* 3,994.459* 3,996.948*
+    ##           (26.096)  (14.600)    (7.216)   (24.978)   (23.908)   (1.388)    (7.472)   
+    ##                                                                                
+    ## -----------------------------------------------------
+    ## Observ   1,000     1,000     1,000     1,000     1,000     1,000       1,000    
+    ## R2       0.506     0.645     0.691     0.517     0.528     1.000       0.940    
+    ## Adj R2   0.504     0.644     0.689     0.515     0.526     1.000       0.939    
+    ## Res SE  293.017   11.263     0.492     4.242     0.061     1.000       14.521   
+    ## F Stat  203.633*  361.792*  444.545*  213.209*  222.603*  585,907.100* 3,091.199*
+    ## =====================================================
+    ## Note: *p<0.1; **p<0.05; ***p<0.01
 
 
 Weighted least squares estimates of the coefficients will usually be
@@ -410,7 +396,7 @@ standard errors are presented by the model with
 However, as we know the pattern of weight allows to examine the residual
 plots for the first two weighted LS models.
 
-``` R
+```r
 resid_compare(models = list(wols1, wols2),
               plots = c("resid", "index"),
               title.opt = FALSE)
@@ -426,17 +412,17 @@ account the weights which change variance. The usual residuals fail to
 do this and will maintain the same non-constant variance pattern
 irrelevant to the weights used in the analysis.
 
-``` R
+```r
 # Weighted residuals by corresponding weight
-resid_auxpanel(residuals = sqrt(1/web$$Budget)*resid(wols1), 
+resid_auxpanel(residuals = sqrt(1/web$Budget)*resid(wols1), 
                predicted = fitted(wols1), 
                plots = c("resid", "index"))
 ```
 
 ![](../Weighted_Least_Squares_details/unnamed-chunk-9-1.png)
 
-``` R
-resid_auxpanel(residuals = sqrt(1/web$$Budget^2)*resid(wols2), 
+```r
+resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2), 
                predicted = fitted(wols2), 
                plots = c("resid", "index"))
 ```
@@ -444,9 +430,9 @@ resid_auxpanel(residuals = sqrt(1/web$$Budget^2)*resid(wols2),
 ![](../Weighted_Least_Squares_details/unnamed-chunk-9-2.png)
 
 It seems that the second WLS model with the following weights
-$$w_i=\frac{1}{x_i^2}$$ because the variability of residuals is the same
+$w_i=\frac{1}{x_i^2}$, because the variability of residuals is the same
 for all predicted values. We can now be more confident in results and
-state that with every 100 increase in the amount of money spent on
+state that with every \$100 increase in the amount of money spent on
 advertising the number of website visitors will rise by, on average,
 102. The absence of heteroscedasticity and the fact that the standard
 deviation of coefficient is less than in the original model allow to
