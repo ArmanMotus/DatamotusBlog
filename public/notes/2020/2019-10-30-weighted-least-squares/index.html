@@ -736,6 +736,15 @@ with Applications in R and SPSS.</em></p>
 </div>
 </div>
 
+<script>
+window.addEventListener('scroll', function() {
+    window.parent.postMessage({
+        frameScrollTop: document.documentElement.scrollTop || document.body.scrollTop
+    }, '*');
+});
+</script>
+
+
     
   </body>
 </html>
