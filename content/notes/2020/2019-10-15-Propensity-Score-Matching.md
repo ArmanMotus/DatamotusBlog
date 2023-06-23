@@ -429,6 +429,7 @@ is more reliable because it is based on matched data.
           "Group * Time (Treatment * Post)"
         ))
 ```
+
     ## 
     ## DID Results
     ## ===========================================================
