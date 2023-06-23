@@ -765,7 +765,17 @@ time series&rdquo;, Journal of Forecasting, 7, pp. 1-20.</p>
 </div>
 </div>
 
+<script type="text/javascript">
+window.onload = function() {
+    function sendHeight() {
+        var height = document.body.scrollHeight;
+        window.parent.postMessage({ frameHeight: height }, '*');
+    }
 
+    sendHeight();
+    window.onresize = sendHeight;
+};
+</script>
 
     
   </body>
