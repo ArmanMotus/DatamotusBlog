@@ -18,6 +18,15 @@
     
     <item>
       <title>Shapley Value Regression</title>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2019-12-20-shapley-value-regression-copy/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2019-12-20-shapley-value-regression-copy/</guid>
+      <description>Introduction In marketing research, the problem of multicollinearity can be raised as a result of using clients&amp;rsquo; rating responses. People tend to answer to the question of some section/topic in relatively same way. The stronger the correlations between the explanatory variables, the larger the population variances of the distributions of their coefficients, and thus greater the risk of obtaining unreliable coefficients. Although the estimated coefficients will be unbiased, their high variance will decrease the $t$ value, which leads to the failure in rejecting the null hypothesis $H_0:\beta = 0$, and following reduction in the probability of correctly detecting a non-zero coefficient.</description>
+    </item>
+    
+    <item>
+      <title>Shapley Value Regression</title>
       <link>https://DatamotusBlog.netlify.app/notes/2020/2019-12-20-shapley-value-regression/</link>
       <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
       
@@ -27,11 +36,29 @@
     
     <item>
       <title>Changes in air pollution</title>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution-copy/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution-copy/</guid>
+      <description>Introduction Even without visible smog, air pollution is all around us, and thus it is hard to eliminate the health effects of the toxic contaminators on health. The harmful effect of air pollutants is widely investigated in different researches conducted in many regions of the world. Air pollutants can be the cause of death from stroke, lung cancer, and another heart disease. Air pollution has a pernicious effect on children and it trigger childhood cancer.</description>
+    </item>
+    
+    <item>
+      <title>Changes in air pollution</title>
       <link>https://DatamotusBlog.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://DatamotusBlog.netlify.app/notes/2020/2020-01-09-changes-in-air-pollution/</guid>
       <description>Introduction Even without visible smog, air pollution is all around us, and thus it is hard to eliminate the health effects of the toxic contaminators on health. The harmful effect of air pollutants is widely investigated in different researches conducted in many regions of the world. Air pollutants can be the cause of death from stroke, lung cancer, and another heart disease. Air pollution has a pernicious effect on children and it trigger childhood cancer.</description>
+    </item>
+    
+    <item>
+      <title>Outlier Detection in Air Pollution Data</title>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/2019-11-15-outlier-detection-copy/</link>
+      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/2019-11-15-outlier-detection-copy/</guid>
+      <description>Introduction On a daily basis, economical, technological and political changes cause air pollution, which is currently one of the most pressing environmental issues around the globe. It is particularly acute in large cities with the rising level of industrialization and growing urbanization. The polluted air we breathe results in serious health disorders and decreases the quality of life. Before steps are taken to decrease the harmful effect of daily produced pollutants, certain measurements are required.</description>
     </item>
     
     <item>
