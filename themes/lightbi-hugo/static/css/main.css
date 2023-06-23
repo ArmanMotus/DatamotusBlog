@@ -982,8 +982,3 @@ h4.see-also {
 }
 
 
-@media screen and (max-width: 600px) {
-  .mathjax {
-    font-size: 0.7em;  /* Reduce the font size */
-  }
-}

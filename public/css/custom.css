@@ -1,0 +1,5 @@
+@media screen and (max-width: 600px) {
+  .MathJax {
+    font-size: 0.8em;  /* adjust this value as needed */
+  }
+}
