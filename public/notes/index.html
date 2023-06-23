@@ -54,7 +54,10 @@
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    }
+    },
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { linebreaks: { automatic: true } },
+    SVG: { linebreaks: { automatic: true } }
   });
 </script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
@@ -249,40 +252,69 @@ multiple linear regression model:</p>
 <p>$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$</p>
 <p>The result of fitted linear regression is presented in the output below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>model <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(Visits <span style="color:#f92672">~</span> Budget <span style="color:#f92672">+</span> AdType, data <span style="color:#f92672">=</span> web)
-</span></span></code></pre></div><pre tabindex="0"><code>    ## 
-    ## Results
-    ## ===============================================
-    ##                         Dependent variable:    
-    ##                     ---------------------------
-    ##                               Visits           
-    ## -----------------------------------------------
-    ## Budget                       1.017***          
-    ##                               (0.032)          
-    ##                                                
-    ## Outdoor Ads                   17.623           
-    ##                              (28.957)          
-    ##                                                
-    ## Radio and Podcasts            31.784           
-    ##                              (29.003)          
-    ##                                                
-    ## Social Media Ads              -40.288          
-    ##                              (29.366)          
-    ##                                                
-    ## Video Ads                     -10.368          
-    ##                              (28.737)          
-    ##                                                
-    ## Constant                   3,995.437***        
-    ##                              (26.096)          
-    ##                                                
-    ## -----------------------------------------------
-    ## Observations                   1,000           
-    ## R2                             0.506           
-    ## Adjusted R2                    0.504           
-    ## Residual Std. Error     293.017 (df = 994)     
-    ## F Statistic          203.633*** (df = 5; 994)  
-    ## ===============================================
-    ## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01
-</code></pre><p>It is not surprising that the coefficients for the unique levels of
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th></th>
+<th>Dependent variable:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Visits</td>
+</tr>
+<tr>
+<td>Budget</td>
+<td>1.017***   (0.032)</td>
+</tr>
+<tr>
+<td>Outdoor Ads</td>
+<td>17.623     (28.957)</td>
+</tr>
+<tr>
+<td>Radio and Podcasts</td>
+<td>31.784     (29.003)</td>
+</tr>
+<tr>
+<td>Social Media Ads</td>
+<td>-40.288    (29.366)</td>
+</tr>
+<tr>
+<td>Video Ads</td>
+<td>-10.368    (28.737)</td>
+</tr>
+<tr>
+<td>Constant</td>
+<td>3,995.437*** (26.096)</td>
+</tr>
+<tr>
+<td>Observations</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>0.506</td>
+</tr>
+<tr>
+<td>Adjusted R2</td>
+<td>0.504</td>
+</tr>
+<tr>
+<td>Residual Std. Error</td>
+<td>293.017 (df = 994)</td>
+</tr>
+<tr>
+<td>F Statistic</td>
+<td>203.633*** (df = 5; 994)</td>
+</tr>
+<tr>
+<td>Note</td>
+<td>*p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</td>
+</tr>
+</tbody>
+</table>
+<p>It is not surprising that the coefficients for the unique levels of
 variable <code>AdType</code> are not significant, because there is no effect on the
 response variable <code>Visits</code>. However, the coefficient for the variable
 <code>Budget</code> is statistically significant and positive (see the graph). So,

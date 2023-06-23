@@ -88,41 +88,22 @@ The result of fitted linear regression is presented in the output below:
 model <- lm(Visits ~ Budget + AdType, data = web)
 ```
 
-```   
-    ## 
-    ## Results
-    ## ===============================================
-    ##                         Dependent variable:    
-    ##                     ---------------------------
-    ##                               Visits           
-    ## -----------------------------------------------
-    ## Budget                       1.017***          
-    ##                               (0.032)          
-    ##                                                
-    ## Outdoor Ads                   17.623           
-    ##                              (28.957)          
-    ##                                                
-    ## Radio and Podcasts            31.784           
-    ##                              (29.003)          
-    ##                                                
-    ## Social Media Ads              -40.288          
-    ##                              (29.366)          
-    ##                                                
-    ## Video Ads                     -10.368          
-    ##                              (28.737)          
-    ##                                                
-    ## Constant                   3,995.437***        
-    ##                              (26.096)          
-    ##                                                
-    ## -----------------------------------------------
-    ## Observations                   1,000           
-    ## R2                             0.506           
-    ## Adjusted R2                    0.504           
-    ## Residual Std. Error     293.017 (df = 994)     
-    ## F Statistic          203.633*** (df = 5; 994)  
-    ## ===============================================
-    ## Note:               *p<0.1; **p<0.05; ***p<0.01
-```
+   |                       | Dependent variable:    |       
+|---------------------|------------------------|
+|                     | Visits                 |
+| Budget              | 1.017***   (0.032)     |
+| Outdoor Ads         | 17.623     (28.957)    |
+| Radio and Podcasts  | 31.784     (29.003)    |
+| Social Media Ads    | -40.288    (29.366)    |
+| Video Ads           | -10.368    (28.737)    |
+| Constant            | 3,995.437*** (26.096)  |
+| Observations        | 1,000                  |
+| R2                  | 0.506                  |
+| Adjusted R2         | 0.504                  |
+| Residual Std. Error | 293.017 (df = 994)     |
+| F Statistic         | 203.633*** (df = 5; 994) |
+| Note                | *p<0.1; **p<0.05; ***p<0.01 |
+
 
 It is not surprising that the coefficients for the unique levels of
 variable `AdType` are not significant, because there is no effect on the

@@ -732,6 +732,11 @@ div.splitbox div.left {
 div.splitbox div.right {
                width:100%;
                float:left;}
+               
+body {
+  font-size: 0.8rem;
+}
+
 }
 /* Related posts */
 h4.see-also {
