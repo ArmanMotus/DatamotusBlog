@@ -8,25 +8,31 @@
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
     {{ block "main" . }}{{ end }}
     
-  </body>
-  
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    let lastHeight = document.body.clientHeight;
-
-    const observer = new MutationObserver(() => {
-        let newHeight = document.body.clientHeight;
-        if (lastHeight !== newHeight) {
-            // Wait 500 milliseconds before sending the message
-            setTimeout(() => {
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        // IntersectionObserver callback
+        const handleIntersection = (entries) => {
+            const footerVisible = entries.some(entry => entry.isIntersecting);
+            if (!footerVisible) {
+                // The footer is not visible, meaning the page content has changed
+                const newHeight = document.body.clientHeight;
                 window.parent.postMessage({ frameHeight: newHeight }, '*');
-                lastHeight = newHeight;
-            }, 2500);
+            }
+        };
+
+        // Create an IntersectionObserver
+        const observer = new IntersectionObserver(handleIntersection);
+
+        // Start observing the footer element
+        const footer = document.querySelector('#blog-footer');
+        if (footer) {
+            observer.observe(footer);
         }
+
+        // Also send the initial height
+        window.parent.postMessage({ frameHeight: document.body.clientHeight }, '*');
     });
+    </script>
 
-    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
-});
-</script>
-
+  </body>
 </html>

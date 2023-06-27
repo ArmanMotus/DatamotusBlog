@@ -230,25 +230,31 @@
 
 
     
-  </body>
-  
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    let lastHeight = document.body.clientHeight;
-
-    const observer = new MutationObserver(() => {
-        let newHeight = document.body.clientHeight;
-        if (lastHeight !== newHeight) {
-            
-            setTimeout(() => {
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        const handleIntersection = (entries) => {
+            const footerVisible = entries.some(entry => entry.isIntersecting);
+            if (!footerVisible) {
+                
+                const newHeight = document.body.clientHeight;
                 window.parent.postMessage({ frameHeight: newHeight }, '*');
-                lastHeight = newHeight;
-            }, 2500);
+            }
+        };
+
+        
+        const observer = new IntersectionObserver(handleIntersection);
+
+        
+        const footer = document.querySelector('#blog-footer');
+        if (footer) {
+            observer.observe(footer);
         }
+
+        
+        window.parent.postMessage({ frameHeight: document.body.clientHeight }, '*');
     });
+    </script>
 
-    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
-});
-</script>
-
+  </body>
 </html>
