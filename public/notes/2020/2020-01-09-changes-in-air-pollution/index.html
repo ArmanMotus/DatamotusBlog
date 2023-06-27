@@ -2409,15 +2409,21 @@ air, accordingly.</p>
 document.addEventListener("DOMContentLoaded", function() {
     let lastHeight = document.body.clientHeight;
 
-    new MutationObserver(() => {
-      let newHeight = document.body.clientHeight;
-      if (lastHeight !== newHeight) {
-        window.parent.postMessage({ frameHeight: newHeight }, '*');
-        lastHeight = newHeight;
-      }
-    }).observe(document.body, { attributes: true, childList: true, subtree: true });
+    const observer = new MutationObserver(() => {
+        let newHeight = document.body.clientHeight;
+        if (lastHeight !== newHeight) {
+            
+            setTimeout(() => {
+                window.parent.postMessage({ frameHeight: newHeight }, '*');
+                lastHeight = newHeight;
+            }, 500);
+        }
+    });
+
+    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 });
 </script>
+
 
     
   </body>
@@ -2426,13 +2432,19 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     let lastHeight = document.body.clientHeight;
 
-    new MutationObserver(() => {
-      let newHeight = document.body.clientHeight;
-      if (lastHeight !== newHeight) {
-        window.parent.postMessage({ frameHeight: newHeight }, '*');
-        lastHeight = newHeight;
-      }
-    }).observe(document.body, { attributes: true, childList: true, subtree: true });
+    const observer = new MutationObserver(() => {
+        let newHeight = document.body.clientHeight;
+        if (lastHeight !== newHeight) {
+            
+            setTimeout(() => {
+                window.parent.postMessage({ frameHeight: newHeight }, '*');
+                lastHeight = newHeight;
+            }, 500);
+        }
+    });
+
+    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 });
 </script>
+
 </html>
