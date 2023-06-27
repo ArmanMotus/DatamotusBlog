@@ -86,31 +86,32 @@
 </script>
 
     
-    <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        
-        const handleIntersection = (entries) => {
-            const footerVisible = entries.some(entry => entry.isIntersecting);
-            if (!footerVisible) {
-                
-                const newHeight = document.body.clientHeight;
-                window.parent.postMessage({ frameHeight: newHeight }, '*');
-            }
-        };
-
-        
-        const observer = new IntersectionObserver(handleIntersection);
-
-        
-        const footer = document.querySelector('#blog-footer');
-        if (footer) {
-            observer.observe(footer);
+   <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const handleIntersection = (entries) => {
+        const footerVisible = entries.some(entry => entry.isIntersecting);
+        if (!footerVisible) {
+            
+            const newHeight = document.body.clientHeight;
+            window.parent.postMessage({ frameHeight: newHeight }, '*');
         }
+    };
 
-        
-        window.parent.postMessage({ frameHeight: document.body.clientHeight }, '*');
-    });
-    </script>
+    
+    const observer = new IntersectionObserver(handleIntersection);
+
+    
+    const footer = document.querySelector('#blog-footer');
+    if (footer) {
+        observer.observe(footer);
+    }
+
+    
+    window.parent.postMessage({ frameHeight: document.body.clientHeight }, '*');
+});
+</script>
+
 
   </body>
 </html>
