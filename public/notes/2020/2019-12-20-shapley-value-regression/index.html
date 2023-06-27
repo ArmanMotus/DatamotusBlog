@@ -881,7 +881,8 @@ Predictors&rdquo;, Journal of modern applied statistical methods: JMASM</p>
 
 
     
-    <script type="text/javascript">
+    <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
+   <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function () {
     function sendHeight() {
       var height = document.body.scrollHeight;
@@ -890,18 +891,10 @@ Predictors&rdquo;, Journal of modern applied statistical methods: JMASM</p>
 
     
     var carouselElement = document.getElementById('carouselExampleControls');
-    var prevButton = document.querySelector('.carousel-control-prev');
-    var nextButton = document.querySelector('.carousel-control-next');
-
     if (carouselElement) {
-      
-      prevButton.addEventListener('click', function () {
-        window.parent.postMessage({ scrollIframeToTop: true }, '*');
-      });
-
-      
-      nextButton.addEventListener('click', function () {
-        window.parent.postMessage({ scrollIframeToTop: true }, '*');
+      carouselElement.addEventListener('slid.bs.carousel', function (event) {
+        var activeIndex = event.to;
+        window.parent.postMessage({ slideIndex: activeIndex }, '*');
       });
     }
 
@@ -909,7 +902,6 @@ Predictors&rdquo;, Journal of modern applied statistical methods: JMASM</p>
     window.onresize = sendHeight;
   });
 </script>
-
 
 
   </body>
