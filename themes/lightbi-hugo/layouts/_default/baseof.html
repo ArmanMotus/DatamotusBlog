@@ -7,8 +7,7 @@
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
     {{ block "main" . }}{{ end }}
     
-    <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function () {
     function sendHeight() {
       var height = document.body.scrollHeight;
@@ -17,10 +16,18 @@
 
     // Listen for slide change events in the carousel
     var carouselElement = document.getElementById('carouselExampleControls');
+    var prevButton = document.querySelector('.carousel-control-prev');
+    var nextButton = document.querySelector('.carousel-control-next');
+
     if (carouselElement) {
-      carouselElement.addEventListener('slid.bs.carousel', function (event) {
-        var activeIndex = event.to;
-        window.parent.postMessage({ slideIndex: activeIndex }, '*');
+      // Scroll the iframe to top when the previous button is clicked
+      prevButton.addEventListener('click', function () {
+        window.parent.postMessage({ scrollIframeToTop: true }, '*');
+      });
+
+      // Scroll the iframe to top when the next button is clicked
+      nextButton.addEventListener('click', function () {
+        window.parent.postMessage({ scrollIframeToTop: true }, '*');
       });
     }
 
@@ -28,6 +35,7 @@
     window.onresize = sendHeight;
   });
 </script>
+
 
 
   </body>

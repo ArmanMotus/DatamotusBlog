@@ -324,7 +324,6 @@
 
 
     
-    <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
     <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function () {
     function sendHeight() {
@@ -334,8 +333,17 @@
 
     
     var carouselElement = document.getElementById('carouselExampleControls');
+    var prevButton = document.querySelector('.carousel-control-prev');
+    var nextButton = document.querySelector('.carousel-control-next');
+
     if (carouselElement) {
-      carouselElement.addEventListener('slid.bs.carousel', function () {
+      
+      prevButton.addEventListener('click', function () {
+        window.parent.postMessage({ scrollIframeToTop: true }, '*');
+      });
+
+      
+      nextButton.addEventListener('click', function () {
         window.parent.postMessage({ scrollIframeToTop: true }, '*');
       });
     }
@@ -344,6 +352,8 @@
     window.onresize = sendHeight;
   });
 </script>
+
+
 
   </body>
 </html>
