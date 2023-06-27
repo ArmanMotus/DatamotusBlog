@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
@@ -182,23 +181,6 @@
 
 
     
-  <script type="text/javascript">
-    
-    const sendHeight = () => {
-        const bodyHeight = document.body.scrollHeight;
-        window.parent.postMessage({ frameHeight: bodyHeight }, '*');
-    };
-
-    
-    const observer = new MutationObserver(sendHeight);
-
-    
-    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
-
-    
-    sendHeight();
-</script>
-
-
+    <script src="node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
   </body>
 </html>

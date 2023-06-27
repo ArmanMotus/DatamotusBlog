@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   <head>
     {{ partial "head.html" . }}
@@ -8,23 +7,6 @@
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
     {{ block "main" . }}{{ end }}
     
-  <script type="text/javascript">
-    // Function to send the current body height to the parent window
-    const sendHeight = () => {
-        const bodyHeight = document.body.scrollHeight;
-        window.parent.postMessage({ frameHeight: bodyHeight }, '*');
-    };
-
-    // Create a MutationObserver to watch for changes in the body's height
-    const observer = new MutationObserver(sendHeight);
-
-    // Start observing the body for configuration changes
-    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
-
-    // Send the initial height
-    sendHeight();
-</script>
-
-
+    <script src="node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
   </body>
 </html>
