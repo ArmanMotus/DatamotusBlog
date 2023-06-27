@@ -8,17 +8,7 @@
     {{ block "main" . }}{{ end }}
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
-    <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
-    function sendHeight() {
-      var height = document.body.scrollHeight;
-      window.parent.postMessage({ frameHeight: height }, '*');
-    }
-
-    sendHeight();
-    window.onresize = sendHeight;
-  });
-</script>
+   
 
   </body>
 </html>
