@@ -8,30 +8,21 @@
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
     {{ block "main" . }}{{ end }}
     
-   <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    // IntersectionObserver callback
-    const handleIntersection = (entries) => {
-        const footerVisible = entries.some(entry => entry.isIntersecting);
-        if (!footerVisible) {
-            // The footer is not visible, meaning the page content has changed
-            const newHeight = document.body.clientHeight;
-            window.parent.postMessage({ frameHeight: newHeight }, '*');
-        }
+  <script type="text/javascript">
+    // Function to send the current body height to the parent window
+    const sendHeight = () => {
+        const bodyHeight = document.body.scrollHeight;
+        window.parent.postMessage({ frameHeight: bodyHeight }, '*');
     };
 
-    // Create an IntersectionObserver
-    const observer = new IntersectionObserver(handleIntersection);
+    // Create a MutationObserver to watch for changes in the body's height
+    const observer = new MutationObserver(sendHeight);
 
-    // Start observing the footer element
-    const footer = document.querySelector('#blog-footer');
-    if (footer) {
-        observer.observe(footer);
-    }
+    // Start observing the body for configuration changes
+    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 
-    // Also send the initial height
-    window.parent.postMessage({ frameHeight: document.body.clientHeight }, '*');
-});
+    // Send the initial height
+    sendHeight();
 </script>
 
 

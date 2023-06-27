@@ -271,30 +271,21 @@
 
 
     
-   <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
+  <script type="text/javascript">
     
-    const handleIntersection = (entries) => {
-        const footerVisible = entries.some(entry => entry.isIntersecting);
-        if (!footerVisible) {
-            
-            const newHeight = document.body.clientHeight;
-            window.parent.postMessage({ frameHeight: newHeight }, '*');
-        }
+    const sendHeight = () => {
+        const bodyHeight = document.body.scrollHeight;
+        window.parent.postMessage({ frameHeight: bodyHeight }, '*');
     };
 
     
-    const observer = new IntersectionObserver(handleIntersection);
+    const observer = new MutationObserver(sendHeight);
 
     
-    const footer = document.querySelector('#blog-footer');
-    if (footer) {
-        observer.observe(footer);
-    }
+    observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 
     
-    window.parent.postMessage({ frameHeight: document.body.clientHeight }, '*');
-});
+    sendHeight();
 </script>
 
 
