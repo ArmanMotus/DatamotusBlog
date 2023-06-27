@@ -919,33 +919,30 @@ with Applications in R and SPSS.</em></p>
 </div>
 
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    let lastHeight = document.body.clientHeight;
+window.onload = function() {
+    function sendHeight() {
+        var height = document.body.scrollHeight;
+        window.parent.postMessage({ frameHeight: height }, '*');
+    }
 
-    new MutationObserver(() => {
-      let newHeight = document.body.clientHeight;
-      if (lastHeight !== newHeight) {
-        window.parent.postMessage({ frameHeight: newHeight }, '*');
-        lastHeight = newHeight;
-      }
-    }).observe(document.body, { attributes: true, childList: true, subtree: true });
-});
+    sendHeight();
+    window.onresize = sendHeight;
+};
 </script>
 
     
   </body>
   
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    let lastHeight = document.body.clientHeight;
+window.onload = function() {
+    function sendHeight() {
+        var height = document.body.scrollHeight;
+        window.parent.postMessage({ frameHeight: height }, '*');
+    }
 
-    new MutationObserver(() => {
-      let newHeight = document.body.clientHeight;
-      if (lastHeight !== newHeight) {
-        window.parent.postMessage({ frameHeight: newHeight }, '*');
-        lastHeight = newHeight;
-      }
-    }).observe(document.body, { attributes: true, childList: true, subtree: true });
-});
+    sendHeight();
+    window.onresize = sendHeight;
+};
 </script>
 </html>
+
