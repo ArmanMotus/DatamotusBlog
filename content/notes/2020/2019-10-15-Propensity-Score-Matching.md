@@ -17,6 +17,7 @@ tags:
 title: Propensity-Score-Matching
 
 ---
+![image](../Propensity-Score-Matching/website3.jpeg)
 
 Introduction
 ============

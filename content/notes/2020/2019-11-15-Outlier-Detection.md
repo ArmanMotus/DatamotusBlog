@@ -15,6 +15,8 @@ tags:
 title:  Outlier Detection in Air Pollution Data
 
 ---
+![image](../Outlier-Detection/website4.jpeg)
+
 
 Introduction
 ============
