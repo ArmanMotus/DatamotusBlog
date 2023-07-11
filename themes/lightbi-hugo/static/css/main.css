@@ -1,7 +1,7 @@
 /* --- General --- */
 
 body {
-  font-size: 14px;
+  font-size: 18px;
   color: #344854;
   position: relative;
   background: aliceblue;
@@ -442,7 +442,7 @@ footer .theme-by {
   width: 192px;
 }
 .post-preview .post-read-more {
-  font-weight: 800;
+  font-weight: 500;
   float: right;
 }
 
