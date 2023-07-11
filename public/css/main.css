@@ -1,7 +1,7 @@
 /* --- General --- */
 
 body {
-  font-size: 1.2rem;
+  font-size: 14px;
   color: #344854;
   position: relative;
   background: aliceblue;
@@ -552,7 +552,7 @@ footer .theme-by {
 }
 .intro-header .post-heading h1 {
   margin-top: 0;
-  font-size: 35px;
+  font-size: 24px;
 }
 .intro-header .page-heading .page-subheading,
 .intro-header .post-heading .post-subheading {

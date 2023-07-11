@@ -6,7 +6,16 @@
     <description>Recent content in Logical Thinking on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/logical-thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/logical-thinking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimization Modeling for Store Product Clustering and EOQ Determination</title>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/optimization_modeling_for_store_product/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/optimization_modeling_for_store_product/</guid>
+      <description>Introduction Problem Statement The objective of this study is to develop a robust optimization solution that enables the determination of an optimal replenishment for managing store products. By doing so, store managers can gain valuable insights into the ideal stock levels required to meet customer demand while minimizing holding costs and ensuring efficient inventory management practices. The approach outlined in this article demonstrates the potential to enhance inventory management practices within a retail chain, empowering store managers with accurate and data-driven decision-making capabilities.</description>
+    </item>
+    
     <item>
       <title>Propensity-Score-Matching</title>
       <link>https://DatamotusBlog.netlify.app/notes/2020/2019-10-15-propensity-score-matching/</link>

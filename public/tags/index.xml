@@ -6,7 +6,79 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bias in Research</title>
+      <link>https://DatamotusBlog.netlify.app/tags/bias-in-research/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/bias-in-research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chess</title>
+      <link>https://DatamotusBlog.netlify.app/tags/chess/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/chess/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cognitive Development</title>
+      <link>https://DatamotusBlog.netlify.app/tags/cognitive-development/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/cognitive-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Analysis</title>
+      <link>https://DatamotusBlog.netlify.app/tags/data-analysis/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Experimental Studies</title>
+      <link>https://DatamotusBlog.netlify.app/tags/experimental-studies/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/experimental-studies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logical Thinking</title>
+      <link>https://DatamotusBlog.netlify.app/tags/logical-thinking/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/logical-thinking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Propensity Score Matching</title>
+      <link>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Methods</title>
+      <link>https://DatamotusBlog.netlify.app/tags/statistical-methods/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/tags/statistical-methods/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>DataAnalysis</title>
       <link>https://DatamotusBlog.netlify.app/tags/dataanalysis/</link>
@@ -161,15 +233,6 @@
     </item>
     
     <item>
-      <title>Data Analysis</title>
-      <link>https://DatamotusBlog.netlify.app/tags/data-analysis/</link>
-      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/data-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Environmental Science</title>
       <link>https://DatamotusBlog.netlify.app/tags/environmental-science/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
@@ -229,69 +292,6 @@
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://DatamotusBlog.netlify.app/tags/who/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bias in Research</title>
-      <link>https://DatamotusBlog.netlify.app/tags/bias-in-research/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/bias-in-research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chess</title>
-      <link>https://DatamotusBlog.netlify.app/tags/chess/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/chess/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cognitive Development</title>
-      <link>https://DatamotusBlog.netlify.app/tags/cognitive-development/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/cognitive-development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Experimental Studies</title>
-      <link>https://DatamotusBlog.netlify.app/tags/experimental-studies/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/experimental-studies/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Logical Thinking</title>
-      <link>https://DatamotusBlog.netlify.app/tags/logical-thinking/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/logical-thinking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Propensity Score Matching</title>
-      <link>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistical Methods</title>
-      <link>https://DatamotusBlog.netlify.app/tags/statistical-methods/</link>
-      <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://DatamotusBlog.netlify.app/tags/statistical-methods/</guid>
       <description></description>
     </item>
     

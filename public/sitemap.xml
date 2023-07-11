@@ -3,7 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://DatamotusBlog.netlify.app/</loc>
-    <lastmod>2021-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/bias-in-research/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/chess/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/cognitive-development/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/data-analysis/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/experimental-studies/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/logical-thinking/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/notes/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/notes/2020/optimization_modeling_for_store_product/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/statistical-methods/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/tags/</loc>
+    <lastmod>2023-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://DatamotusBlog.netlify.app/post/</loc>
     <lastmod>2021-02-02T00:00:00+00:00</lastmod>
@@ -20,9 +53,6 @@
     <loc>https://DatamotusBlog.netlify.app/tags/iterativelyreweightedleastsquares/</loc>
     <lastmod>2021-02-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://DatamotusBlog.netlify.app/notes/</loc>
-    <lastmod>2021-02-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://DatamotusBlog.netlify.app/tags/r/</loc>
     <lastmod>2021-02-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -33,9 +63,6 @@
     <lastmod>2021-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://DatamotusBlog.netlify.app/tags/statistics/</loc>
-    <lastmod>2021-02-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/</loc>
     <lastmod>2021-02-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://DatamotusBlog.netlify.app/notes/2020/2019-10-30-weighted-least-squares/</loc>
@@ -77,9 +104,6 @@
     <loc>https://DatamotusBlog.netlify.app/tags/climate-change/</loc>
     <lastmod>2020-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/data-analysis/</loc>
-    <lastmod>2020-01-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://DatamotusBlog.netlify.app/tags/environmental-science/</loc>
     <lastmod>2020-01-09T00:00:00+00:00</lastmod>
   </url><url>
@@ -101,31 +125,10 @@
     <loc>https://DatamotusBlog.netlify.app/tags/who/</loc>
     <lastmod>2020-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/bias-in-research/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/chess/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/cognitive-development/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/experimental-studies/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/logical-thinking/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://DatamotusBlog.netlify.app/notes/2020/2019-11-15-outlier-detection/</loc>
     <lastmod>2019-11-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/propensity-score-matching/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://DatamotusBlog.netlify.app/notes/2020/2019-10-15-propensity-score-matching/</loc>
-    <lastmod>2019-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://DatamotusBlog.netlify.app/tags/statistical-methods/</loc>
     <lastmod>2019-11-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://DatamotusBlog.netlify.app/tags/time-series-analysis/</loc>
@@ -135,5 +138,7 @@
     <lastmod>2019-11-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://DatamotusBlog.netlify.app/categories/</loc>
+  </url><url>
+    <loc>https://DatamotusBlog.netlify.app/notes/2020/new-folder/artilce_upd_06_07/</loc>
   </url>
 </urlset>
