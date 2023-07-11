@@ -17,6 +17,7 @@ tags:
 title: Optimization Modeling for Store Product Clustering and EOQ Determination
 
 ---
+![image](../Optimization_Modeling/website6.jpeg)
 
 
 ### Introduction
