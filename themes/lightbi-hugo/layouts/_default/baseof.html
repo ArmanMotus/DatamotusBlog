@@ -2,6 +2,8 @@
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   <head>
     {{ partial "head.html" . }}
+    {{ partial "scripts.html" . }}
+
   </head>
   <body>
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}

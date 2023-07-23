@@ -114,6 +114,19 @@
 
 
 
+    <script>
+  window.onload = function() {
+    const currentURL = window.location.href;
+    window.parent.postMessage(currentURL, '*');
+  }
+
+  window.onhashchange = function() {
+    const currentURL = window.location.href;
+    window.parent.postMessage(currentURL, '*');
+  }
+</script>
+
+
   </head>
   <body>
     
