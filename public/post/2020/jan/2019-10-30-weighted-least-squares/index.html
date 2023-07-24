@@ -895,10 +895,21 @@ with Applications in R and SPSS.</em></p>
 
 
 <script>
-  window.onload = function() {
-    const page = window.location.pathname; 
-    window.parent.postMessage({ pageChanged: page }, '*');
-  }
+  
+window.addEventListener('load', function() {
+  const currentUrl = window.location.href;
+
+  
+  window.parent.postMessage(currentUrl, '*');
+});
+
+window.onhashchange = function() {
+  const currentUrl = window.location.href;
+
+  
+  window.parent.postMessage(currentUrl, '*');
+};
+
 </script>
 
 </div>

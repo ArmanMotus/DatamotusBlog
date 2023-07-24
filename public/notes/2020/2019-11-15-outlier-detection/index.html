@@ -744,10 +744,21 @@ time series&rdquo;, Journal of Forecasting, 7, pp. 1-20.</p>
 
 
 <script>
-  window.onload = function() {
-    const page = window.location.pathname; 
-    window.parent.postMessage({ pageChanged: page }, '*');
-  }
+  
+window.addEventListener('load', function() {
+  const currentUrl = window.location.href;
+
+  
+  window.parent.postMessage(currentUrl, '*');
+});
+
+window.onhashchange = function() {
+  const currentUrl = window.location.href;
+
+  
+  window.parent.postMessage(currentUrl, '*');
+};
+
 </script>
 
 </div>

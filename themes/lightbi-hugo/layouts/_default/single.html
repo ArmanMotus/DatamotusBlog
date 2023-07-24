@@ -99,10 +99,21 @@
 <!-- At the bottom of your common footer file or other file included in every page -->
 
 <script>
-  window.onload = function() {
-    const page = window.location.pathname; // You may need to adjust this to get the desired page identifier
-    window.parent.postMessage({ pageChanged: page }, '*');
-  }
+  // This code will run on your Hugo site, not in your React app.
+window.addEventListener('load', function() {
+  const currentUrl = window.location.href;
+
+  // Send a message to the parent window with the current URL
+  window.parent.postMessage(currentUrl, '*');
+});
+
+window.onhashchange = function() {
+  const currentUrl = window.location.href;
+
+  // Send a message to the parent window with the current URL
+  window.parent.postMessage(currentUrl, '*');
+};
+
 </script>
 
 </div>
