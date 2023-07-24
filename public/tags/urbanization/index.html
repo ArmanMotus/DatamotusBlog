@@ -64,19 +64,6 @@
 
 
 
-    <script>
-  window.onload = function() {
-    const currentURL = window.location.href;
-    window.parent.postMessage(currentURL, '*');
-  }
-
-  window.onhashchange = function() {
-    const currentURL = window.location.href;
-    window.parent.postMessage(currentURL, '*');
-  }
-</script>
-
-
   </head>
   <body>
     
@@ -198,7 +185,17 @@
 
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
-   
+    <script>
+      
+      const postLink = document.querySelectorAll(".post-link");
 
+      postLink.forEach((link) => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          
+          window.parent.postMessage({ newRoute: this.getAttribute("href") }, "*");
+        });
+      });
+    </script>
   </body>
 </html>
