@@ -96,5 +96,16 @@
 </div>
 </div>
 <footer id="blog-footer"></footer>
+<script>
+    document.querySelectorAll('a').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const articleUrl = '/blog' + anchor.getAttribute('href');
+        window.parent.postMessage({ articleUrl: articleUrl }, '*');
+        window.location.href = anchor.getAttribute('href');
+      });
+    });
+</script>
 </div>
 {{ end }}
