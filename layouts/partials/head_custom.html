@@ -33,15 +33,4 @@ Or you can delete these file if you don't need it.
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 
 
- <script>
-      // your script here
-      const postLink = document.querySelectorAll(".post-link");
 
-      postLink.forEach((link) => {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          // Send a post message to the parent
-          window.parent.postMessage({ newRoute: this.getAttribute("href") }, "*");
-        });
-      });
-    </script>
