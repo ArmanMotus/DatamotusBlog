@@ -9,15 +9,8 @@
     {{ end }}
 
     {{ range .Paginator.Pages }}
-    <div class="col-md-12">
-      <h2>
-        <a href="/blog/{{ .Params.slug }}" target="_parent" onclick="changeParentURL('/blog/{{ .Params.slug }}'); return true;">
-          {{ .Title }}
-        </a>
-      </h2>
-      <!-- Add other post details here if needed -->
-    </div>
-    {{ end }}
+    {{ partial "post_preview_notes.html" .}}
+    {{end}}
 
   </div>
 </div>
@@ -33,14 +26,5 @@
     </div>
   </div>
 </div>
-
-<script>
-  function changeParentURL(url) {
-    // Use the HTML5 History API to change the URL in the parent window
-    if (window.parent && window.parent.history && window.parent.history.pushState) {
-      window.parent.history.pushState({}, '', url);
-    }
-  }
-</script>
 
 {{ end }}
