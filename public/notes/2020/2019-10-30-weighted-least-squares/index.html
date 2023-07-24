@@ -718,15 +718,21 @@ with Applications in R and SPSS.</em></p>
 </div>
 <footer id="blog-footer"></footer>
 <script>
+  document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a').forEach((anchor) => {
       anchor.addEventListener('click', (event) => {
         event.preventDefault();
 
-        const articleUrl = '/blog' + anchor.getAttribute('href');
+        const url = new URL(anchor.getAttribute('href'));
+        const articlePath = url.pathname;
+
+        const articleUrl = '/blog' + articlePath;
         window.parent.postMessage({ articleUrl: articleUrl }, '*');
+
         window.location.href = anchor.getAttribute('href');
       });
     });
+  });
 </script>
 </div>
 
