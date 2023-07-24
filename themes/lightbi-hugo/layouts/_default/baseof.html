@@ -2,6 +2,7 @@
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   <head>
     {{ partial "head.html" . }}
+
   </head>
   <body>
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
@@ -20,5 +21,6 @@
         });
       });
     </script>
+
   </body>
 </html>
