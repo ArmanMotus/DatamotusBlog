@@ -96,25 +96,6 @@
 </div>
 </div>
 <footer id="blog-footer"></footer>
-<!-- At the bottom of your common footer file or other file included in every page -->
-
-<script>
-  // This code will run on your Hugo site, not in your React app.
-window.addEventListener('load', function() {
-  const currentUrl = window.location.href;
-
-  // Send a message to the parent window with the current URL
-  window.parent.postMessage(currentUrl, '*');
-});
-
-window.onhashchange = function() {
-  const currentUrl = window.location.href;
-
-  // Send a message to the parent window with the current URL
-  window.parent.postMessage(currentUrl, '*');
-};
-
-</script>
 
 </div>
 {{ end }}
