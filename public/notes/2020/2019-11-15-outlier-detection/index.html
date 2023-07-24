@@ -741,11 +741,41 @@ time series&rdquo;, Journal of Forecasting, 7, pp. 1-20.</p>
 </div>
 </div>
 <footer id="blog-footer"></footer>
+
+<script>
+  
+  const postLinks = document.querySelectorAll('.post-link');
+
+  postLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const url = event.currentTarget.href;
+      
+      window.parent.postMessage({ type: 'postClicked', url }, '*');
+    });
+  });
+</script>
+
+
 </div>
 
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
    
+  <script>
+    
+    const postLinks = document.querySelectorAll('.post-link');
+  
+    postLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const url = event.currentTarget.href;
+        
+        window.parent.postMessage({ type: 'postClicked', url }, '*');
+      });
+    });
+  </script>
+
 
   </body>
 </html>

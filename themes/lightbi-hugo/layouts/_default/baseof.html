@@ -9,7 +9,21 @@
     {{ block "main" . }}{{ end }}
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
-   
+   <!-- Inside the iframe (Hugo page) -->
+  <script>
+    // Assuming the links have a specific class, e.g., "post-link"
+    const postLinks = document.querySelectorAll('.post-link');
+  
+    postLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const url = event.currentTarget.href;
+        // Send the URL to the parent window
+        window.parent.postMessage({ type: 'postClicked', url }, '*');
+      });
+    });
+  </script>
+
 
   </body>
 </html>
