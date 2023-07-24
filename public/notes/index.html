@@ -127,7 +127,7 @@
     
     <div class="col-md-12">
       <h2>
-        <a href="/blog/" target="_parent" onclick="parent.postMessage({ postSlug: '' }, '*'); return true;">
+        <a href="/blog/" target="_parent" onclick="changeParentURL('/blog/'); return true;">
           Optimization Modeling for Store Product Clustering and EOQ Determination
         </a>
       </h2>
@@ -136,7 +136,7 @@
     
     <div class="col-md-12">
       <h2>
-        <a href="/blog/" target="_parent" onclick="parent.postMessage({ postSlug: '' }, '*'); return true;">
+        <a href="/blog/" target="_parent" onclick="changeParentURL('/blog/'); return true;">
           Weighted-Least-Square
         </a>
       </h2>
@@ -145,7 +145,7 @@
     
     <div class="col-md-12">
       <h2>
-        <a href="/blog/" target="_parent" onclick="parent.postMessage({ postSlug: '' }, '*'); return true;">
+        <a href="/blog/" target="_parent" onclick="changeParentURL('/blog/'); return true;">
           Shapley Value Regression
         </a>
       </h2>
@@ -154,7 +154,7 @@
     
     <div class="col-md-12">
       <h2>
-        <a href="/blog/" target="_parent" onclick="parent.postMessage({ postSlug: '' }, '*'); return true;">
+        <a href="/blog/" target="_parent" onclick="changeParentURL('/blog/'); return true;">
           Changes in air pollution
         </a>
       </h2>
@@ -163,7 +163,7 @@
     
     <div class="col-md-12">
       <h2>
-        <a href="/blog/" target="_parent" onclick="parent.postMessage({ postSlug: '' }, '*'); return true;">
+        <a href="/blog/" target="_parent" onclick="changeParentURL('/blog/'); return true;">
           Outlier Detection in Air Pollution Data
         </a>
       </h2>
@@ -172,7 +172,7 @@
     
     <div class="col-md-12">
       <h2>
-        <a href="/blog/" target="_parent" onclick="parent.postMessage({ postSlug: '' }, '*'); return true;">
+        <a href="/blog/" target="_parent" onclick="changeParentURL('/blog/'); return true;">
           Propensity-Score-Matching
         </a>
       </h2>
@@ -194,6 +194,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  function changeParentURL(url) {
+    
+    if (window.parent && window.parent.history && window.parent.history.pushState) {
+      window.parent.history.pushState({}, '', url);
+    }
+  }
+</script>
 
 
     
