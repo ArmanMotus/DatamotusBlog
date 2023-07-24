@@ -717,23 +717,15 @@ with Applications in R and SPSS.</em></p>
 </div>
 </div>
 <footer id="blog-footer"></footer>
+
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a').forEach((anchor) => {
-      anchor.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        const url = new URL(anchor.getAttribute('href'));
-        const articlePath = url.pathname;
-
-        const articleUrl = '/blog' + articlePath;
-        window.parent.postMessage({ articleUrl: articleUrl }, '*');
-
-        window.location.href = anchor.getAttribute('href');
-      });
-    });
-  });
+  window.onload = function() {
+    const page = window.location.pathname; 
+    window.parent.postMessage({ pageChanged: page }, '*');
+  }
 </script>
+
 </div>
 
     
