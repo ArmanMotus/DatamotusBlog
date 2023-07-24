@@ -186,20 +186,6 @@
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
    
-  <script>
-    
-    const postLinks = document.querySelectorAll('.post-link');
-  
-    postLinks.forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        const url = event.currentTarget.href;
-        
-        window.parent.postMessage({ type: 'postClicked', url }, '*');
-      });
-    });
-  </script>
-
 
   </body>
 </html>

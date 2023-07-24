@@ -9,8 +9,15 @@
     {{ end }}
 
     {{ range .Paginator.Pages }}
-    {{ partial "post_preview_notes.html" .}}
-    {{end}}
+    <div class="col-md-12">
+      <h2>
+        <a href="/blog/{{ .Params.slug }}" target="_parent" onclick="parent.postMessage({ postSlug: '{{ .Params.slug }}' }, '*'); return true;">
+          {{ .Title }}
+        </a>
+      </h2>
+      <!-- Add other post details here if needed -->
+    </div>
+    {{ end }}
 
   </div>
 </div>
