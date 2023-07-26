@@ -14,7 +14,7 @@ tags:
 - DataAnalysis
 - IterativelyReweightedLeastSquares
 - StatisticalMethods
-title: Weighted-Least-Square
+title: Weighted Least Square
 output: html_document
 
 ---

@@ -14,7 +14,7 @@ tags:
 - Logical Thinking
 
 
-title: Propensity-Score-Matching
+title: Propensity Score Matching
 
 ---
 ![image](../Propensity-Score-Matching/website3.jpeg)
