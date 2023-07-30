@@ -118,14 +118,17 @@
 
     <script>
       
-      function changeURL(url) {
-        window.history.pushState(null, null, url);
+      function changeURL(pageName) {
+        const currentURL = window.location.href;
+        const baseURL = currentURL.split("/")[0] + "//" + currentURL.split("/")[2];
+        const newURL = baseURL + '/' + pageName;
+        window.history.pushState(null, null, newURL);
       }
 
       
       window.addEventListener('message', function (event) {
         if (event.data && event.data.pageName) {
-          changeURL('/' + event.data.pageName);
+          changeURL(event.data.pageName);
         }
       });
     </script>

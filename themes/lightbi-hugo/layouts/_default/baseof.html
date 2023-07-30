@@ -4,15 +4,18 @@
     {{ partial "head.html" . }}
 
     <script>
-      // This function will change the browser URL without triggering a page reload
-      function changeURL(url) {
-        window.history.pushState(null, null, url);
+      // Function to update the browser URL without triggering a page reload
+      function changeURL(pageName) {
+        const currentURL = window.location.href;
+        const baseURL = currentURL.split("/")[0] + "//" + currentURL.split("/")[2];
+        const newURL = baseURL + '/' + pageName;
+        window.history.pushState(null, null, newURL);
       }
 
       // Listen for messages from the iframe to change the browser URL accordingly
       window.addEventListener('message', function (event) {
         if (event.data && event.data.pageName) {
-          changeURL('/' + event.data.pageName);
+          changeURL(event.data.pageName);
         }
       });
     </script>
