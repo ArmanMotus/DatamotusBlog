@@ -70,8 +70,10 @@
 </footer>
 
 <script type="text/javascript">
-window.onload = function () {
-  window.parent.postMessage({ frameLocation: window.location.href }, "*");
+window.onload = function() {
+  window.parent.postMessage({
+    url: window.location.pathname
+  }, "https://datamotus.com"); // Replace with the domain of your React app
 };
 </script>
 
