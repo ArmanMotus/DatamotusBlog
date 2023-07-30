@@ -116,6 +116,19 @@
 
 
 
+    <script>
+      
+      function changeURL(url) {
+        window.history.pushState(null, null, url);
+      }
+
+      
+      window.addEventListener('message', function (event) {
+        if (event.data && event.data.pageName) {
+          changeURL('/' + event.data.pageName);
+        }
+      });
+    </script>
   </head>
   <body>
     
@@ -2382,9 +2395,6 @@ air, accordingly.</p>
 </div>
 <footer id="blog-footer"></footer>
 </div>
-
-    
-
 
   </body>
 </html>

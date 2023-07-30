@@ -67,6 +67,19 @@
 
 
 
+    <script>
+      
+      function changeURL(url) {
+        window.history.pushState(null, null, url);
+      }
+
+      
+      window.addEventListener('message', function (event) {
+        if (event.data && event.data.pageName) {
+          changeURL('/' + event.data.pageName);
+        }
+      });
+    </script>
   </head>
   <body>
     
@@ -227,9 +240,6 @@
     </div>
   </div>
 </div>
-
-
-    
 
 
   </body>
