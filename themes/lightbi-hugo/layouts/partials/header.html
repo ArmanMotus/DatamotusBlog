@@ -16,6 +16,16 @@
 
 {{ else }}
 <header class="header-section {{ if $bigimg }}has-img{{ end }}">
+  <!-- Rest of your html template -->
+{{ .Content }}
+
+<script>
+window.onload = function() {
+  // Get the current page's pathname and send to parent window
+  var currentPathname = window.location.pathname;
+  window.parent.postMessage({ pagePath: currentPathname }, '*');
+};
+</script>
 
   <div class="intro-header no-img mt-10">
     <div class="container">
