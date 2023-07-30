@@ -69,6 +69,12 @@
   </div>
 </footer>
 
+<script type="text/javascript">
+window.onload = function () {
+  window.parent.postMessage({ frameLocation: window.location.href }, "*");
+};
+</script>
+
 {{- if .Site.Params.selfHosted -}}
 <script src="{{ "js/jquery-3.7.0.slim.min.js" | absURL }}"></script>
 <script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
@@ -85,3 +91,4 @@
 {{- end -}}
 <script src="{{ "js/dark-mode.js" | absURL }}"></script>
 {{- partial "footer_custom.html" . }}
+
