@@ -14,4 +14,9 @@ Do not put anything in this file - it's only here so that hugo won't throw an er
 </script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
 
+<script>
+      // Replace 'BLOG_POST_NAME' with the actual name of the blog post being viewed
+      const blogPostName = 'BLOG_POST_NAME';
+      window.parent.postMessage({ blogPostName }, '*');
+</script>
 
