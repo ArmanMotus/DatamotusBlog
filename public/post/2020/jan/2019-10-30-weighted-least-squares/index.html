@@ -130,17 +130,6 @@
 
 
 <header class="header-section ">
-  
-
-
-<script>
-window.onload = function() {
-  
-  var currentPathname = window.location.pathname;
-  window.parent.postMessage({ pagePath: currentPathname }, '*');
-};
-</script>
-
 
   <div class="intro-header no-img mt-10">
     <div class="container">
@@ -907,7 +896,13 @@ with Applications in R and SPSS.</em></p>
 
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
-   
+   <script>
+window.onload = function() {
+  
+  var currentPathname = window.location.pathname;
+  window.parent.postMessage({ pagePath: currentPathname }, '*');
+};
+</script>
 
   </body>
 </html>

@@ -129,17 +129,6 @@
 
 
 <header class="header-section ">
-  
-
-
-<script>
-window.onload = function() {
-  
-  var currentPathname = window.location.pathname;
-  window.parent.postMessage({ pagePath: currentPathname }, '*');
-};
-</script>
-
 
   <div class="intro-header no-img mt-10">
     <div class="container">
@@ -756,7 +745,13 @@ time series&rdquo;, Journal of Forecasting, 7, pp. 1-20.</p>
 
     
     <script src="/node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"></script>
-   
+   <script>
+window.onload = function() {
+  
+  var currentPathname = window.location.pathname;
+  window.parent.postMessage({ pagePath: currentPathname }, '*');
+};
+</script>
 
   </body>
 </html>
