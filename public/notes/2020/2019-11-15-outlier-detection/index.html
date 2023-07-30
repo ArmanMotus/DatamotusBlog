@@ -741,6 +741,18 @@ time series&rdquo;, Journal of Forecasting, 7, pp. 1-20.</p>
 </div>
 </div>
 <footer id="blog-footer"></footer>
+ 
+  <script>
+    window.addEventListener('message', function(event) {
+      
+      if (event.origin === 'https://datamotus.com') {
+        
+        var articleName = event.data.articleName;
+        
+        window.parent.history.pushState({}, '', '/the_articlename/' + articleName);
+      }
+    });
+  </script>
 </div>
 
     

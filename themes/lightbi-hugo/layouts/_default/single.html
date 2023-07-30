@@ -96,5 +96,17 @@
 </div>
 </div>
 <footer id="blog-footer"></footer>
+ <!-- Add the script to listen for messages from the parent domain -->
+  <script>
+    window.addEventListener('message', function(event) {
+      // Ensure the message is sent from an allowed origin (datamotus.com)
+      if (event.origin === 'https://datamotus.com') {
+        // Extract the article name from the message data
+        var articleName = event.data.articleName;
+        // Update the parent URL with the new article name
+        window.parent.history.pushState({}, '', '/the_articlename/' + articleName);
+      }
+    });
+  </script>
 </div>
 {{ end }}

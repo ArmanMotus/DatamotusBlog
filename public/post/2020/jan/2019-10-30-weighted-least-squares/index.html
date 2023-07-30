@@ -892,6 +892,18 @@ with Applications in R and SPSS.</em></p>
 </div>
 </div>
 <footer id="blog-footer"></footer>
+ 
+  <script>
+    window.addEventListener('message', function(event) {
+      
+      if (event.origin === 'https://datamotus.com') {
+        
+        var articleName = event.data.articleName;
+        
+        window.parent.history.pushState({}, '', '/the_articlename/' + articleName);
+      }
+    });
+  </script>
 </div>
 
     
