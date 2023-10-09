@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pedestrian Paradise on </title>
+    <link>https://DatamotusBlog.netlify.app/tags/pedestrian-paradise/</link>
+    <description>Recent content in Pedestrian Paradise on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://DatamotusBlog.netlify.app/tags/pedestrian-paradise/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Measuring Pedestrian-Friendliness &#39;Walkability Scores for Yerevan&#39;</title>
+      <link>https://DatamotusBlog.netlify.app/notes/2020/measuring-pedestrian-friendliness-walkability-scores-for-yerevan/</link>
+      <pubDate>Mon, 09 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://DatamotusBlog.netlify.app/notes/2020/measuring-pedestrian-friendliness-walkability-scores-for-yerevan/</guid>
+      <description>Data Collection A walkability score is a number from 1 to 100, with 1 being the worst and 100 being the best. 0 to 24 means almost all errands need a car, 25 to 49 means most errands need a car, 50 to 69 means you can walk to some amenities, 70 to 89 shows you can do most things by walking, and 90 to 100 indicates you don’t need a car.</description>
+    </item>
+    
+  </channel>
+</rss>

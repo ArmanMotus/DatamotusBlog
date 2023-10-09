@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Measuring Pedestrian-Friendliness &#39;Walkability Scores for Yerevan&#39; - </title>
+<meta name="description" content="A walkability score is a number from 1 to 100, with 1 being the worst and 100 being the best. 0 to 24 means almost all...">
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "https:\/\/DatamotusBlog.netlify.app\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/DatamotusBlog.netlify.app\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/DatamotusBlog.netlify.app\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/DatamotusBlog.netlify.app\/notes\/2020\/walk_score\/",
+          "name": "Measuring pedestrian friendliness \u0027 walkability scores for yerevan\u0027"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Measuring Pedestrian-Friendliness \u0027Walkability Scores for Yerevan\u0027",
+  "description" : "A walkability score is a number from 1 to 100, with 1 being the worst and 100 being the best. 0 to 24 means almost all...",
+  "inLanguage" : "en",
+  "wordCount":  2135 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/DatamotusBlog.netlify.app\/",
+  "keywords" : [ "Data Analysis, Propensity Score Matching, Chess, Experimental Studies, Bias in Research, Statistical Methods, Cognitive Development, Logical Thinking" ],
+  "mainEntityOfPage" : "https:\/\/DatamotusBlog.netlify.app\/notes\/2020\/walk_score\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/DatamotusBlog.netlify.app\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/DatamotusBlog.netlify.app\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:url" content="https://DatamotusBlog.netlify.app/notes/2020/walk_score/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="">
+   
+<link rel="apple-touch-icon" sizes="180x180" href=" https://DatamotusBlog.netlify.app/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://DatamotusBlog.netlify.app/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://DatamotusBlog.netlify.app/favicon/favicon-16x16.png">
+
+
+<meta name="generator" content="Hugo 0.113.0"><link rel="alternate" href="https://DatamotusBlog.netlify.app/index.xml" type="application/rss+xml" title="">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://DatamotusBlog.netlify.app/css/main.css">
+<link disabled id="dark-mode-theme" rel="stylesheet" href="https://DatamotusBlog.netlify.app/css/dark.css"><link rel="stylesheet" href="https://DatamotusBlog.netlify.app/css/syntax.css"><link rel="stylesheet" href="https://DatamotusBlog.netlify.app/css/codeblock.css">
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    },
+    CommonHTML: { linebreaks: { automatic: true } },
+    "HTML-CSS": { linebreaks: { automatic: true } },
+    SVG: { linebreaks: { automatic: true } }
+  });
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+    
+
+
+
+
+
+
+
+
+
+<header class="header-section ">
+
+  <div class="intro-header no-img mt-10">
+    <div class="container">
+      <div class="row justify-content-center">
+        
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+          
+
+          
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+
+            <div class="notes-heading">
+              
+
+              
+
+              
+              <h1 class="fw-semibold display-5 lh-1 mb-3"> 
+                Measuring Pedestrian-Friendliness &#39;Walkability Scores for Yerevan&#39;
+                
+              </h1>
+              
+              
+
+              
+
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 ">
+      <div class="card-image card-image-blog p-0">
+        
+        
+      </div>
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      <article role="main" class="blog-post">
+        <h1 id="data-collection">Data Collection</h1>
+<p>A walkability score is a number from 1 to 100, with 1 being the worst and 100 being the best. 0 to 24 means almost all errands need a car, 25 to 49 means most errands need a car, 50 to 69 means you can walk to some amenities, 70 to 89 shows you can do most things by walking, and 90 to 100 indicates you don’t need a <a href="https://www.paragonliving.com/blog/what-is-a-walkability-score">car</a>.</p>
+<p>To calculate the walk score for given city, at first we need  city map (nodes and edges) and necessary amenities in that city.
+Using Open Streep Map with python API osmnx, we can download graph for Yerevan, which is consists of nodes and edges, where nodes are the main data type of OpenStreetMap represented with Latitude and Longitude as a geograpical coordinates and unique ID within OpenStreeMap data nodes data base, and edges are way connecting nodes together.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>yerevan <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Yerevan, Armenia&#39;</span> <span style="color:#75715e"># which place we want</span>
+</span></span><span style="display:flex;"><span>network_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;walk&#39;</span> <span style="color:#75715e">#  we need ways for walk</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># coordinate reference system number for armenia</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># crs = 2590</span>
+</span></span><span style="display:flex;"><span>crs <span style="color:#f92672">=</span> <span style="color:#ae81ff">4326</span>
+</span></span><span style="display:flex;"><span>geo_crs <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;EPSG:&#34;</span><span style="color:#f92672">+</span>str(crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>graph_from_place(yerevan,network_type<span style="color:#f92672">=</span>network_type)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>project_graph(graph,crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># extract nodes and edges data frame from graph</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nodes,edges <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>graph_to_gdfs(graph)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><p>The plot below is Yerevan visualized with nodes - painted blue - and edges connecting nodes - painted orange. The total number of nodes and edges are <strong>29265</strong> and <strong>81548</strong> respectively.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>, figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>rcParams[<span style="color:#e6db74">&#39;figure.autolayout&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>edges<span style="color:#f92672">.</span>plot(ax<span style="color:#f92672">=</span>ax, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;orange&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Edges&#39;</span>,alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>nodes<span style="color:#f92672">.</span>plot(ax<span style="color:#f92672">=</span>ax, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nodes&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Longitude&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Yerevan graph&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="output_8_0.png" alt="png"></p>
+<p>Nodes and edges we have. Now we need amenities, more clearely coordinates of amenities. I used two ways to get amenities. First one is simple: I used OpenStreetMap API to get amenities with speicifed tags for Yeravan, but that is not enough, since for Yerevan OSM provide only 2000 amenities, which is not actual number. So, that is why I tried to obtain more amenities and I used Google maps API for python.</p>
+<p>List of tags from both OpenStreetMap and Goope map is wide (total 8617 poin in the map), but since I am using <a href="http://pubs.cedeus.cl/omeka/files/original/b6fa690993d59007784a7a26804d42be.pdf">methodology</a> from <a href="https://www.walkscore.com/">walkscore.com</a> website, where for general case are chosen nine tags <strong>(grocery,resturants,shopping,coffee,banks,parks,schools,books,entertainment)</strong>. I also chose them to be able compare my result with general cases, and in my total list of amenities, there are  <strong>5275</strong> amenities that correspond to this list.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tags <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;shop&#39;</span>:[
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;bakery&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;convenience&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;supermarket&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;mall&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;department_store&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;clothes&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;fashion&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;shoes&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;pharmacy&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;grocery&#39;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;building&#39;</span>:[
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;hospital&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;school&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;kindergarten&#39;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># all amenities from osmnx with their tags</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">amenity_with_type</span>(tags,crs,place):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    amenityes_with_types <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Latitude&#39;</span>,<span style="color:#e6db74">&#39;Longitude&#39;</span>,<span style="color:#e6db74">&#39;Type&#39;</span>])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> tags:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> tag <span style="color:#f92672">in</span> tags[key]:
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>                amen <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>features<span style="color:#f92672">.</span>features_from_place(place,tags<span style="color:#f92672">=</span>{key:tag})
+</span></span><span style="display:flex;"><span>                amen<span style="color:#f92672">.</span>to_crs(crs<span style="color:#f92672">=</span>crs,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>                centers <span style="color:#f92672">=</span> amen<span style="color:#f92672">.</span>centroid
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>                inner_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;Latitude&#39;</span>:centers<span style="color:#f92672">.</span>y<span style="color:#f92672">.</span>values,<span style="color:#e6db74">&#39;Longitude&#39;</span>:centers<span style="color:#f92672">.</span>x<span style="color:#f92672">.</span>values})
+</span></span><span style="display:flex;"><span>                inner_df[<span style="color:#e6db74">&#39;Type&#39;</span>] <span style="color:#f92672">=</span> tag
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>                amenityes_with_types <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([amenityes_with_types,inner_df])
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>                print(str(e))
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> amenityes_with_types
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># data from google</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    full_amenity_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;../Data/full_amenity_list.csv&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>: 
+</span></span><span style="display:flex;"><span>        amenities_with_type <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;../Data/amenities_with_type.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># donwload amenities</span>
+</span></span><span style="display:flex;"><span>        amenities <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>features<span style="color:#f92672">.</span>features_from_place(yerevan,tags<span style="color:#f92672">=</span>tags)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># convert amenitiesy to the current CRS system</span>
+</span></span><span style="display:flex;"><span>        amenities<span style="color:#f92672">.</span>to_crs(crs<span style="color:#f92672">=</span>crs,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print(&#34;Number of amentiies: &#34;,len(amenities))</span>
+</span></span><span style="display:flex;"><span>        amenities_with_type <span style="color:#f92672">=</span> amenity_with_type(tags<span style="color:#f92672">=</span>tags,crs<span style="color:#f92672">=</span>crs,place<span style="color:#f92672">=</span>yerevan)
+</span></span><span style="display:flex;"><span>        amenities_with_type<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;../Data/amenities_with_type.csv&#39;</span>,index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        google_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;../Data/amenities_from_google.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>        full_amenity_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([amenities_with_type,google_data[[<span style="color:#e6db74">&#39;Latitude&#39;</span>,<span style="color:#e6db74">&#39;Longitude&#39;</span>,<span style="color:#e6db74">&#39;Type&#39;</span>]]])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        full_amenity_df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#34;../Data/full_amenity_list.csv&#34;</span>,index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>grocery <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;convenience&#39;</span>,<span style="color:#e6db74">&#39;supermarket&#39;</span>,<span style="color:#e6db74">&#39;grocery&#39;</span>,<span style="color:#e6db74">&#39;store&#39;</span>,<span style="color:#e6db74">&#39;grocery_or_supermarket&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resturants <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;restaurant&#39;</span>,<span style="color:#e6db74">&#39;bar&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>shopping <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;mall&#39;</span>,<span style="color:#e6db74">&#39;shoe_store&#39;</span>,<span style="color:#e6db74">&#39;department_store&#39;</span>,<span style="color:#e6db74">&#39;clothes&#39;</span>, <span style="color:#e6db74">&#39;fashion&#39;</span>, 
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#39;shoes&#39;</span>,<span style="color:#e6db74">&#39;furniture_store&#39;</span>,<span style="color:#e6db74">&#39;home_goods_store&#39;</span>,<span style="color:#e6db74">&#39;clothing_store&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;electronics_store&#39;</span>,<span style="color:#e6db74">&#39;jewelry_store&#39;</span>,<span style="color:#e6db74">&#39;pet_store&#39;</span>,<span style="color:#e6db74">&#39;book_store&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;shoe_store&#39;</span>,<span style="color:#e6db74">&#39;hardware_store&#39;</span>,<span style="color:#e6db74">&#39;bicycle_store&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>coffee <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;bar&#39;</span>,<span style="color:#e6db74">&#39;cafe&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>banks <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;bank&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>schools <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;school&#39;</span>,<span style="color:#e6db74">&#39;secondary_school&#39;</span>,<span style="color:#e6db74">&#39;primary_school&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parks <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;park&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>books <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;book_store&#39;</span>,<span style="color:#e6db74">&#39;library&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>entertainment <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;amusement_park&#39;</span>,<span style="color:#e6db74">&#39;art_gallery&#39;</span>,]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>amenities_from_article <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;grocery&#34;</span>: grocery,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;restaurants&#34;</span>: resturants,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;shopping&#34;</span>: shopping,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;coffee&#34;</span>: coffee,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;banks&#34;</span>: banks,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;parks&#34;</span>: parks,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;schools&#34;</span>: schools,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;books&#34;</span>: books,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;entertainment&#34;</span>: entertainment
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>amenity_weights <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;grocery&#34;</span>: [<span style="color:#ae81ff">3</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;restaurants&#34;</span>: [<span style="color:#ae81ff">.75</span>, <span style="color:#ae81ff">.45</span>, <span style="color:#ae81ff">.25</span>, <span style="color:#ae81ff">.25</span>, <span style="color:#ae81ff">.225</span>, <span style="color:#ae81ff">.225</span>, <span style="color:#ae81ff">.225</span>, <span style="color:#ae81ff">.225</span>, <span style="color:#ae81ff">.2</span>, <span style="color:#ae81ff">.2</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;shopping&#34;</span>: [<span style="color:#ae81ff">.5</span>, <span style="color:#ae81ff">.45</span>, <span style="color:#ae81ff">.4</span>, <span style="color:#ae81ff">.35</span>, <span style="color:#ae81ff">.3</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;coffee&#34;</span>: [<span style="color:#ae81ff">1.25</span>, <span style="color:#ae81ff">.75</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;banks&#34;</span>: [<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;parks&#34;</span>: [<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;schools&#34;</span>: [<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;books&#34;</span>: [<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;entertainment&#34;</span>: [<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hospital <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;hospital&#39;</span>,<span style="color:#e6db74">&#39;health&#39;</span>,<span style="color:#e6db74">&#39;doctor&#39;</span>,<span style="color:#e6db74">&#39;physiotherapist&#39;</span>,<span style="color:#e6db74">&#39;dentist&#39;</span>]
+</span></span><span style="display:flex;"><span>pharmacy <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;pharmacy&#39;</span>,<span style="color:#e6db74">&#39;drugstore&#39;</span>]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>amenities_from_article_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Latitude&#39;</span>, <span style="color:#e6db74">&#39;Longitude&#39;</span>, <span style="color:#e6db74">&#39;Type&#39;</span>,<span style="color:#e6db74">&#39;Category&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> amenities_from_article:
+</span></span><span style="display:flex;"><span>    df <span style="color:#f92672">=</span> full_amenity_df[full_amenity_df[<span style="color:#e6db74">&#39;Type&#39;</span>]<span style="color:#f92672">.</span>isin(amenities_from_article[key])]
+</span></span><span style="display:flex;"><span>    df<span style="color:#f92672">.</span>loc[:,<span style="color:#e6db74">&#34;Category&#34;</span>] <span style="color:#f92672">=</span> key<span style="color:#f92672">.</span>capitalize()
+</span></span><span style="display:flex;"><span>    amenities_from_article_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat([amenities_from_article_df,df])
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span>,<span style="color:#e6db74">&#39;blue&#39;</span>,<span style="color:#e6db74">&#39;green&#39;</span>,<span style="color:#e6db74">&#39;yellow&#39;</span>,<span style="color:#e6db74">&#39;purple&#39;</span>,<span style="color:#e6db74">&#39;orange&#39;</span>,<span style="color:#e6db74">&#39;aqua&#39;</span>,<span style="color:#e6db74">&#39;pink&#39;</span>,<span style="color:#e6db74">&#39;brown&#39;</span>]
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> {cat:color <span style="color:#66d9ef">for</span> cat,color <span style="color:#f92672">in</span> zip(amenities_from_article_df[<span style="color:#e6db74">&#39;Category&#39;</span>]<span style="color:#f92672">.</span>unique(),colors)}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>scatter(x<span style="color:#f92672">=</span>amenities_from_article_df<span style="color:#f92672">.</span>Longitude,y<span style="color:#f92672">=</span>amenities_from_article_df<span style="color:#f92672">.</span>Latitude,
+</span></span><span style="display:flex;"><span>           color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>,label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Amenity&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Longitude&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>cx<span style="color:#f92672">.</span>add_basemap(ax,source<span style="color:#f92672">=</span>cx<span style="color:#f92672">.</span>providers<span style="color:#f92672">.</span>OpenStreetMap<span style="color:#f92672">.</span>Mapnik,crs<span style="color:#f92672">=</span>crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Amenities distribution in Yerevan&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="output_20_0.png" alt="png"></p>
+<p>The plot above shows more amenities in the city center and northern areas, which is obvois for Yerevan. The next step is splitting Yerevan into hexagonals, for which the final calculation will be done.</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># extract x and y coordinates of nodes from node data frame</span>
+</span></span><span style="display:flex;"><span>nodes_coordinates <span style="color:#f92672">=</span> nodes[[<span style="color:#e6db74">&#39;x&#39;</span>,<span style="color:#e6db74">&#39;y&#39;</span>]]
+</span></span><span style="display:flex;"><span>nodes_coordinates_gpdf <span style="color:#f92672">=</span> gpd<span style="color:#f92672">.</span>GeoDataFrame(nodes_coordinates,
+</span></span><span style="display:flex;"><span>                                          geometry<span style="color:#f92672">=</span>gpd<span style="color:#f92672">.</span>points_from_xy(nodes_coordinates<span style="color:#f92672">.</span>x,
+</span></span><span style="display:flex;"><span>                                                                      nodes_coordinates<span style="color:#f92672">.</span>y),
+</span></span><span style="display:flex;"><span>                                          crs<span style="color:#f92672">=</span>geo_crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_min,y_min,x_max,y_max <span style="color:#f92672">=</span> nodes_coordinates_gpdf<span style="color:#f92672">.</span>total_bounds
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># fig, ax = plt.subplots(1,1,figsize=(10,10))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># nodes_coordinates_gpdf.plot(ax=ax,alpha=0.5,color=&#39;blue&#39;,label=&#39;Nodes&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ax.scatter(x=x_min,y=y_min,color=&#39;red&#39;,label=&#39;South-West point&#39;,linewidth=5)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ax.scatter(x=x_max,y=y_max,color=&#39;orange&#39;,label=&#39;North-East point&#39;,linewidth=5)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.legend()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.title(&#34;Yerevan nodes &amp; two boundary points&#34;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.show()</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># find rectangular bounds of Yereavn</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this function gets two boundary poonts and retusn rectangular are base on those points</span>
+</span></span><span style="display:flex;"><span>yerevan_bounds <span style="color:#f92672">=</span> box(<span style="color:#f92672">*</span>nodes_coordinates_gpdf<span style="color:#f92672">.</span>total_bounds)
+</span></span><span style="display:flex;"><span>bounds_gdf <span style="color:#f92672">=</span> gpd<span style="color:#f92672">.</span>GeoDataFrame(index<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>],geometry<span style="color:#f92672">=</span>[yerevan_bounds],crs<span style="color:#f92672">=</span>geo_crs)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>resolution <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># the next step is to split bounds into hexagonals</span>
+</span></span><span style="display:flex;"><span>yerevan_hex <span style="color:#f92672">=</span> bounds_gdf<span style="color:#f92672">.</span>h3<span style="color:#f92672">.</span>polyfill_resample(resolution)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># fig, ax = plt.subplots(1,1,figsize=(10,10))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># yerevan_hex.plot(ax=ax,alpha=0.5,edgecolor=&#39;white&#39;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cx.add_basemap(ax=ax,source=cx.providers.OpenStreetMap.Mapnik,crs=crs)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.title(&#34;Yerevan map with hexagons&#34;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.show()</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>outline_network <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>geocoder<span style="color:#f92672">.</span>geocode_to_gdf(yerevan)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># fig, ax = plt.subplots(1,1,figsize=(10,10))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># outline_network.plot(color=&#39;green&#39;,ax=ax)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># yerevan_hex.plot(ax=ax,alpha=0.3,edgecolor=&#39;white&#39;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.title(&#34;Outline of Yerevan&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.show()</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hexagons_clip <span style="color:#f92672">=</span> gpd<span style="color:#f92672">.</span>clip(yerevan_hex,outline_network)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hexagons_clip<span style="color:#f92672">.</span>plot(ax<span style="color:#f92672">=</span>ax,color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>,alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>,edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;white&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Longitude&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>cx<span style="color:#f92672">.</span>add_basemap(ax<span style="color:#f92672">=</span>ax,source<span style="color:#f92672">=</span>cx<span style="color:#f92672">.</span>providers<span style="color:#f92672">.</span>OpenStreetMap<span style="color:#f92672">.</span>Mapnik,crs<span style="color:#f92672">=</span>crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Yerevan splited into hexagons&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="output_33_0.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hexagons_gdf<span style="color:#f92672">=</span> gpd<span style="color:#f92672">.</span>GeoDataFrame(hexagons_clip,crs<span style="color:#f92672">=</span>crs)
+</span></span><span style="display:flex;"><span>hexagons_gdf[<span style="color:#e6db74">&#39;centroid&#39;</span>] <span style="color:#f92672">=</span> hexagons_clip<span style="color:#f92672">.</span>centroid
+</span></span><span style="display:flex;"><span>hexagons_gdf<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;index&#39;</span>,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>number_of_hexagons <span style="color:#f92672">=</span> len(hexagons_gdf)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># print(f&#34;Number of hexagons: {number_of_hexagons}&#34;)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># fig,ax = plt.subplots(1,1,figsize=(10,10))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># hexagons_gdf.plot(ax=ax,alpha=0.5,edgecolor=&#39;white&#39;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ax.scatter(x=hexagons_gdf.centroid.x,y=hexagons_gdf.centroid.y)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>speed <span style="color:#f92672">=</span> <span style="color:#ae81ff">4.5</span>
+</span></span><span style="display:flex;"><span>meters_per_minute <span style="color:#f92672">=</span> speed <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>meters_per_minute
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>add_edge_speeds(graph)
+</span></span><span style="display:flex;"><span>graph <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>add_edge_travel_times(graph)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nodes_up <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>graph_to_gdfs(graph, edges<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)[[<span style="color:#e6db74">&#39;x&#39;</span>, <span style="color:#e6db74">&#39;y&#39;</span>]]
+</span></span><span style="display:flex;"><span>edges_up <span style="color:#f92672">=</span> ox<span style="color:#f92672">.</span>graph_to_gdfs(graph, nodes<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>reset_index()[[<span style="color:#e6db74">&#39;u&#39;</span>, <span style="color:#e6db74">&#39;v&#39;</span>, <span style="color:#e6db74">&#39;length&#39;</span>]] <span style="color:#75715e"># travel_time is the time needed to pass from current edge</span>
+</span></span><span style="display:flex;"><span>                                                                                        <span style="color:#75715e"># edge is a distance between nodes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>edges_up[<span style="color:#e6db74">&#39;time&#39;</span>] <span style="color:#f92672">=</span> edges_up[<span style="color:#e6db74">&#39;length&#39;</span>]<span style="color:#f92672">/</span>meters_per_minute
+</span></span><span style="display:flex;"><span>edges_up<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;length&#39;</span>:<span style="color:#e6db74">&#39;distance&#39;</span>},inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nodes_up[<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>] <span style="color:#f92672">=</span> [h3<span style="color:#f92672">.</span>geo_to_h3(nodes_up[<span style="color:#e6db74">&#39;y&#39;</span>]<span style="color:#f92672">.</span>values[i],nodes_up[<span style="color:#e6db74">&#39;x&#39;</span>]<span style="color:#f92672">.</span>values[i],resolution) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nodes_up))]
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># full_amenity_df.Type.unique()</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># fig,ax = plt.subplots(1,1,figsize=(10,10))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># draft_df = full_amenity_df[full_amenity_df.Type.isin([&#39;bar&#39;,&#39;cafe&#39;,&#39;doctor&#39;])]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ax.scatter(x=draft_df.Longitude,y=draft_df.Latitude, color=draft_df[&#39;Type&#39;].map({&#39;bar&#39;:&#39;red&#39;,&#39;cafe&#39;:&#39;green&#39;,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#                                                                                &#39;doctor&#39;:&#39;blue&#39;}))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cx.add_basemap(ax=ax,source=cx.providers.OpenStreetMap.Mapnik,crs=crs)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><h1 id="distance-decay-function">Distance Decay Function</h1>
+<p>The distance decay function determines what percentage of a full score a category
+will receive based on the distance between the address being examined, which we
+refer to as the origin, and an amenity’s location. We use a polynomial distance
+decay function that gives full score or near full score for amenities that are
+within .25 (402 meters) miles of the origin. After this, scores decrease with distance smoothly.
+At a distance of one mile, amenities receive only about 12% of the score they
+would have had if they were right next to the origin. After one mile, scores
+decrease less quickly with greater distance, until they reach 1.5 (2414 meter) miles, after which
+they do not count towards the final score. (<a href="http://pubs.cedeus.cl/omeka/files/original/b6fa690993d59007784a7a26804d42be.pdf">Countinue from following article</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">meter_to_mile</span>(meter):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> meter<span style="color:#f92672">*</span><span style="color:#ae81ff">0.000621371</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mile_to_meter</span>(mile):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> mile<span style="color:#f92672">*</span><span style="color:#ae81ff">1609.34</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_walk_score</span>(distance,meters<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>                   first_break_point_miles<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>,
+</span></span><span style="display:flex;"><span>                   second_break_point_miles<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>                   critical_distance_miles<span style="color:#f92672">=</span><span style="color:#ae81ff">1.5</span>,
+</span></span><span style="display:flex;"><span>                   score_in_second_break_point<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>,
+</span></span><span style="display:flex;"><span>                   max_score<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    first_break_point <span style="color:#f92672">=</span> mile_to_meter(first_break_point_miles)
+</span></span><span style="display:flex;"><span>    second_break_point <span style="color:#f92672">=</span> mile_to_meter(second_break_point_miles)
+</span></span><span style="display:flex;"><span>    critical_distance <span style="color:#f92672">=</span> mile_to_meter(critical_distance_miles)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    slope,b,score <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>,<span style="color:#66d9ef">None</span>,<span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>  <span style="color:#f92672">not</span> meters: <span style="color:#75715e"># if note meter, mile</span>
+</span></span><span style="display:flex;"><span>        distance <span style="color:#f92672">=</span> mile_to_meter(distance)
+</span></span><span style="display:flex;"><span>        print(distance)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> distance <span style="color:#f92672">&lt;=</span> first_break_point:
+</span></span><span style="display:flex;"><span>        score <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> distance <span style="color:#f92672">&lt;=</span> second_break_point:
+</span></span><span style="display:flex;"><span>        slope <span style="color:#f92672">=</span> (max_score<span style="color:#f92672">-</span>score_in_second_break_point)<span style="color:#f92672">/</span>(first_break_point<span style="color:#f92672">-</span>second_break_point)
+</span></span><span style="display:flex;"><span>        b <span style="color:#f92672">=</span> max_score <span style="color:#f92672">-</span> first_break_point <span style="color:#f92672">*</span> slope
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> distance <span style="color:#f92672">&lt;=</span> critical_distance:
+</span></span><span style="display:flex;"><span>        slope <span style="color:#f92672">=</span> score_in_second_break_point<span style="color:#f92672">/</span>(second_break_point<span style="color:#f92672">-</span>critical_distance)
+</span></span><span style="display:flex;"><span>        b <span style="color:#f92672">=</span> score_in_second_break_point <span style="color:#f92672">-</span> second_break_point <span style="color:#f92672">*</span> slope
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> score <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        score <span style="color:#f92672">=</span> distance <span style="color:#f92672">*</span> slope <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># elif </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> score
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_distances</span>(amenities,tags,nodes,edges,resolution,edges_weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;distance&#39;</span>,max_items<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,max_distance<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>,
+</span></span><span style="display:flex;"><span>                  amenities_imporatance_ratio<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,walk_speed<span style="color:#f92672">=</span><span style="color:#ae81ff">4.5</span>,two_way<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>                  distance_decay<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,amenities_weights<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,tag<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># walk_speed in km</span>
+</span></span><span style="display:flex;"><span>    meter_per_minute <span style="color:#f92672">=</span> walk_speed <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        nodes_inner <span style="color:#f92672">=</span> nodes<span style="color:#f92672">.</span>reset_index()[[<span style="color:#e6db74">&#39;osmid&#39;</span>,<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>        nodes_inner <span style="color:#f92672">=</span> nodes[[<span style="color:#e6db74">&#39;osmid&#39;</span>,<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    full_distances <span style="color:#f92672">=</span> nodes_inner[[<span style="color:#e6db74">&#39;osmid&#39;</span>]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>    full_scores <span style="color:#f92672">=</span> nodes_inner[[<span style="color:#e6db74">&#39;osmid&#39;</span>]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>    count_per_hexagon <span style="color:#f92672">=</span> nodes_inner[[<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>    count_per_hexagon<span style="color:#f92672">.</span>drop_duplicates(inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,keep<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;last&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    n_instances<span style="color:#f92672">=</span> len(full_distances)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    amenities_weight_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    total_weights <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> tags:
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        amenities_per_hex <span style="color:#f92672">=</span> nodes_inner[[<span style="color:#e6db74">&#39;osmid&#39;</span>,<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>        count_col_name <span style="color:#f92672">=</span> key<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;_count&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> tag <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">=</span> tag
+</span></span><span style="display:flex;"><span>            count_col_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;total_count&#39;</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> distance_decay:
+</span></span><span style="display:flex;"><span>            amenities_weight_list <span style="color:#f92672">=</span> amenities_weights[key]
+</span></span><span style="display:flex;"><span>            max_items <span style="color:#f92672">=</span> len(amenities_weight_list)
+</span></span><span style="display:flex;"><span>            total_weights <span style="color:#f92672">+=</span> sum(amenities_weight_list)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        inner_df <span style="color:#f92672">=</span> amenities[amenities[<span style="color:#e6db74">&#39;Type&#39;</span>]<span style="color:#f92672">.</span>isin(tags[key])]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># network</span>
+</span></span><span style="display:flex;"><span>        network <span style="color:#f92672">=</span> pan<span style="color:#f92672">.</span>Network(
+</span></span><span style="display:flex;"><span>            node_x<span style="color:#f92672">=</span>nodes[<span style="color:#e6db74">&#39;x&#39;</span>],
+</span></span><span style="display:flex;"><span>            node_y<span style="color:#f92672">=</span>nodes[<span style="color:#e6db74">&#39;y&#39;</span>],
+</span></span><span style="display:flex;"><span>            edge_from<span style="color:#f92672">=</span>edges[<span style="color:#e6db74">&#39;u&#39;</span>],
+</span></span><span style="display:flex;"><span>            edge_to<span style="color:#f92672">=</span>edges[<span style="color:#e6db74">&#39;v&#39;</span>],
+</span></span><span style="display:flex;"><span>            edge_weights<span style="color:#f92672">=</span>edges[[edges_weight]],
+</span></span><span style="display:flex;"><span>            twoway<span style="color:#f92672">=</span>two_way)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># add amenities</span>
+</span></span><span style="display:flex;"><span>        network<span style="color:#f92672">.</span>set_pois(
+</span></span><span style="display:flex;"><span>            category<span style="color:#f92672">=</span>key,
+</span></span><span style="display:flex;"><span>            maxitems<span style="color:#f92672">=</span>max_items,
+</span></span><span style="display:flex;"><span>            maxdist<span style="color:#f92672">=</span>max_distance,
+</span></span><span style="display:flex;"><span>            x_col<span style="color:#f92672">=</span>inner_df[<span style="color:#e6db74">&#39;Longitude&#39;</span>],
+</span></span><span style="display:flex;"><span>            y_col<span style="color:#f92672">=</span>inner_df[<span style="color:#e6db74">&#39;Latitude&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># nearest poiss</span>
+</span></span><span style="display:flex;"><span>        distances <span style="color:#f92672">=</span> network<span style="color:#f92672">.</span>nearest_pois(
+</span></span><span style="display:flex;"><span>            category<span style="color:#f92672">=</span>key,
+</span></span><span style="display:flex;"><span>            distance<span style="color:#f92672">=</span>max_distance,
+</span></span><span style="display:flex;"><span>            num_pois<span style="color:#f92672">=</span>max_items,
+</span></span><span style="display:flex;"><span>            imp_name<span style="color:#f92672">=</span>edges_weight)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        distances<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join([key,<span style="color:#e6db74">&#34;_&#34;</span>,edges_weight,<span style="color:#e6db74">&#34;_&#34;</span><span style="color:#f92672">+</span>str(i)]) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> distances<span style="color:#f92672">.</span>columns]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> key <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;coffee&#39;</span>:
+</span></span><span style="display:flex;"><span>            inner_df <span style="color:#f92672">=</span> inner_df[inner_df[<span style="color:#e6db74">&#39;Type&#39;</span>]<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;bar&#39;</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        inner_df[<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>] <span style="color:#f92672">=</span> [h3<span style="color:#f92672">.</span>geo_to_h3(inner_df[<span style="color:#e6db74">&#39;Latitude&#39;</span>]<span style="color:#f92672">.</span>values[i],inner_df[<span style="color:#e6db74">&#39;Longitude&#39;</span>]<span style="color:#f92672">.</span>values[i],resolution) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(inner_df))]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         count per hex </span>
+</span></span><span style="display:flex;"><span>        count_per_hex <span style="color:#f92672">=</span> inner_df<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,as_index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)[<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>]<span style="color:#f92672">.</span>agg({count_col_name:<span style="color:#e6db74">&#34;count&#34;</span>})
+</span></span><span style="display:flex;"><span>        count_per_hexagon <span style="color:#f92672">=</span> count_per_hexagon<span style="color:#f92672">.</span>merge(count_per_hex,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,how<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;left&#39;</span>)<span style="color:#f92672">.</span>fillna(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         print(count_per_hexagon)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> distance_decay:
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            colname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join([key,<span style="color:#e6db74">&#34;_score&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#             score beteen 0-100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            distances[colname] <span style="color:#f92672">=</span> [distances<span style="color:#f92672">.</span>iloc[i,:]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: get_walk_score(x[j])<span style="color:#f92672">*</span>amenities_weight_list[j] <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(max_items))<span style="color:#f92672">.</span>sum() <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(distances))]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            score_df <span style="color:#f92672">=</span> distances<span style="color:#f92672">.</span>iloc[:,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>to_frame()<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            full_scores <span style="color:#f92672">=</span> full_scores<span style="color:#f92672">.</span>merge(score_df,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;osmid&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># calculate score then group or group then calculate</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            distances<span style="color:#f92672">.</span>drop(colname,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        time_cole <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join([key,<span style="color:#e6db74">&#34;_time&#34;</span>])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        distances[time_cole] <span style="color:#f92672">=</span> [distances<span style="color:#f92672">.</span>iloc[i,:]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: (x[j]<span style="color:#f92672">/</span>meter_per_minute)<span style="color:#f92672">*</span>amenities_weight_list[j] <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(max_items))<span style="color:#f92672">.</span>sum() <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(distances))]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        time_df <span style="color:#f92672">=</span> distances[[time_cole]]<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        distances<span style="color:#f92672">.</span>drop(time_cole,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        full_distances <span style="color:#f92672">=</span> full_distances<span style="color:#f92672">.</span>merge(time_df,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;osmid&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         if key == &#39;restaurants&#39;:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#             break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> tag <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#             count_per_hexagon[&#39;type&#39;]=key</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    count_per_hexagon <span style="color:#f92672">=</span> count_per_hexagon<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>)<span style="color:#f92672">.</span>sum(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>:<span style="color:#e6db74">&#39;total_count&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    full_distances <span style="color:#f92672">=</span> full_distances<span style="color:#f92672">.</span>merge(nodes_inner,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;osmid&#39;</span>)<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;osmid&#39;</span>,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    full_distances <span style="color:#f92672">=</span> full_distances<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,as_index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    full_distances<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> distance_decay:
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        full_scores <span style="color:#f92672">=</span> full_scores<span style="color:#f92672">.</span>merge(nodes_inner,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;osmid&#39;</span>)<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;osmid&#39;</span>,axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        full_scores <span style="color:#f92672">=</span> full_scores<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,as_index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        full_scores<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        full_scores <span style="color:#f92672">=</span> full_scores<span style="color:#f92672">.</span>sum(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>:<span style="color:#e6db74">&#39;average_score&#39;</span>})
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        full_scores[<span style="color:#e6db74">&#39;average_score&#39;</span>] <span style="color:#f92672">=</span> full_scores[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">/</span>total_weights
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         full_scores.reset_index(inplace=True)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># time</span>
+</span></span><span style="display:flex;"><span>        full_distances <span style="color:#f92672">=</span> full_distances<span style="color:#f92672">.</span>sum(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#ae81ff">0</span>:<span style="color:#e6db74">&#39;average_time&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        full_distances[<span style="color:#e6db74">&#39;average_time&#39;</span>] <span style="color:#f92672">=</span> full_distances[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">/</span>total_weights
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        full_scores <span style="color:#f92672">=</span> full_scores<span style="color:#f92672">.</span>merge(full_distances,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         total</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         if tag is None:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#             count_per_hexagon[&#39;total_count&#39;] = count_per_hexagon.set_index(&#39;h3_polyfill&#39;).sum(axis=1).values</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        full_scores <span style="color:#f92672">=</span> full_scores<span style="color:#f92672">.</span>merge(count_per_hexagon,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,how<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> full_scores
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    full_distances <span style="color:#f92672">=</span> full_distances<span style="color:#f92672">.</span>merge(count_per_hexagon,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,how<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> full_distances
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># combine for each hexagon</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># distances = distances.merge(nodes_inner[[&#39;osmid&#39;,&#39;h3_polyfill&#39;]],on=&#39;osmid&#39;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># # group </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># # distances = distances.groupby(&#39;h3_polyfill&#39;,as_index=False)[</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">distances_per_tag</span>(amenities,hexagond_gdf,nodes,edges,amenities_from_article,amenities_weights,resolution,distance_decay<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
+</span></span><span style="display:flex;"><span>    distances_dict <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> amenities_from_article:
+</span></span><span style="display:flex;"><span>        inner_df <span style="color:#f92672">=</span> amenities[amenities[<span style="color:#e6db74">&#39;Type&#39;</span>]<span style="color:#f92672">.</span>isin(amenities_from_article[key])]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        distances <span style="color:#f92672">=</span> get_distances(inner_df,nodes<span style="color:#f92672">=</span>nodes_up,edges<span style="color:#f92672">=</span>edges_up,tag<span style="color:#f92672">=</span>key,tags<span style="color:#f92672">=</span>amenities_from_article,resolution<span style="color:#f92672">=</span>resolution,distance_decay<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,amenities_weights<span style="color:#f92672">=</span>amenity_weights)
+</span></span><span style="display:flex;"><span>        distances <span style="color:#f92672">=</span> hexagond_gdf<span style="color:#f92672">.</span>merge(distances,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>)
+</span></span><span style="display:flex;"><span>        distances<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>,inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        distances_dict[key] <span style="color:#f92672">=</span> distances
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> distances_dict
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># # total calcuation</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    distance_decay_distances <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;../Data/score_time_per_hex.csv&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>    distance_decay_distances <span style="color:#f92672">=</span> get_distances(full_amenity_df,amenities_from_article,nodes<span style="color:#f92672">=</span>nodes_up,edges_weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;distance&#39;</span>,
+</span></span><span style="display:flex;"><span>                                             edges<span style="color:#f92672">=</span>edges_up,distance_decay<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,amenities_weights<span style="color:#f92672">=</span>amenity_weights,resolution<span style="color:#f92672">=</span>resolution)
+</span></span><span style="display:flex;"><span>    distance_decay_distances<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#34;../Data/score_time_per_hex.csv&#34;</span>,index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>hexagons_full <span style="color:#f92672">=</span> hexagons_gdf<span style="color:#f92672">.</span>merge(distance_decay_distances,on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>)<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;h3_polyfill&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hexagons_full[<span style="color:#e6db74">&#39;center_lat&#39;</span>] <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>centroid<span style="color:#f92672">.</span>y
+</span></span><span style="display:flex;"><span>hexagons_full[<span style="color:#e6db74">&#39;center_lon&#39;</span>] <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>centroid<span style="color:#f92672">.</span>x
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># calculation per category</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    dist_per_tag <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;../Data/PerTag/&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>listdir(path):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> file <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(path):
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;.&#39;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(path,file))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> df <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;Exception&#34;</span>)
+</span></span><span style="display:flex;"><span>            df <span style="color:#f92672">=</span> hexagons_full[[<span style="color:#e6db74">&#39;geometry&#39;</span>,<span style="color:#e6db74">&#39;centroid&#39;</span>]]<span style="color:#f92672">.</span>merge(df<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;geometry&#39;</span>,<span style="color:#e6db74">&#39;centroid&#39;</span>],axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h3_polyfill&#39;</span>)
+</span></span><span style="display:flex;"><span>            dist_per_tag[key] <span style="color:#f92672">=</span> df
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;exception&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dist_per_tag <span style="color:#f92672">=</span> distances_per_tag(hexagond_gdf<span style="color:#f92672">=</span>hexagons_gdf,amenities_weights<span style="color:#f92672">=</span>amenity_weights,
+</span></span><span style="display:flex;"><span>                                         edges<span style="color:#f92672">=</span>edges_up,nodes<span style="color:#f92672">=</span>nodes_up,amenities<span style="color:#f92672">=</span>full_amenity_df,
+</span></span><span style="display:flex;"><span>                                    amenities_from_article<span style="color:#f92672">=</span>amenities_from_article,distance_decay<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,resolution<span style="color:#f92672">=</span>resolution)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> dist_per_tag:
+</span></span><span style="display:flex;"><span>        dist_per_tag[key]<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#34;../Data/PerTag/&#34;</span><span style="color:#f92672">+</span>key<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.csv&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>densest_hex <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#34;total_count&#34;</span>)<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>mintime_hex <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#34;average_time&#34;</span>)<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>maxscore_hex <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#34;average_score&#34;</span>)<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># three value for this hexagon are the best amont all data</span>
+</span></span><span style="display:flex;"><span>the_best_hex <span style="color:#f92672">=</span> densest_hex<span style="color:#f92672">.</span>copy()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>colors_list <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.5</span>),  
+</span></span><span style="display:flex;"><span>              (<span style="color:#ae81ff">0.6</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.6</span>),  
+</span></span><span style="display:flex;"><span>              (<span style="color:#ae81ff">0.7</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.7</span>),  
+</span></span><span style="display:flex;"><span>              (<span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.7</span>, <span style="color:#ae81ff">0.8</span>),
+</span></span><span style="display:flex;"><span>              (<span style="color:#ae81ff">0.9</span>, <span style="color:#ae81ff">0.9</span>, <span style="color:#ae81ff">0.9</span>)] 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>reversed_colors <span style="color:#f92672">=</span> colors_list<span style="color:#f92672">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>reversed_colors<span style="color:#f92672">.</span>reverse()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>green_cmap <span style="color:#f92672">=</span> mcolors<span style="color:#f92672">.</span>LinearSegmentedColormap<span style="color:#f92672">.</span>from_list(<span style="color:#e6db74">&#39;yerevan_colors&#39;</span>,[(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>),(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)])
+</span></span><span style="display:flex;"><span>red_map <span style="color:#f92672">=</span> mcolors<span style="color:#f92672">.</span>LinearSegmentedColormap<span style="color:#f92672">.</span>from_list(<span style="color:#e6db74">&#39;yerevan_colors&#39;</span>,[(<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>),(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>)])
+</span></span><span style="display:flex;"><span>purple_map <span style="color:#f92672">=</span> mcolors<span style="color:#f92672">.</span>LinearSegmentedColormap<span style="color:#f92672">.</span>from_list(<span style="color:#e6db74">&#39;yerevan_colors&#39;</span>,[colors_list[<span style="color:#ae81ff">0</span>],colors_list[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>reversed_red <span style="color:#f92672">=</span> red_map<span style="color:#f92672">.</span>reversed()
+</span></span><span style="display:flex;"><span>reversed_green <span style="color:#f92672">=</span> green_cmap<span style="color:#f92672">.</span>reversed()
+</span></span><span style="display:flex;"><span>reversed_purple <span style="color:#f92672">=</span> purple_map<span style="color:#f92672">.</span>reversed()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plot_result</span>(data_frame,title<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Total calculation&#39;</span>,alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>,hist<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     ax[2][1].set_visible(False)</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    score_ax <span style="color:#f92672">=</span> ax[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    time_ax <span style="color:#f92672">=</span> ax[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    density_ax <span style="color:#f92672">=</span> ax[<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    time_ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>    time_ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Logitude&#34;</span>)
+</span></span><span style="display:flex;"><span>    score_ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>    score_ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Logitude&#34;</span>)
+</span></span><span style="display:flex;"><span>    density_ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>    density_ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Logitude&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    fig<span style="color:#f92672">.</span>set_figheight(<span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>    fig<span style="color:#f92672">.</span>set_figwidth(<span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     walkabiltys core</span>
+</span></span><span style="display:flex;"><span>    data_frame<span style="color:#f92672">.</span>plot(<span style="color:#e6db74">&#39;average_score&#39;</span>,ax<span style="color:#f92672">=</span>score_ax,cmap<span style="color:#f92672">=</span>reversed_purple,alpha<span style="color:#f92672">=</span>alpha)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    norm <span style="color:#f92672">=</span> mcolors<span style="color:#f92672">.</span>Normalize(vmin<span style="color:#f92672">=</span>data_frame[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">.</span>min(), vmax<span style="color:#f92672">=</span>data_frame[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">.</span>max())
+</span></span><span style="display:flex;"><span>    sm <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>ScalarMappable(cmap<span style="color:#f92672">=</span>reversed_purple, norm<span style="color:#f92672">=</span>norm)
+</span></span><span style="display:flex;"><span>    sm<span style="color:#f92672">.</span>set_array([])    
+</span></span><span style="display:flex;"><span>    bar <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>colorbar(sm,ax<span style="color:#f92672">=</span>score_ax)
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>set_alpha(alpha)
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>draw_all()
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;Walkability score&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     walk time</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    data_frame<span style="color:#f92672">.</span>plot(<span style="color:#e6db74">&#39;average_time&#39;</span>,ax<span style="color:#f92672">=</span>time_ax,cmap<span style="color:#f92672">=</span>purple_map,alpha<span style="color:#f92672">=</span>alpha)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    norm <span style="color:#f92672">=</span> mcolors<span style="color:#f92672">.</span>Normalize(vmin<span style="color:#f92672">=</span>data_frame[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">.</span>min(), vmax<span style="color:#f92672">=</span>data_frame[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">.</span>max())
+</span></span><span style="display:flex;"><span>    sm <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>ScalarMappable(cmap<span style="color:#f92672">=</span>purple_map, norm<span style="color:#f92672">=</span>norm)
+</span></span><span style="display:flex;"><span>    sm<span style="color:#f92672">.</span>set_array([])    
+</span></span><span style="display:flex;"><span>    bar <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>colorbar(sm,ax<span style="color:#f92672">=</span>time_ax)
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>set_alpha(alpha)
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>draw_all()
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;Walk time&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     amenity density</span>
+</span></span><span style="display:flex;"><span>    data_frame<span style="color:#f92672">.</span>plot(<span style="color:#e6db74">&#39;total_count&#39;</span>,ax<span style="color:#f92672">=</span>density_ax,cmap<span style="color:#f92672">=</span>reversed_purple,alpha<span style="color:#f92672">=</span>alpha)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    norm <span style="color:#f92672">=</span> mcolors<span style="color:#f92672">.</span>Normalize(vmin<span style="color:#f92672">=</span>data_frame[<span style="color:#e6db74">&#39;total_count&#39;</span>]<span style="color:#f92672">.</span>min(), vmax<span style="color:#f92672">=</span>data_frame[<span style="color:#e6db74">&#39;total_count&#39;</span>]<span style="color:#f92672">.</span>max())
+</span></span><span style="display:flex;"><span>    sm <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>ScalarMappable(cmap<span style="color:#f92672">=</span>reversed_purple, norm<span style="color:#f92672">=</span>norm)
+</span></span><span style="display:flex;"><span>    sm<span style="color:#f92672">.</span>set_array([])    
+</span></span><span style="display:flex;"><span>    bar <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>colorbar(sm,ax<span style="color:#f92672">=</span>density_ax)
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>set_alpha(alpha)
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>draw_all()
+</span></span><span style="display:flex;"><span>    bar<span style="color:#f92672">.</span>set_label(<span style="color:#e6db74">&#34;Number of amenities&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    score_ax<span style="color:#f92672">.</span>set_title(title<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Average score&#34;</span>)
+</span></span><span style="display:flex;"><span>    time_ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Average time&#34;</span>)
+</span></span><span style="display:flex;"><span>    density_ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Number of amenities per hexagon&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ax <span style="color:#f92672">in</span> (score_ax,time_ax,density_ax):
+</span></span><span style="display:flex;"><span>        cx<span style="color:#f92672">.</span>add_basemap(ax<span style="color:#f92672">=</span>ax,source<span style="color:#f92672">=</span>cx<span style="color:#f92672">.</span>providers<span style="color:#f92672">.</span>OpenStreetMap<span style="color:#f92672">.</span>Mapnik,crs<span style="color:#f92672">=</span>crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> hist:    
+</span></span><span style="display:flex;"><span>        fig,ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        data_frame<span style="color:#f92672">.</span>hist(<span style="color:#e6db74">&#39;average_time&#39;</span>,ax<span style="color:#f92672">=</span>ax[<span style="color:#ae81ff">0</span>],grid<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        data_frame<span style="color:#f92672">.</span>hist(<span style="color:#e6db74">&#39;average_score&#39;</span>,ax<span style="color:#f92672">=</span>ax[<span style="color:#ae81ff">1</span>],grid<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ax[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Average time distribution&#34;</span>)
+</span></span><span style="display:flex;"><span>        ax[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Average score distribution&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        fig<span style="color:#f92672">.</span>set_figheight(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>        fig<span style="color:#f92672">.</span>set_figwidth(<span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hexagons_full[<span style="color:#e6db74">&#39;score_layers&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">25</span>,<span style="color:#e6db74">&#39;Fully Car Dependent&#39;</span>,
+</span></span><span style="display:flex;"><span>                                         np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">50</span>,<span style="color:#e6db74">&#39;Car Dependent&#39;</span>,
+</span></span><span style="display:flex;"><span>                                                 np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">70</span>,<span style="color:#e6db74">&#39;Somewhat Walkable&#39;</span>,
+</span></span><span style="display:flex;"><span>                                                         np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">80</span>,<span style="color:#e6db74">&#39;Very Walkable&#39;</span>,<span style="color:#e6db74">&#34;Walker&#39;s Paradise&#34;</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hexagons_full[<span style="color:#e6db74">&#39;time_layers&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">15</span>,<span style="color:#e6db74">&#39;Less than 15 minutes&#39;</span>,
+</span></span><span style="display:flex;"><span>                                         np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">30</span>,<span style="color:#e6db74">&#39;15 to 30 minutes&#39;</span>,
+</span></span><span style="display:flex;"><span>                                                 np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">50</span>,<span style="color:#e6db74">&#39;30 to 50 minutes&#39;</span>,
+</span></span><span style="display:flex;"><span>                                                         np<span style="color:#f92672">.</span>where(hexagons_full[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">60</span>,<span style="color:#e6db74">&#39;50 to 60 minutes&#39;</span>,<span style="color:#e6db74">&#39;More than an hour&#39;</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mean_score_for_yerevan <span style="color:#f92672">=</span> hexagons_full[<span style="color:#e6db74">&#39;average_score&#39;</span>]<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>mean_time_for_yerevan <span style="color:#f92672">=</span> hexagons_full[<span style="color:#e6db74">&#39;average_time&#39;</span>]<span style="color:#f92672">.</span>mean()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>score_portion <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>value_counts(<span style="color:#e6db74">&#39;score_layers&#39;</span>,normalize<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>to_frame(<span style="color:#e6db74">&#34;score_portion&#34;</span>)<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>time_portion <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>value_counts(<span style="color:#e6db74">&#39;time_layers&#39;</span>,normalize<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>to_frame(<span style="color:#e6db74">&#34;time_portion&#34;</span>)<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>time_portion <span style="color:#f92672">=</span> time_portion<span style="color:#f92672">.</span>iloc[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># score_portion</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>more_hour <span style="color:#f92672">=</span> hexagons_full[hexagons_full[<span style="color:#e6db74">&#39;time_layers&#39;</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;More than an hour&#39;</span>]
+</span></span><span style="display:flex;"><span>les_15_m <span style="color:#f92672">=</span> hexagons_full[hexagons_full[<span style="color:#e6db74">&#39;time_layers&#39;</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;Less than 15 minutes&#39;</span>]
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>After calculations, we have the walkability score (0-100), average walking time, and density of amenities over Yerevan, where</p>
+<ul>
+<li>walkability score is a value between 0-100 with these levels
+<ul>
+<li>1-24 - Car-Dependent: almost all errands require a car</li>
+<li>25-49 - Car-Dependent: most errands require a car</li>
+<li>50-69 - Somewhat Walkable: some errands can be accomplished on foot</li>
+<li>70-89 - Very Walkable: most errands can be accomplished on foot</li>
+<li>90-100 - Walker’s Paradise: daily errands do not require a car (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6427661/#:~:text=A%20Walk%20Score%20between%200,Walkable%3A%20most%20errands%20can%20be">soure</a>)</li>
+</ul>
+</li>
+<li>walk time: the time required to walk to an amenity within a hexagon</li>
+<li>amenities amount: total number of amenities in a hexagon</li>
+</ul>
+<p>All calculations have been done assuming the human normal speed is 4.5 km per hour. So, changing the speed will also change the entire image.</p>
+<p>The below pie chart shows walkability score and walk time level distribution among hexagons.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">13</span>,<span style="color:#ae81ff">13</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>pie(x<span style="color:#f92672">=</span>score_portion[<span style="color:#e6db74">&#39;score_portion&#39;</span>],
+</span></span><span style="display:flex;"><span>        labels<span style="color:#f92672">=</span>score_portion[<span style="color:#e6db74">&#39;score_layers&#39;</span>],
+</span></span><span style="display:flex;"><span>        autopct<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%1.1f%%</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Walk score levels&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>pie(x<span style="color:#f92672">=</span>time_portion[<span style="color:#e6db74">&#39;time_portion&#39;</span>],
+</span></span><span style="display:flex;"><span>         labels<span style="color:#f92672">=</span>time_portion[<span style="color:#e6db74">&#39;time_layers&#39;</span>],
+</span></span><span style="display:flex;"><span>        autopct<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%1.1f%%</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>ax[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Walk time levels&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="output_56_0.png" alt="png"></p>
+<p>More than half of Yerevan has less than 50 walk score, but mean walkabitiy score is 41.</p>
+<p>The two plots below show how these levels are distributed over Yerevan.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">15</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>score_ax,time_ax <span style="color:#f92672">=</span> ax
+</span></span><span style="display:flex;"><span>alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>levels <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#39;average_score&#39;</span>)[<span style="color:#e6db74">&#39;score_layers&#39;</span>]<span style="color:#f92672">.</span>unique()
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> {level:color <span style="color:#66d9ef">for</span> level,color <span style="color:#f92672">in</span> zip(levels,reversed_colors)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hexagons_full<span style="color:#f92672">.</span>plot(<span style="color:#e6db74">&#39;score_layers&#39;</span>,color<span style="color:#f92672">=</span>hexagons_full[<span style="color:#e6db74">&#39;score_layers&#39;</span>]<span style="color:#f92672">.</span>map(colors),ax<span style="color:#f92672">=</span>score_ax,alpha<span style="color:#f92672">=</span>alpha)
+</span></span><span style="display:flex;"><span>labels <span style="color:#f92672">=</span> [Line2D([<span style="color:#ae81ff">0</span>],[<span style="color:#ae81ff">0</span>],marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h&#39;</span>,color<span style="color:#f92672">=</span>c,markerfacecolor<span style="color:#f92672">=</span>c,label<span style="color:#f92672">=</span>l,markersize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>) <span style="color:#66d9ef">for</span> l,c <span style="color:#f92672">in</span> colors<span style="color:#f92672">.</span>items()]
+</span></span><span style="display:flex;"><span>score_ax<span style="color:#f92672">.</span>legend(handles<span style="color:#f92672">=</span>labels,loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lower right&#39;</span>)
+</span></span><span style="display:flex;"><span>score_ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Score levels&#34;</span>)
+</span></span><span style="display:flex;"><span>score_ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>score_ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Logitude&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cx<span style="color:#f92672">.</span>add_basemap(ax<span style="color:#f92672">=</span>score_ax,source<span style="color:#f92672">=</span>cx<span style="color:#f92672">.</span>providers<span style="color:#f92672">.</span>OpenStreetMap<span style="color:#f92672">.</span>Mapnik,crs<span style="color:#f92672">=</span>crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>levels <span style="color:#f92672">=</span> hexagons_full<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#39;average_time&#39;</span>)[<span style="color:#e6db74">&#39;time_layers&#39;</span>]<span style="color:#f92672">.</span>unique()
+</span></span><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> {level:color <span style="color:#66d9ef">for</span> level,color <span style="color:#f92672">in</span> zip(levels,colors_list)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hexagons_full<span style="color:#f92672">.</span>plot(<span style="color:#e6db74">&#39;score_layers&#39;</span>,color<span style="color:#f92672">=</span>hexagons_full[<span style="color:#e6db74">&#39;time_layers&#39;</span>]<span style="color:#f92672">.</span>map(colors),ax<span style="color:#f92672">=</span>time_ax,alpha<span style="color:#f92672">=</span>alpha)
+</span></span><span style="display:flex;"><span>labels <span style="color:#f92672">=</span> [Line2D([<span style="color:#ae81ff">0</span>],[<span style="color:#ae81ff">0</span>],marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;h&#39;</span>,color<span style="color:#f92672">=</span>c,markerfacecolor<span style="color:#f92672">=</span>c,label<span style="color:#f92672">=</span>l,markersize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>) <span style="color:#66d9ef">for</span> l,c <span style="color:#f92672">in</span> colors<span style="color:#f92672">.</span>items()]
+</span></span><span style="display:flex;"><span>time_ax<span style="color:#f92672">.</span>legend(handles<span style="color:#f92672">=</span>labels,loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lower right&#39;</span>)
+</span></span><span style="display:flex;"><span>time_ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Walk time levels&#34;</span>)
+</span></span><span style="display:flex;"><span>time_ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Latitude&#34;</span>)
+</span></span><span style="display:flex;"><span>time_ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Logitude&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cx<span style="color:#f92672">.</span>add_basemap(ax<span style="color:#f92672">=</span>time_ax,source<span style="color:#f92672">=</span>cx<span style="color:#f92672">.</span>providers<span style="color:#f92672">.</span>OpenStreetMap<span style="color:#f92672">.</span>Mapnik,crs<span style="color:#f92672">=</span>crs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="output_58_0.png" alt="png"></p>
+<p>The best place for walkers in  Yerevan is the city center, and the most walkable areas are close to the center. The best result (for a single hexagon - 0.66 km square) is <strong>99.7 with 2.36 minute walking time and 299 amenities around that area</strong>, which center is <strong>Tumanyan 17</strong>. So, the best place for pedestrians is Tumanyan 17 with its surroundings. The walkscore 99.7 is the same as the score calculated by <a href="https://www.walkscore.com/score/21-tumanyan-st-yerevan-yerevan-armenia">walkscore.com</a> for Yerevan (city center). The next three plots show how the values of two measures (walk score and walk time) and the number of amenities for each hexagon are distributed over Yerevan.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plot_result(hexagons_full)
+</span></span></code></pre></div><p><img src="output_60_1.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># for key in dist_per_tag:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     df = dist_per_tag[key]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     plot_result(df,title=key.capitalize())</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     print(&#34;\n&#34;)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+      <hr />
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-2">
+      
+      <div class="blog-tags">
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/data-analysis/">Data Analysis</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/propensity-score-matching/">Propensity Score Matching</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/chess/">Chess</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/experimental-studies/">Experimental Studies</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/bias-in-research/">Bias in Research</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/statistical-methods/">Statistical Methods</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/cognitive-development/">Cognitive Development</a>
+        
+        <a href="https://DatamotusBlog.netlify.app//tags/logical-thinking/">Logical Thinking</a>
+        
+      </div>
+      
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+      
+    </div>
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 mt-3">
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-md-2 ">
+            <div class="card-body ">
+              <p class="p-0 m-0"><small class="text-muted "></small></p>
+              <img src="/img/logo.png" class="img-responsive img-50" alt="">
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div>
+              <h5>
+                
+                
+                
+                
+                
+              </h5>
+              <p class="card-text fs-1"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+    
+    <ul class="list-group list-group-horizontal" style="flex-direction: row">
+      
+      
+      <li class="list-group-item ms-auto b-0">
+        <a type="button" class="btn btn-dark" role="button" href="https://DatamotusBlog.netlify.app/notes/2020/2019-10-15-propensity-score-matching/"
+          data-toggle="tooltip" data-placement="top" title="Propensity Score Matching"
+          onclick="parent.postMessage({ scrollReactAppToTop: true }, '*');">Next Post
+          &rarr;</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+  <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 pt-4">
+  </div>
+</div>
+</div>
+<footer id="blog-footer"></footer>
+</div>
+
+    
+   
+
+  </body>
+</html>
